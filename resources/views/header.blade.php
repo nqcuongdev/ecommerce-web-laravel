@@ -20,7 +20,7 @@
 <!-- Header -->
 <header>
     <div class="container">
-        <div class="logo"><a href="index-2.html"><img src="images/logo.png" alt=""></a></div>
+        <div class="logo"><a href="index-2.html"><img src="{{url('SmartTech/images/logo.png')}}" alt=""></a></div>
         <div class="search-cate">
             <select class="selectpicker">
                 <option> All Categories</option>
@@ -47,20 +47,28 @@
                     <span>3 item(s) - $500.00</span></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <div class="media-left"><a href="#." class="thumb"> <img src="images/item-img-1-1.jpg"
-                                                                                 class="img-responsive" alt=""> </a>
+                        <div class="media-left">
+                            <a href="#" class="thumb">
+                                <img src="{{url('SmartTech/images/item-img-1-1.jpg')}}" class="img-responsive" alt="">
+                            </a>
                         </div>
-                        <div class="media-body"><a href="#." class="tittle">Funda Para Ebook 7" 128GB full HD</a> <span>250 x 1</span>
+                        <div class="media-body">
+                            <a href="#" class="tittle">Funda Para Ebook 7" 128GB full HD</a>
+                            <span>250 x 1</span>
                         </div>
                     </li>
                     <li>
-                        <div class="media-left"><a href="#." class="thumb"> <img src="images/item-img-1-2.jpg"
-                                                                                 class="img-responsive" alt=""> </a>
+                        <div class="media-left">
+                            <a href="#" class="thumb">
+                                <img src="{{url('SmartTech/images/item-img-1-2.jpg')}}" class="img-responsive" alt="">
+                            </a>
                         </div>
-                        <div class="media-body"><a href="#." class="tittle">Funda Para Ebook 7" full HD</a> <span>250 x 1</span>
+                        <div class="media-body">
+                            <a href="#" class="tittle">Funda Para Ebook 7" full HD</a>
+                            <span>250 x 1</span>
                         </div>
                     </li>
-                    <li class="btn-cart"><a href="#." class="btn-round">View Cart</a></li>
+                    <li class="btn-cart"><a href="#" class="btn-round">View Cart</a></li>
                 </ul>
             </li>
         </ul>
@@ -76,36 +84,36 @@
                 <div class="cate-bar-in">
                     <div id="cater" class="collapse">
                         <ul>
-                            <li><a href="#."> Home Audio & Theater</a></li>
-                            <li><a href="#."> TV & Video</a></li>
-                            <li><a href="#."> Camera, Photo & Video</a></li>
-                            <li class="sub-menu"><a href="#."> Cell Phones & Accessories</a>
+                            <li><a href="#"> Home Audio & Theater</a></li>
+                            <li><a href="#"> TV & Video</a></li>
+                            <li><a href="#"> Camera, Photo & Video</a></li>
+                            <li class="sub-menu"><a href="#"> Cell Phones & Accessories</a>
                                 <ul>
-                                    <li><a href="#."> TV & Video</a></li>
-                                    <li><a href="#."> Camera, Photo & Video</a></li>
-                                    <li><a href="#."> Cell Phones & Accessories</a>
+                                    <li><a href="#"> TV & Video</a></li>
+                                    <li><a href="#"> Camera, Photo & Video</a></li>
+                                    <li><a href="#"> Cell Phones & Accessories</a>
                                 </ul>
                             </li>
-                            <li><a href="#."> Headphones</a></li>
-                            <li><a href="#."> Video Games</a></li>
+                            <li><a href="#"> Headphones</a></li>
+                            <li><a href="#"> Video Games</a></li>
                             <li class="sub-menu"><a href="#."> Bluetooth & Wireless Speakers</a>
                                 <ul>
-                                    <li><a href="#."> TV & Video</a></li>
-                                    <li><a href="#."> Camera, Photo & Video</a></li>
-                                    <li><a href="#."> Cell Phones & Accessories</a>
+                                    <li><a href="#"> TV & Video</a></li>
+                                    <li><a href="#"> Camera, Photo & Video</a></li>
+                                    <li><a href="#"> Cell Phones & Accessories</a>
                                 </ul>
                             </li>
-                            <li class="sub-menu"><a href="#."> Gaming Console</a>
+                            <li class="sub-menu"><a href="#"> Gaming Console</a>
                                 <ul>
-                                    <li><a href="#."> TV & Video</a></li>
-                                    <li><a href="#."> Camera, Photo & Video</a></li>
-                                    <li><a href="#."> Cell Phones & Accessories</a>
+                                    <li><a href="#"> TV & Video</a></li>
+                                    <li><a href="#"> Camera, Photo & Video</a></li>
+                                    <li><a href="#"> Cell Phones & Accessories</a>
                                 </ul>
                             </li>
-                            <li><a href="#."> Computers & Tablets</a></li>
-                            <li><a href="#."> Monitors</a></li>
-                            <li><a href="#."> Home Appliances</a></li>
-                            <li><a href="#."> Office Supplies</a></li>
+                            <li><a href="#"> Computers & Tablets</a></li>
+                            <li><a href="#"> Monitors</a></li>
+                            <li><a href="#"> Home Appliances</a></li>
+                            <li><a href="#"> Office Supplies</a></li>
                         </ul>
                     </div>
                 </div>
@@ -114,7 +122,11 @@
             <!-- Navbar Header -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn"
-                        aria-expanded="false"><span><i class="fa fa-navicon"></i></span></button>
+                        aria-expanded="false">
+                    <span>
+                        <i class="fa fa-navicon"></i>
+                    </span>
+                </button>
             </div>
             <!-- NAV -->
             <div class="collapse navbar-collapse" id="nav-open-btn">
@@ -122,10 +134,18 @@
                     <li class="active">
                         <a href="{{route('index')}}">Home </a>
                     </li>
-                    <li></li>
-                    <li><a href="#">Blog</a>
+                    <li>
+                        <a href="#">Shop</a>
                     </li>
-                    <li><a href="#">About</a></li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
                 </ul>
             </div>
 
