@@ -13,3 +13,6 @@
 
 Route::get('/',['as'=>'index','uses'=>'ShopController@getIndex']);
 Route::get('products',['as'=>'products','uses'=>'ShopController@getProducts']);
+Route::group(['prefix'=>'admin'],function(){
+    Route::get('dashboard',['as'=>'dashboard','uses'=>'AdminController@getDashboard']);
+});

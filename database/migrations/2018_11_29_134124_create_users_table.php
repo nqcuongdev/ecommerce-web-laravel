@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('products_type', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name_type');
+            $table->string('id_category');
             $table->timestamps();
         });
     }
