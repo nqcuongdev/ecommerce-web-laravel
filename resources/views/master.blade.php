@@ -29,14 +29,18 @@
 
     <!-- JavaScripts -->
     <script src="{{url('SmartTech/js/vendors/modernizr.js')}}"></script>
+    <script src="{{url('SmartTech/js/vendors/jquery/jquery.min.js')}}"></script>
 </head>
 <body>
 <div id="wrap" class="layout-1">
+
     @include('header')
+
     @yield('content')
+
     @include('footer')
+    
 </div>
-<script src="{{url('SmartTech/js/vendors/jquery/jquery.min.js')}}"></script>
 <script src="{{url('SmartTech/js/vendors/wow.min.js')}}"></script>
 <script src="{{url('SmartTech/js/vendors/bootstrap.min.js')}}"></script>
 <script src="{{url('SmartTech/js/vendors/own-menu.js')}}"></script>

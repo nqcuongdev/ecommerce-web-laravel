@@ -12,3 +12,4 @@
 */
 
 Route::get('/',['as'=>'index','uses'=>'ShopController@getIndex']);
+Route::get('products',['as'=>'products','uses'=>'ShopController@getProducts']);

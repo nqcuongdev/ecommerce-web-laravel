@@ -20,7 +20,7 @@
 <!-- Header -->
 <header>
     <div class="container">
-        <div class="logo"><a href="index-2.html"><img src="{{url('SmartTech/images/logo.png')}}" alt=""></a></div>
+        <div class="logo"><a href="{{route('index')}}"><img src="{{url('SmartTech/images/logo.png')}}" alt=""></a></div>
         <div class="search-cate">
             <select class="selectpicker">
                 <option> All Categories</option>
@@ -41,10 +41,13 @@
 
         <!-- Cart Part -->
         <ul class="nav navbar-right cart-pop">
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false"><span class="itm-cont">3</span> <i
-                        class="flaticon-shopping-bag"></i> <strong>My Cart</strong> <br>
-                    <span>3 item(s) - $500.00</span></a>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"aria-haspopup="true" aria-expanded="false">
+                    <span class="itm-cont">3</span> 
+                        <i class="flaticon-shopping-bag"></i>
+                            <strong>My Cart</strong><br>
+                    <span>3 item(s) - $500.00</span>
+                </a>
                 <ul class="dropdown-menu">
                     <li>
                         <div class="media-left">
@@ -135,7 +138,7 @@
                         <a href="{{route('index')}}">Home </a>
                     </li>
                     <li>
-                        <a href="#">Shop</a>
+                        <a href="{{route('products')}}">Shop</a>
                     </li>
                     <li>
                         <a href="#">Blog</a>
@@ -150,7 +153,7 @@
             </div>
 
             <!-- NAV RIGHT -->
-            <div class="nav-right"><span class="call-mun"><i class="fa fa-phone"></i> <strong>Hotline:</strong> (+100) 123 456 7890</span>
+            <div class="nav-right"><span class="call-mun"><i class="fa fa-phone"></i> <strong>Hotline:</strong> (+84) 33 731 7788</span>
             </div>
         </div>
     </nav>

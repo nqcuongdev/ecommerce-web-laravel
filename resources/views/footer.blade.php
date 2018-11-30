@@ -21,15 +21,12 @@
             <div class="col-md-4">
                 <h4>Contact SmartTech!</h4>
                 <p>Address: 41 Le Duan, Da Nang City</p>
-                <p>Phone: (+84) 1637317788</p>
+                <p>Phone: (+84) 33 731 7788</p>
                 <p>Email: nqcuong.17it3@sict.udn.vn</p>
                 <div class="social-links">
                     <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>
                     <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-google"></i></a>
+                    <a href="#"><i class="fa fa-envelope"></i></a>
                 </div>
             </div>
 
