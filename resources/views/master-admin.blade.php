@@ -133,6 +133,7 @@
 <script src="{{url('Admin/files/assets/js/vartical-layout.min.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/assets/pages/dashboard/analytic-dashboard.min.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/assets/js/script.js')}}"></script>
+@yield('ckeditor')
 </body>
 
 </html>

@@ -22,14 +22,14 @@ class AdminController extends Controller
     {
         $products = new Products;
         $products->name = $request->name;
-        $products->products_type = $request->pr_type;
-        $products->technical_description = $request->technical_des;
+        $products->products_type = $request->products_type;
+        $products->technical_description = $request->technical_description;
         $products->description = $request->description;
         $products->price = $request->price;
         $products->sale_price = $request->sale_price;
 
         //Process upload file
-        $image_pr = $request->image_pr;
+        $image_pr = $request->image;
         $image_pr->move(public_path('/Smarttech/images/products'), $image_pr->getClientOriginalName());
         $link = 'Smarttech/images/products/' . $image_pr->getClientOriginalName();
         $products->image = $link;

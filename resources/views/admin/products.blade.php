@@ -41,7 +41,11 @@
                                                         <tr>
                                                             <th>Image</th>
                                                             <th>Product Name</th>
-                                                            <th>Amount</th>
+                                                            <th>Type</th>
+                                                            <th>Technical Description</th>
+                                                            <th>Description</th>
+                                                            <th>Price</th>
+                                                            <th>Sale Price</th>
                                                             <th>Stock</th>
                                                             <th>Action</th>
                                                         </tr>
@@ -52,13 +56,13 @@
                                                                 <td>
                                                                     <img
                                                                         src="{{url($item->image)}}"
-                                                                        class="img-responsive" alt="{{$item->name}}"
-                                                                        style="width: 20%;">
+                                                                         alt="{{$item->name}}"
+                                                                        style="width:60%;">
                                                                 </td>
                                                                 <td>{{$item->name}}</td>
                                                                 <td>{{$item->products_type}}</td>
-                                                                <td class="pro-name">{{$item->technical_description}}</td>
-                                                                <td class="pro-name">{{$item->description}}</td>
+                                                                <td class="pro-name">{{str_limit($item->technical_description,10)}}</td>
+                                                                <td class="pro-name">{{str_limit($item->description,10)}}</td>
                                                                 <td>{{$item->price}}</td>
                                                                 <td>{{$item->sale_price}}</td>
                                                                 <td>
@@ -90,33 +94,55 @@
                         </div>
                         <!-- Add Contact Start Model start-->
                         <div class="md-modal md-effect-1 addcontact" id="modal-13">
-                            <div class="md-content">
+                            <form action="{{route('admin.postproducts')}}" method="POST" enctype="multipart/form-data">
+                                {{csrf_field()}}
+                                <div class="md-content">
                                 <h3 class="f-26">Add Product</h3>
                                 <div>
                                     <div class="input-group">
-                                        <input type="text" class="form-control pname" placeholder="Prodcut Name">
-                                        <span class="input-group-addon btn btn-primary">Chooese File</span>
+                                        <span class="input-group-addon"><i class="icofont icofont-ui-add"></i></span>
+                                        <input type="text" class="form-control" name="name">
                                     </div>
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
-                                        <input type="text" class="form-control pname" placeholder="Prodcut Name">
+                                        <span class="input-group-addon"><i class="icofont icofont-file-image"></i></span>
+                                        <input type="file" class="form-control" name="image">
                                     </div>
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
-                                        <input type="text" class="form-control pamount" placeholder="Amount">
+                                        <span class="input-group-addon"><i class="icofont icofont-ui-add"></i></span>
+                                        <select id="hello-single" class="form-control" name="products_type">
+                                            <option value="">---- Select Type ----</option>
+                                            <option value="1">In Stock</option>
+                                            <option value="2">Out of Stock</option>
+                                            <option value="3">Law Stock</option>
+                                        </select>
                                     </div>
                                     <div class="input-group">
-                                        <select id="hello-single" class="form-control stock">
-                                            <option value="">---- Select Stock ----</option>
-                                            <option value="married">In Stock</option>
-                                            <option value="unmarried">Out of Stock</option>
-                                            <option value="unmarried">Law Stock</option>
+                                        <textarea class="form-control" name="description"></textarea>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icofont icofont-ui-add"></i></span>
+                                        <textarea row="10" cols="10" class="form-control" name="technical_description"></textarea>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icofont icofont-cur-dollar"></i></span>
+                                        <input type="text" class="form-control" name="price">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icofont icofont-cur-dollar"></i></span>
+                                        <input type="text" class="form-control" name="sale_price">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icofont icofont-ui-add"></i></span>
+                                        <select id="hello-single" class="form-control" name="available">
+                                            <option value="">---- Select Type ----</option>
+                                            <option value="0">Out of Stock</option>
+                                            <option value="1">In Stock</option>
                                         </select>
                                     </div>
                                     <div class="text-center">
-                                        <button type="button"
+                                        <button type="submit"
                                                 class="btn btn-primary waves-effect m-r-20 f-w-600 d-inline-block save_btn">
-                                            Save
+                                            Add
                                         </button>
                                         <button type="button"
                                                 class="btn btn-primary waves-effect m-r-20 f-w-600 md-close d-inline-block close_btn">
@@ -125,6 +151,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </form>
                         </div>
                         <div class="md-overlay"></div>
                         <!-- Add Contact Ends Model end-->
@@ -132,11 +159,14 @@
                     <!-- Page body end -->
                 </div>
             </div>
-            <!-- Main-body end -->
-            <div id="styleSelector">
-
-            </div>
         </div>
     </div>
     </div>
 @endsection
+@section('ckeditor')
+<script src="/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('description');
+</script>
+@endsection
+
