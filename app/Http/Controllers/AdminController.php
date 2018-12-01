@@ -7,13 +7,19 @@ use App\Products;
 
 class AdminController extends Controller
 {
-    public function getDashboard(){
+    public function getDashboard()
+    {
         return view('admin.dashboard');
     }
-    public function getProducts(){
-        return view('admin.products');
+
+    public function getProducts()
+    {
+        $products = Products::all();
+        return view('admin.products',compact('products'));
     }
-    public function postProducts(Request $request){
+
+    public function postProducts(Request $request)
+    {
         $products = new Products;
         $products->name = $request->name;
         $products->products_type = $request->pr_type;
@@ -24,8 +30,8 @@ class AdminController extends Controller
 
         //Process upload file
         $image_pr = $request->image_pr;
-        $image_pr->move(public_path('/Smarttech/images/products'),$image_pr->getClientOriginalName());
-        $link = 'Smarttech/images/products'.$image_pr->getClientOriginalName();
+        $image_pr->move(public_path('/Smarttech/images/products'), $image_pr->getClientOriginalName());
+        $link = 'Smarttech/images/products/' . $image_pr->getClientOriginalName();
         $products->image = $link;
 
         $products->available = $request->available;

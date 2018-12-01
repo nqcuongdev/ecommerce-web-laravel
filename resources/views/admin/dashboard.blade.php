@@ -1,6 +1,6 @@
 @extends('master-admin')
 @section('content')
-<div class="pcoded-content">
+    <div class="pcoded-content">
         <div class="pcoded-inner-content">
             <div class="main-body">
                 <div class="page-wrapper">
@@ -115,7 +115,9 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h5>Visitors</h5>
-                                        <span class="text-muted">For more details about usage, please refer <a href="https://www.amcharts.com/online-store/" target="_blank">amCharts</a> licences.</span>
+                                        <span class="text-muted">For more details about usage, please refer <a
+                                                href="https://www.amcharts.com/online-store/"
+                                                target="_blank">amCharts</a> licences.</span>
                                         <div class="card-header-right">
                                             <ul class="list-unstyled card-option">
                                                 <li><i class="feather icon-maximize full-card"></i></li>
@@ -137,4 +139,4 @@
             </div>
         </div>
     </div>
-    @endsection
+@endsection

@@ -42,10 +42,11 @@
         <!-- Cart Part -->
         <ul class="nav navbar-right cart-pop">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"aria-haspopup="true" aria-expanded="false">
-                    <span class="itm-cont">3</span> 
-                        <i class="flaticon-shopping-bag"></i>
-                            <strong>My Cart</strong><br>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    <span class="itm-cont">3</span>
+                    <i class="flaticon-shopping-bag"></i>
+                    <strong>My Cart</strong><br>
                     <span>3 item(s) - $500.00</span>
                 </a>
                 <ul class="dropdown-menu">

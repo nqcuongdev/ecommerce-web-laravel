@@ -18,7 +18,8 @@
                                     <li data-transition="random" data-slotamount="7" data-masterspeed="300"
                                         data-saveperformance="off">
                                         <!-- MAIN IMAGE -->
-                                        <img src="{{url('SmartTech/images/slider-img-1.jpg')}}" alt="slider" data-bgposition="center bottom"
+                                        <img src="{{url('SmartTech/images/slider-img-1.jpg')}}" alt="slider"
+                                             data-bgposition="center bottom"
                                              data-bgfit="cover" data-bgrepeat="no-repeat">
 
                                         <!-- LAYER NR. 1 -->
@@ -103,7 +104,8 @@
                                     <li data-transition="random" data-slotamount="7" data-masterspeed="300"
                                         data-saveperformance="off">
                                         <!-- MAIN IMAGE -->
-                                        <img src="{{url('SmartTech/images/slider-img-2.jpg')}}" alt="slider" data-bgposition="center bottom"
+                                        <img src="{{url('SmartTech/images/slider-img-2.jpg')}}" alt="slider"
+                                             data-bgposition="center bottom"
                                              data-bgfit="cover" data-bgrepeat="no-repeat">
 
                                         <!-- LAYER NR. 1 -->
@@ -188,7 +190,8 @@
                                     <li data-transition="random" data-slotamount="7" data-masterspeed="300"
                                         data-saveperformance="off">
                                         <!-- MAIN IMAGE -->
-                                        <img src="{{url('SmartTech/images/slider-img-3.jpg')}}" alt="slider" data-bgposition="center bottom"
+                                        <img src="{{url('SmartTech/images/slider-img-3.jpg')}}" alt="slider"
+                                             data-bgposition="center bottom"
                                              data-bgfit="cover" data-bgrepeat="no-repeat">
 
                                         <!-- LAYER NR. 1 -->
@@ -344,9 +347,12 @@
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-pills margin-bottom-40" role="tablist">
-                    <li role="presentation" class="active"><a href="#featur" aria-controls="featur" role="tab" data-toggle="tab">Featured</a></li>
-                    <li role="presentation"><a href="#special" aria-controls="special" role="tab" data-toggle="tab">Special</a></li>
-                    <li role="presentation"><a href="#on-sal" aria-controls="on-sal" role="tab" data-toggle="tab">Onsale</a></li>
+                    <li role="presentation" class="active"><a href="#featur" aria-controls="featur" role="tab"
+                                                              data-toggle="tab">Featured</a></li>
+                    <li role="presentation"><a href="#special" aria-controls="special" role="tab" data-toggle="tab">Special</a>
+                    </li>
+                    <li role="presentation"><a href="#on-sal" aria-controls="on-sal" role="tab"
+                                               data-toggle="tab">Onsale</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -357,7 +363,8 @@
                         <div class="item-slide-5 with-nav">
                             <!-- Product -->
                             <div class="product">
-                                <article><img class="img-responsive" src="{{url('SmartTech/images/item-img-1-1.jpg')}}" alt="">
+                                <article><img class="img-responsive" src="{{url('SmartTech/images/item-img-1-1.jpg')}}"
+                                              alt="">
                                     <!-- Content -->
                                     <span class="tag">Latop</span> <a href="#" class="tittle">Laptop Alienware 15 i7
                                         Perfect For Playing Game</a>
@@ -376,7 +383,8 @@
                             </div>
                             <!-- Product -->
                             <div class="product">
-                                <article><img class="img-responsive" src="{{url('SmartTech/images/item-img-1-2.jpg')}}" alt=""> <span
+                                <article><img class="img-responsive" src="{{url('SmartTech/images/item-img-1-2.jpg')}}"
+                                              alt=""> <span
                                         class="sale-tag">-25%</span>
 
                                     <!-- Content -->
@@ -393,7 +401,8 @@
 
                             <!-- Product -->
                             <div class="product">
-                                <article><img class="img-responsive" src="{{url('SmartTech/images/item-img-1-3.jpg')}}" alt="">
+                                <article><img class="img-responsive" src="{{url('SmartTech/images/item-img-1-3.jpg')}}"
+                                              alt="">
                                     <!-- Content -->
                                     <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente
                                         Smart Watch M26 Touch Bluetooh </a>
@@ -408,7 +417,8 @@
 
                             <!-- Product -->
                             <div class="product">
-                                <article><img class="img-responsive" src="{{url('SmartTech/images/item-img-1-4.jpg')}}" alt=""> <span
+                                <article><img class="img-responsive" src="{{url('SmartTech/images/item-img-1-4.jpg')}}"
+                                              alt=""> <span
                                         class="new-tag">New</span>
 
                                     <!-- Content -->

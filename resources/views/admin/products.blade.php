@@ -1,151 +1,142 @@
 @extends('master-admin')
 @section('content')
-<div class="pcoded-content">
+    <div class="pcoded-content">
         <div class="pcoded-inner-content">
-<div class="card">
-        <div class="card-header">
-            <h5>Products</h5>
-            <div class="float-right">
-                <button type="button" class="btn btn-success waves-effect waves-light add" data-toggle="modal" data-target="#addModal">Add Products</button>
-            </div>
-            <div class="modal fade" id="addModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Add new products</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                            </button>
+            <!-- Main-body start -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- Page-header start -->
+                    <div class="page-header">
+                        <div class="row align-items-end">
+                            <div class="col-lg-8">
+                                <div class="page-header-title">
+                                    <div class="d-inline">
+                                        <h4>Product List</h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <form action="{{route('admin.postproducts')}}" method="POST" enctype="multipart/form-data">
-                            {{csrf_field()}}
-                            <div class="modal-body">
-                                <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="name">
-                                        </div>
+                    </div>
+                    <!-- Page-header end -->
+                    <!-- Page body start -->
+                    <div class="page-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!-- Product list card start -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <button type="button"
+                                                class="btn btn-primary waves-effect waves-light f-right d-inline-block md-trigger"
+                                                data-modal="modal-13"><i class="icofont icofont-plus m-r-5"></i> Add
+                                            Product
+                                        </button>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Select Type</label>
-                                        <div class="col-sm-10">
-                                            <select name="pr_type" class="form-control">
-                                                <option value="1">Type 2</option>
-                                                <option value="2">Type 3</option>
-                                                <option value="3">Type 4</option>
-                                                <option value="4">Type 5</option>
-                                                <option value="5">Type 6</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Technical description</label>
-                                        <div class="col-sm-10">
-                                                <textarea rows="5" cols="5" class="form-control" name="technical_des"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Description</label>
-                                            <div class="col-sm-10">
-                                                    <textarea rows="5" cols="5" class="form-control" name="description"></textarea>
+                                    <div class="card-block">
+                                        <div class="table-responsive">
+                                            <div class="table-content">
+                                                <div class="project-table">
+                                                    <table id="e-product-list"
+                                                           class="table table-striped dt-responsive nowrap">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Image</th>
+                                                            <th>Product Name</th>
+                                                            <th>Amount</th>
+                                                            <th>Stock</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        @foreach($products as $item)
+                                                            <tr>
+                                                                <td>
+                                                                    <img
+                                                                        src="{{url($item->image)}}"
+                                                                        class="img-responsive" alt="{{$item->name}}"
+                                                                        style="width: 20%;">
+                                                                </td>
+                                                                <td>{{$item->name}}</td>
+                                                                <td>{{$item->products_type}}</td>
+                                                                <td class="pro-name">{{$item->technical_description}}</td>
+                                                                <td class="pro-name">{{$item->description}}</td>
+                                                                <td>{{$item->price}}</td>
+                                                                <td>{{$item->sale_price}}</td>
+                                                                <td>
+                                                                    <label class="text-danger">Out Of Stock</label>
+                                                                </td>
+                                                                <td class="action-icon">
+                                                                    <a href="#!" class="m-r-15 text-muted"
+                                                                       data-toggle="tooltip" data-placement="top"
+                                                                       title=""
+                                                                       data-original-title="Edit"><i
+                                                                            class="icofont icofont-ui-edit"></i></a>
+                                                                    <a href="#!" class="text-muted"
+                                                                       data-toggle="tooltip"
+                                                                       data-placement="top" title=""
+                                                                       data-original-title="Delete"><i
+                                                                            class="icofont icofont-delete-alt"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Price</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="price">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Sale Price</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="sale_price">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Upload Image</label>
-                                        <div class="col-sm-10">
-                                            <input type="file" class="form-control" name="image_pr">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Available</label>
-                                        <div class="col-sm-10">
-                                            <select name="available" class="form-control">
-                                                <option value="1">Yes</option>
-                                                <option value="2">No</option>
-                                            </select>
-                                        </div>
                                     </div>
                                 </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary waves-effect waves-light ">Save changes</button>
+                                <!-- Product list card end -->
                             </div>
-                        </form>
+                        </div>
+                        <!-- Add Contact Start Model start-->
+                        <div class="md-modal md-effect-1 addcontact" id="modal-13">
+                            <div class="md-content">
+                                <h3 class="f-26">Add Product</h3>
+                                <div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control pname" placeholder="Prodcut Name">
+                                        <span class="input-group-addon btn btn-primary">Chooese File</span>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
+                                        <input type="text" class="form-control pname" placeholder="Prodcut Name">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icofont icofont-user"></i></span>
+                                        <input type="text" class="form-control pamount" placeholder="Amount">
+                                    </div>
+                                    <div class="input-group">
+                                        <select id="hello-single" class="form-control stock">
+                                            <option value="">---- Select Stock ----</option>
+                                            <option value="married">In Stock</option>
+                                            <option value="unmarried">Out of Stock</option>
+                                            <option value="unmarried">Law Stock</option>
+                                        </select>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="button"
+                                                class="btn btn-primary waves-effect m-r-20 f-w-600 d-inline-block save_btn">
+                                            Save
+                                        </button>
+                                        <button type="button"
+                                                class="btn btn-primary waves-effect m-r-20 f-w-600 md-close d-inline-block close_btn">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md-overlay"></div>
+                        <!-- Add Contact Ends Model end-->
                     </div>
+                    <!-- Page body end -->
                 </div>
             </div>
-        </div>
-        <div class="card-block">
-            <div class="dt-responsive table-responsive">
-                <table class="table table-striped table-bordered nowrap">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Technical Description</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>Sale</th>
-                            <th>Image</th>
-                            <th>Available</th>
-                            <th class="tabledit-toolbar-column"></th></tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td class="tabledit-view-mode">
-                                <span class="tabledit-span">Mark</span>
-                            </td>
-                            <td class="tabledit-view-mode">
-                                <span class="tabledit-span">Otto </span>
-                            </td>
-                            <td class="tabledit-view-mode">
-                                    <span class="tabledit-span">Otto </span>
-                            </td>
-                            <td class="tabledit-view-mode">
-                                <span class="tabledit-span">Otto </span>
-                            </td>
-                            <td class="tabledit-view-mode">
-                                <span class="tabledit-span">Otto </span>
-                            </td>
-                            <td class="tabledit-view-mode">
-                                <span class="tabledit-span">Otto </span>
-                            </td>
-                            <td class="tabledit-view-mode">
-                                <span class="tabledit-span">Otto </span>
-                            </td>
-                            <td class="tabledit-view-mode">
-                                <span class="tabledit-span">Otto </span>
-                            </td>
-                            <td class="tabledit-view-mode">
-                                <div class="btn-group btn-group-sm" style="float: none;">
-                                    <button type="button" class="tabledit-edit-button btn btn-primary waves-effect waves-light" style="float: none;margin: 5px;">
-                                        <span class="icofont icofont-ui-edit"></span>
-                                    </button>
-                                    <button type="button" class="tabledit-delete-button btn btn-danger waves-effect waves-light" style="float: none;margin: 5px;">
-                                        <span class="icofont icofont-ui-delete"></span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Main-body end -->
+            <div id="styleSelector">
+
             </div>
         </div>
     </div>
     </div>
-</div>
 @endsection
