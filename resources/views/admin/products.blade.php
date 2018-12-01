@@ -56,8 +56,8 @@
                                                                 <td>
                                                                     <img
                                                                         src="{{url($item->image)}}"
-                                                                         alt="{{$item->name}}"
-                                                                        style="width:60%;">
+                                                                        alt="{{$item->name}}"
+                                                                        style="width:20%;height:20%;">
                                                                 </td>
                                                                 <td>{{$item->name}}</td>
                                                                 <td>{{$item->products_type}}</td>
@@ -97,60 +97,68 @@
                             <form action="{{route('admin.postproducts')}}" method="POST" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <div class="md-content">
-                                <h3 class="f-26">Add Product</h3>
-                                <div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-ui-add"></i></span>
-                                        <input type="text" class="form-control" name="name">
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-file-image"></i></span>
-                                        <input type="file" class="form-control" name="image">
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-ui-add"></i></span>
-                                        <select id="hello-single" class="form-control" name="products_type">
-                                            <option value="">---- Select Type ----</option>
-                                            <option value="1">In Stock</option>
-                                            <option value="2">Out of Stock</option>
-                                            <option value="3">Law Stock</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-group">
-                                        <textarea class="form-control" name="description"></textarea>
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-ui-add"></i></span>
-                                        <textarea row="10" cols="10" class="form-control" name="technical_description"></textarea>
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-cur-dollar"></i></span>
-                                        <input type="text" class="form-control" name="price">
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-cur-dollar"></i></span>
-                                        <input type="text" class="form-control" name="sale_price">
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-ui-add"></i></span>
-                                        <select id="hello-single" class="form-control" name="available">
-                                            <option value="">---- Select Type ----</option>
-                                            <option value="0">Out of Stock</option>
-                                            <option value="1">In Stock</option>
-                                        </select>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="submit"
-                                                class="btn btn-primary waves-effect m-r-20 f-w-600 d-inline-block save_btn">
-                                            Add
-                                        </button>
-                                        <button type="button"
-                                                class="btn btn-primary waves-effect m-r-20 f-w-600 md-close d-inline-block close_btn">
-                                            Close
-                                        </button>
+                                    <h3 class="f-26">Add Product</h3>
+                                    <div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i
+                                                    class="icofont icofont-ui-add"></i></span>
+                                            <input type="text" class="form-control" name="name">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i
+                                                    class="icofont icofont-file-image"></i></span>
+                                            <input type="file" class="form-control" name="image">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i
+                                                    class="icofont icofont-ui-add"></i></span>
+                                            <select id="hello-single" class="form-control" name="products_type">
+                                                <option value="">---- Select Type ----</option>
+                                                <option value="1">In Stock</option>
+                                                <option value="2">Out of Stock</option>
+                                                <option value="3">Law Stock</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group">
+                                            <textarea class="form-control" name="description"></textarea>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i
+                                                    class="icofont icofont-ui-add"></i></span>
+                                            <textarea row="10" cols="10" class="form-control"
+                                                      name="technical_description"></textarea>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i
+                                                    class="icofont icofont-cur-dollar"></i></span>
+                                            <input type="text" class="form-control" name="price">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i
+                                                    class="icofont icofont-cur-dollar"></i></span>
+                                            <input type="text" class="form-control" name="sale_price">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i
+                                                    class="icofont icofont-ui-add"></i></span>
+                                            <select id="hello-single" class="form-control" name="available">
+                                                <option value="">---- Select Type ----</option>
+                                                <option value="0">Out of Stock</option>
+                                                <option value="1">In Stock</option>
+                                            </select>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit"
+                                                    class="btn btn-primary waves-effect m-r-20 f-w-600 d-inline-block save_btn">
+                                                Add
+                                            </button>
+                                            <button type="button"
+                                                    class="btn btn-primary waves-effect m-r-20 f-w-600 md-close d-inline-block close_btn">
+                                                Close
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             </form>
                         </div>
                         <div class="md-overlay"></div>
@@ -164,9 +172,17 @@
     </div>
 @endsection
 @section('ckeditor')
-<script src="/unisharp/laravel-ckeditor/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace('description');
-</script>
+    <script src="/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('description',{
+            filebrowserBrowseUrl: '{{ url('ckfinder/ckfinder.html') }}',
+            filebrowserImageBrowseUrl: '{{ url('ckfinder/ckfinder.html?type=Images') }}',
+            filebrowserFlashBrowseUrl: '{{ url('ckfinder/ckfinder.html?type=Flash') }}',
+            filebrowserUploadUrl: '{{ url('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+            filebrowserImageUploadUrl: '{{ url('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+            filebrowserFlashUploadUrl: '{{ url('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+        });
+    </script>
+    <script type="text/javascript" src="{{url('ckfinder/ckfinder-laravel-package/public/ckfinder/ckfinder.js')}}"></script>
 @endsection
 

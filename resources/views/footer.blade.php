@@ -5,14 +5,14 @@
         <!-- Footer Upside Links -->
         <div class="foot-link">
             <ul>
-                <li><a href="#"> About us </a></li>
-                <li><a href="#"> Customer Service </a></li>
-                <li><a href="#"> Privacy Policy </a></li>
-                <li><a href="#"> Site Map </a></li>
-                <li><a href="#"> Search Terms </a></li>
-                <li><a href="#"> Advanced Search </a></li>
-                <li><a href="#"> Orders and Returns </a></li>
-                <li><a href="#"> Contact Us</a></li>
+                <li><a href="{{route('abouts')}}"> About us </a></li>
+                <li><a href="{{route('abouts')}}"> Customer Service </a></li>
+                <li><a href="{{route('abouts')}}"> Privacy Policy </a></li>
+                <li><a href="https://goo.gl/maps/isvYAFqverq"> Site Map </a></li>
+                <li><a href="{{route('index')}}"> Search Terms </a></li>
+                <li><a href="{{route('index')}}"> Advanced Search </a></li>
+                <li><a href="{{route('abouts')}}"> Orders and Returns </a></li>
+                <li><a href="{{route('contact')}}"> Contact Us</a></li>
             </ul>
         </div>
         <div class="row">
@@ -64,7 +64,7 @@
                     <li><a href="#"> About Our Shop</a></li>
                     <li><a href="#"> Secure Shopping</a></li>
                     <li><a href="#"> Delivery infomation</a></li>
-                    <li><a href="#"> Store Locations</a></li>
+                    <li><a href="https://goo.gl/maps/isvYAFqverq"> Store Locations</a></li>
                     <li><a href="#"> FAQs</a></li>
                 </ul>
             </div>

@@ -294,7 +294,7 @@
                             <h4>Weekly <span>Sale!</span></h4>
                             <p>Saving up to 50% off all online
                                 store items this week.</p>
-                            <a href="#." class="btn-round">Shop now</a></div>
+                            <a href="{{route('products')}}" class="btn-round">Shop now</a></div>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@
         <div class="right-sec">
             <ul>
                 <li><a href="#">Login/Register </a></li>
-                <li><a href="#">Store Location </a></li>
+                <li><a href="https://goo.gl/maps/isvYAFqverq">Store Location </a></li>
                 <li><a href="#">FAQ </a></li>
                 <li><a href="#">Newsletter </a></li>
             </ul>
@@ -145,10 +145,10 @@
                         <a href="#">Blog</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="{{route('contact')}}">Contact</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <a href="{{route('abouts')}}">About</a>
                     </li>
                 </ul>
             </div>
