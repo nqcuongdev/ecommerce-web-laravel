@@ -197,7 +197,7 @@
                                             <div class="quinty">
                                                 <input type="number" value="01">
                                             </div>
-                                            <a href="#" class="btn-round"><i
+                                            <a href="{{route('addtocart',$products->id)}}" class="btn-round"><i
                                                     class="icon-basket-loaded margin-right-5"></i> Add to Cart</a>
                                         </div>
                                     </div>
