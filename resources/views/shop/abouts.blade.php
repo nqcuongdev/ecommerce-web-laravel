@@ -2,7 +2,6 @@
 @section('content')
     <!-- Content -->
     <div id="content">
-
         <!-- Linking -->
         <div class="linking">
             <div class="container">
@@ -11,8 +10,7 @@
                     <li class="active">About Us</li>
                 </ol>
             </div>
-        </div>
-
+        </div>s
         <!-- About Sec -->
         <section class="about-sec padding-top-60 padding-bottom-60">
             <div class="container">
@@ -27,7 +25,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Shipping Info -->
         <section class="shipping-info padding-bottom-60">
             <div class="container">

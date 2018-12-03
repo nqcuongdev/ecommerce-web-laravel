@@ -74,10 +74,16 @@
                                     <span class="pcoded-mtext">Dashboard</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{route('getslides')}}">
+                                    <span class="pcoded-micon"><i class="typcn typcn-device-desktop"></i></span>
+                                    <span class="pcoded-mtext">Index</span>
+                                </a>
+                            </li>
                             <li class="pcoded-hasmenu active pcoded-trigger">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="feather icon-tag"></i></span>
-                                    <span class="pcoded-mtext">Management</span>
+                                    <span class="pcoded-mtext">Products Management</span>
                                 </a>
                                 <ul class="pcoded-submenu">
                                     <li>

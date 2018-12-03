@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Products;
+use App\Slides;
 
 class AdminController extends Controller
 {
@@ -12,6 +13,27 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
+    public function getSlides(){
+        $slides = Slides::all();
+        return view('admin.slides-index',compact('slides'));
+    }
+
+    public function postSlides(Request $request){
+        $slides = new Slides;
+        $slides->small_title = $request->small_title;
+        $slides->title = $request->title;
+        $slides->small_text = $request->small_text;
+        $slides->price = $request->price;
+        $slides->btn_link = $request->btn_link;
+
+        //Process upload file
+        $image = $request->image;
+        $image->move(public_path('/Smarttech/images/slides'), $image->getClientOriginalName());
+        $link = 'Smarttech/images/slides/' . $image->getClientOriginalName();
+        $slides->image = $link;
+        $slides->save();
+        return redirect('admin/slides');
+    }
     public function getProducts()
     {
         $products = Products::all();

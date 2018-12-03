@@ -4,8 +4,8 @@
     <div class="linking">
         <div class="container">
             <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li class="active">Cell Phones & Accessories</li>
+                <li><a href="{{route('index')}}">Home</a></li>
+                <li class="active">Shop</li>
             </ol>
         </div>
     </div>

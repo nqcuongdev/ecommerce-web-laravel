@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Products;
+use App\Slides;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
     public function getIndex()
     {
-        return view('shop.index');
+        $slides = Slides::all();
+        return view('shop.index',compact('slides'));
     }
 
     public function getProducts()

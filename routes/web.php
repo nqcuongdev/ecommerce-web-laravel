@@ -18,6 +18,8 @@ Route::get('abouts',['as'=>'abouts','uses'=>'ShopController@getAbouts']);
 Route::get('contact',['as'=>'contact','uses'=>'ShopController@getContact']);
 Route::group(['prefix'=>'admin'],function(){
     Route::get('dashboard',['as'=>'dashboard','uses'=>'AdminController@getDashboard']);
+    Route::get('slides',['as'=>'getslides','uses'=>'AdminController@getSlides']);
+    Route::post('slides',['as'=>'postslides','uses'=>'AdminController@postSlides']);
     Route::get('products',['as'=>'admin.getproducts','uses'=>'AdminController@getProducts']);
     Route::post('products',['as'=>'admin.postproducts','uses'=>'AdminController@postProducts']);
 });
