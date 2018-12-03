@@ -24,4 +24,5 @@ Route::group(['prefix'=>'admin'],function(){
     Route::post('products',['as'=>'admin.postproducts','uses'=>'AdminController@postProducts']);
     Route::get('category',['as'=>'getcategory','uses'=>'AdminController@getCategory']);
     Route::post('category',['as'=>'postcategory','uses'=>'AdminController@postCategory']);
+    Route::post('ajax-editcategory',['as'=>'editcategory','uses'=>'AdminController@postEditCategory']);
 });

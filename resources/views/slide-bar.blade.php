@@ -69,7 +69,7 @@
                         <div class="pcoded-navigatio-lavel">Navigation</div>
                         <ul class="pcoded-item pcoded-left-item">
                             <li>
-                                <a href="">
+                                <a href="{{route('dashboard')}}">
                                     <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                     <span class="pcoded-mtext">Dashboard</span>
                                 </a>

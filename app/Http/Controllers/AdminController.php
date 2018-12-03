@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Products;
 use App\Slides;
+use App\Category;
 
 class AdminController extends Controller
 {
@@ -62,6 +63,19 @@ class AdminController extends Controller
     }
 
     public function getCategory(){
-        return view('admin.category-management');
+        $category = Category::all();
+        return view('admin.category-management',compact('category'));
+    }
+
+    public function postCategory(Request $request){
+        $category = new Category;
+        $category->name_category = $request->name;
+        $category->save();
+        return redirect('admin/category');
+    }
+
+    public function postEditCategory(Request $request){
+        $category = Category::find($id);
+        $category->name_category = $request->name;
     }
 }

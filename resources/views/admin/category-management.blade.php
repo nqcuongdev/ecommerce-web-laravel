@@ -12,102 +12,74 @@
                                 <div class="page-header-title">
                                     <div class="d-inline">
                                         <h4>Editable Table</h4>
-                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="page-header-breadcrumb">
-                                    <ul class="breadcrumb-title">
-                                        <li class="breadcrumb-item">
-                                            <a href="index-2.html"> <i class="feather icon-home"></i> </a>
-                                        </li>
-                                        <li class="breadcrumb-item"><a href="#!">Editable Table</a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Edit With Button</h5>
-                            <span>Click on buttons to perform actions</span>
-
+                    <div class="card">                        
+                        <div class="col-lg-6">
+                            <div class="card-header">
+                            <h5>Category Management</h5>
+                            <button type="button" class="btn btn-primary waves-effect waves-light f-right d-inline-block md-trigger" data-modal="modal_category"><i class="icofont icofont-plus m-r-5"></i> Add
+                                        </button>
                         </div>
-                        <div class="card-block">
+                            <div class="card-block">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered" id="example-2">
+                                <table class="table table-striped table-bordered" id="category">
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>First</th>
-                                        <th>Last</th>
-                                        <th>Nickname</th>
+                                        <th>Name</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($category as $item)
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">Mark</span>
-                                            <input class="tabledit-input form-control input-sm" type="text" name="First"
-                                                   value="Mark">
+                                        <td class="tabledit-view-mode">
+                                            <span class="tabledit-span">{{$item->id}}</span>
+                                            <input class="tabledit-input form-control input-sm" type="text" name="id"
+                                                   value="{{$item->id}}">
                                         </td>
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">Otto</span>
-                                            <input class="tabledit-input form-control input-sm" type="text" name="Last"
-                                                   value="Otto">
-                                        </td>
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">@mdo</span>
-                                            <select class="tabledit-input form-control input-sm" name="Nickname"
-                                                    disabled="" style="display:none;">
-                                                <option value="1">@mdo</option>
-                                                <option value="2">@fat</option>
-                                                <option value="3">@twitter</option>
-                                            </select>
+                                        <td class="tabledit-view-mode">
+                                            <span class="tabledit-span">{{$item->name_category}}</span>
+                                            <input class="tabledit-input form-control input-sm" type="text" name="name"
+                                                   value="{{$item->name_category}}">
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">Jacob</span>
-                                            <input class="tabledit-input form-control input-sm" type="text" name="First"
-                                                   value="Jacob" disabled="">
-                                        </td>
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">Thorntonkk</span>
-                                            <input class="tabledit-input form-control input-sm" type="text" name="Last"
-                                                   value="Thornton" disabled="">
-                                        </td>
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">@mdo</span>
-                                            <select class="tabledit-input form-control input-sm" name="Nickname"
-                                                    disabled="" style="display:none;">
-                                                <option value="1">@mdo</option>
-                                                <option value="2">@fat</option>
-                                                <option value="3">@twitter</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">Larry</span>
-                                            <input class="tabledit-input form-control input-sm" type="text" name="First"
-                                                   value="Larry" disabled="">
-                                        </td>
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">the Bird</span>
-                                            <input class="tabledit-input form-control input-sm" type="text" name="Last"
-                                                   value="the Bird" disabled="">
-                                        </td>
-                                        <td class="tabledit-view-mode"><span class="tabledit-span">@mdo</span>
-                                            <select class="tabledit-input form-control input-sm" name="Nickname"
-                                                    disabled="" style="display:none;">
-                                                <option value="1">@mdo</option>
-                                                <option value="2">@fat</option>
-                                                <option value="3">@twitter</option>
-                                            </select>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
+                            </div>
                         </div>
+                        <div class="md-modal md-effect-1 addcontact" id="modal_category">
+                        <form action="{{route('postcategory')}}" method="POST">
+                            {{csrf_field()}}
+                            <div class="md-content">
+                                <h3 class="f-26">Add Categorys</h3>
+                                <div>
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-2 col-form-label">Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control form-txt-primary" name="name">
+                                        </div> 
+                                    </div>
+                                    
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary waves-effect m-r-20 f-w-600 d-inline-block save_btn">
+                                                Add
+                                            </button>
+                                        <button type="button" class="btn btn-primary waves-effect m-r-20 f-w-600 md-close d-inline-block close_btn">
+                                                Close
+                                            </button>
+                                    </div>
+                                </div>
+                        </form>
+                    </div> 
+                    </div>
+                        <div class="col-lg-6"></div>
                     </div>
                 </div>
             </div>

@@ -98,7 +98,6 @@
 <script src="{{url('Admin/files/assets/pages/widget/amchart/light.js')}}"></script>
 <!-- Editable-table js -->
 <script type="text/javascript" src="{{url('Admin/files/assets/pages/edit-table/jquery.tabledit.js')}}"></script>
-<script type="text/javascript" src="{{url('Admin/files/assets/pages/edit-table/editable.js')}}"></script>
 <!-- data-table js -->
 <script src="{{url('Admin/files/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{url('Admin/files/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
