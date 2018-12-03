@@ -10,7 +10,7 @@
                     <li class="active">About Us</li>
                 </ol>
             </div>
-        </div>s
+        </div>
         <!-- About Sec -->
         <section class="about-sec padding-top-60 padding-bottom-60">
             <div class="container">

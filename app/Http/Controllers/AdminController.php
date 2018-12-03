@@ -60,4 +60,8 @@ class AdminController extends Controller
         $products->save();
         return redirect('admin/products');
     }
+
+    public function getCategory(){
+        return view('admin.category-management');
+    }
 }

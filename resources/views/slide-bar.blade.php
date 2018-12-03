@@ -92,7 +92,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="">
+                                        <a href="{{route('getcategory')}}">
                                             <span class="pcoded-mtext">Category and Type</span>
                                         </a>
                                     </li>
