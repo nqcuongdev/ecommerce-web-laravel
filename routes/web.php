@@ -20,6 +20,8 @@ Route::get('add-to-cart/{id}',['as'=>'addtocart','uses'=>'ShopController@addtoca
 Route::get('cart',['as'=>'yourcart','uses'=>'ShopController@getCart']);
 Route::get('remove-item/{id}',['as'=>'removeitem','uses'=>'ShopController@removeCart']);
 Route::get('update/{id}/{qty}',['as'=>'updateitem','uses'=>'ShopController@updateCart']);
+Route::get('delivery-method',['as'=>'getdeliverymethod','uses'=>'ShopController@getDelivery']);
+Route::get('confirmation',['as'=>'confirm','uses'=>'ShopController@getConfirm']);
 Route::group(['prefix'=>'admin'],function(){
     Route::get('dashboard',['as'=>'dashboard','uses'=>'AdminController@getDashboard']);
     Route::get('slides',['as'=>'getslides','uses'=>'AdminController@getSlides']);

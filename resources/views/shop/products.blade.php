@@ -26,54 +26,12 @@
                             <h6>Categories</h6>
                             <div class="checkbox checkbox-primary">
                                 <ul>
-                                    <li>
-                                        <input id="cate1" class="styled" type="checkbox">
-                                        <label for="cate1"> Home Audio & Theater </label>
-                                    </li>
-                                    <li>
-                                        <input id="cate2" class="styled" type="checkbox">
-                                        <label for="cate2"> TV & Video</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate3" class="styled" type="checkbox">
-                                        <label for="cate3"> Camera, Photo & Video</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate4" class="styled" type="checkbox">
-                                        <label for="cate4"> Cell Phones & Accessories</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate5" class="styled" type="checkbox">
-                                        <label for="cate5"> Headphones</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate6" class="styled" type="checkbox">
-                                        <label for="cate6"> Video Games</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate7" class="styled" type="checkbox">
-                                        <label for="cate7"> Bluetooth & Wireless Speakers</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate8" class="styled" type="checkbox">
-                                        <label for="cate8"> Gaming Console</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate9" class="styled" type="checkbox">
-                                        <label for="cate9"> Computers & Tablets</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate10" class="styled" type="checkbox">
-                                        <label for="cate10"> Monitors</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate11" class="styled" type="checkbox">
-                                        <label for="cate11"> Home Appliances</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate12" class="styled" type="checkbox">
-                                        <label for="cate12">Office Supplies </label>
-                                    </li>
+                                    @foreach($category as $item)
+                                        <li>
+                                            <input id="cate{{$item->id}}" class="styled" type="checkbox">
+                                            <label for="cate{{$item->id}}">{{$item->name_category}}</label>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
 
@@ -151,7 +109,7 @@
                             <ul>
                                 <!-- Short List -->
                                 <li>
-                                    <p>Showing 1–12 of 756 results</p>
+                                    <p>Showing 1–12 of {{$products->count()}} results</p>
                                 </li>
                                 <!-- by Default -->
                                 <li>
@@ -189,7 +147,7 @@
                                                 <span>${{($item->price) - ((($item->price)*($item->sale_price))/100)}}</span>
                                             @endif
                                     </div>
-                                    <a href="#" class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
+                                    <a href="{{route('addtocart',$item->id)}}" class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
                             </div>
                             @endforeach
                             <!-- pagination -->

@@ -24,22 +24,16 @@
         <div class="search-cate">
             <select class="selectpicker">
                 <option> All Categories</option>
-                <option> Home Audio & Theater</option>
-                <option> TV & Video</option>
-                <option> Camera, Photo & Video</option>
-                <option> Cell Phones & Accessories</option>
-                <option> Headphones</option>
-                <option> Video Games</option>
-                <option> Bluetooth & Wireless</option>
-                <option> Gaming Console</option>
-                <option> Computers & Tablets</option>
-                <option> Monitors</option>
+                @foreach($category as $item)
+                    <option> {{$item->name_category}}</option>
+                @endforeach
             </select>
             <input type="search" placeholder="Search entire store here...">
             <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
         </div>
 
         <!-- Cart Part -->
+        @if(Cart::count() != 0)
         <ul class="nav navbar-right cart-pop">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -50,7 +44,7 @@
                 <span>{{Cart::count()}} item(s) - ${{Cart::subtotal()}}</span>
             </a>
             <ul class="dropdown-menu">
-                    @foreach($cart as $item)
+                @foreach($cart as $item)
                 <li>
                     
                     <div class="media-left">
@@ -65,8 +59,8 @@
                 </li>
                 @endforeach
                 <li class="btn-cart"><a href="{{route('yourcart')}}" class="btn-round">View Cart</a></li>
-                
             </ul>
+            @endif
         </li>
     </ul>
 </div>
@@ -81,37 +75,16 @@
             <div class="cate-bar-in">
                 <div id="cater" class="collapse">
                     <ul>
-                        <li><a href="#"> Home Audio & Theater</a></li>
-                        <li><a href="#"> TV & Video</a></li>
-                        <li><a href="#"> Camera, Photo & Video</a></li>
-                        <li class="sub-menu"><a href="#"> Cell Phones & Accessories</a>
-                            <ul>
-                                <li><a href="#"> TV & Video</a></li>
-                                <li><a href="#"> Camera, Photo & Video</a></li>
-                                <li><a href="#"> Cell Phones & Accessories</a>
+                        @foreach($menu as $item)
+                            
+                            <li class="sub-menu"><a href="#">{{$item->id_category}}</a>
+                                <ul>
+                                    <li><a href="#">{{$item->name_type}}</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#"> Headphones</a></li>
-                            <li><a href="#"> Video Games</a></li>
-                            <li class="sub-menu"><a href="#."> Bluetooth & Wireless Speakers</a>
-                                <ul>
-                                    <li><a href="#"> TV & Video</a></li>
-                                    <li><a href="#"> Camera, Photo & Video</a></li>
-                                    <li><a href="#"> Cell Phones & Accessories</a>
-                                    </ul>
-                                </li>
-                                <li class="sub-menu"><a href="#"> Gaming Console</a>
-                                    <ul>
-                                        <li><a href="#"> TV & Video</a></li>
-                                        <li><a href="#"> Camera, Photo & Video</a></li>
-                                        <li><a href="#"> Cell Phones & Accessories</a>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"> Computers & Tablets</a></li>
-                                    <li><a href="#"> Monitors</a></li>
-                                    <li><a href="#"> Home Appliances</a></li>
-                                    <li><a href="#"> Office Supplies</a></li>
-                                </ul>
+                            <li><a href="#">{{$item->id_category}}</a></li>
+                        @endforeach
+                        </ul>
                             </div>
                         </div>
                     </div>
