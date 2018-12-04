@@ -16,7 +16,10 @@ Route::get('products',['as'=>'products','uses'=>'ShopController@getProducts']);
 Route::get('product-details/{id}',['as'=>'product-details','uses'=>'ShopController@getProductDetails']);
 Route::get('abouts',['as'=>'abouts','uses'=>'ShopController@getAbouts']);
 Route::get('contact',['as'=>'contact','uses'=>'ShopController@getContact']);
-Route::get('add-to-cart/{id}',['as'=>'addtocart','uses'=>'ShopController@cart']);
+Route::get('add-to-cart/{id}',['as'=>'addtocart','uses'=>'ShopController@addtocart']);
+Route::get('cart',['as'=>'yourcart','uses'=>'ShopController@getCart']);
+Route::get('remove-item/{id}',['as'=>'removeitem','uses'=>'ShopController@removeCart']);
+Route::get('update/{id}/{qty}',['as'=>'updateitem','uses'=>'ShopController@updateCart']);
 Route::group(['prefix'=>'admin'],function(){
     Route::get('dashboard',['as'=>'dashboard','uses'=>'AdminController@getDashboard']);
     Route::get('slides',['as'=>'getslides','uses'=>'AdminController@getSlides']);

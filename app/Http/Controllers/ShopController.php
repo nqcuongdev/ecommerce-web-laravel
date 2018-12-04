@@ -25,18 +25,39 @@ class ShopController extends Controller
         return view('shop.products-details',compact('products'));
     }
 
-    public function cart(Request $request,$product_id){
+    public function addtocart(Request $request,$product_id){
         $product = Products::find($product_id);
-        $cartInfo = array(
+        Cart::add(array(
             'id' => $product_id,
             'name' => $product->name,
             'price' => $product->price,
-            'qty' => '1',
-            'option' => array('image' => $product->image)
-        );
-        $cart = Cart::add($cartInfo);
-        return view('shop.shopping-cart', compact('cart'));
+            'qty' => 1,
+            'options' => array('image' => $product->image)
+        ));
+        $cart = Cart::content();
+        return redirect('cart');
     }
+
+    public function getCart(){
+        $cart = Cart::content();
+        return view('shop.shopping-cart',compact('cart'));
+    }
+
+    public function removeCart($id){
+        $cart = Cart::remove($id);
+        return redirect('cart');
+    }
+
+    public function updateCart(Request $request){
+        if($request->ajax()){
+            $id = $request->id;
+            $qty = $request->qty;
+            Cart::update($id,$qty);
+            $cart = Cart::content();
+            return $cart;
+        }
+    }
+
     public function getAbouts(){return view('shop.abouts');}
     public function getContact(){return view('shop.contact');}
 }

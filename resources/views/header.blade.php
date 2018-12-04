@@ -44,35 +44,28 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                 aria-expanded="false">
-                <span class="itm-cont">3</span>
+                <span class="itm-cont">{{Cart::count()}}</span>
                 <i class="flaticon-shopping-bag"></i>
                 <strong>My Cart</strong><br>
-                <span>3 item(s) - $500.00</span>
+                <span>{{Cart::count()}} item(s) - ${{Cart::subtotal()}}</span>
             </a>
             <ul class="dropdown-menu">
+                    @foreach($cart as $item)
                 <li>
+                    
                     <div class="media-left">
                         <a href="#" class="thumb">
-                            <img src="{{url('SmartTech/images/item-img-1-1.jpg')}}" class="img-responsive" alt="">
+                            <img src="{{url($item->options->image)}}" class="img-responsive" alt="{{$item->name}}">
                         </a>
                     </div>
                     <div class="media-body">
-                        <a href="#" class="tittle">Funda Para Ebook 7" 128GB full HD</a>
-                        <span>250 x 1</span>
+                        <a href="#" class="tittle">{{$item->name}}</a>
+                        <span>${{$item->price}} x {{$item->qty}}</span>
                     </div>
                 </li>
-                <li>
-                    <div class="media-left">
-                        <a href="#" class="thumb">
-                            <img src="{{url('SmartTech/images/item-img-1-2.jpg')}}" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <a href="#" class="tittle">Funda Para Ebook 7" full HD</a>
-                        <span>250 x 1</span>
-                    </div>
-                </li>
-                <li class="btn-cart"><a href="#" class="btn-round">View Cart</a></li>
+                @endforeach
+                <li class="btn-cart"><a href="{{route('yourcart')}}" class="btn-round">View Cart</a></li>
+                
             </ul>
         </li>
     </ul>

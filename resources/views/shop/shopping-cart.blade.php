@@ -62,8 +62,8 @@
                     <tr>
                         <td>
                             <div class="media">
-                                <div class="media-left"><a href="#"> <img class="img-responsive"
-                                                                           src="{{$item->image}}" alt=""> </a>
+                                <div class="media-left"><a href="#"> 
+                                    <img class="img-responsive" src="{{url($item->options->image)}}" alt=""> </a>
                                 </div>
                                 <div class="media-body">
                                     <p>{{$item->name}}</p>
@@ -74,11 +74,15 @@
                         <td class="text-center"><!-- Quinty -->
 
                             <div class="quinty padding-top-20">
-                                    <input type="number" value="{{ $item->qty }}" name="qty">
+                                <form action="" method="POST">
+                                    {{csrf_field()}}
+                                    <input type="text" id="rowId" hidden value="{{$item->rowId}}">
+                                    <input type="number" id="quantity" value="{{ $item->qty }}" name="qty">
+                                </form>
                             </div>
                         </td>
-                        <td class="text-center padding-top-60">${{number_format($item->total)}}</td>
-                        <td class="text-center padding-top-60"><a href="." class="remove"><i
+                        <td id="totalprice" class="text-center padding-top-60">${{number_format($item->qty * $item->price)}}</td>
+                        <td class="text-center padding-top-60"><a href="{{route('removeitem',$item->rowId)}}" class="remove"><i
                                     class="fa fa-close"></i></a></td>
                     </tr>
                 @endforeach
@@ -96,27 +100,14 @@
 
                     <!-- Grand total -->
                     <div class="g-totel">
-                        <h5>Grand total: <span>$500.00</span></h5>
+                        <h5>Grand total: <span>${{Cart::subtotal()}}</span></h5>
                     </div>
                 </div>
 
                 <!-- Button -->
-                <div class="pro-btn"><a href="#." class="btn-round btn-light">Continue Shopping</a> <a href="#."
+            <div class="pro-btn"><a href="{{route('products')}}" class="btn-round btn-light">Continue Shopping</a> <a href="#"
                                                                                                        class="btn-round">Go
                         Payment Methods</a></div>
-            </div>
-        </section>
-
-        <!-- Clients img -->
-        <section class="light-gry-bg clients-img">
-            <div class="container">
-                <ul>
-                    <li><img src="images/c-img-1.png" alt=""></li>
-                    <li><img src="images/c-img-2.png" alt=""></li>
-                    <li><img src="images/c-img-3.png" alt=""></li>
-                    <li><img src="images/c-img-4.png" alt=""></li>
-                    <li><img src="images/c-img-5.png" alt=""></li>
-                </ul>
             </div>
         </section>
 
@@ -138,4 +129,35 @@
         </section>
     </div>
     <!-- End Content -->
+    <script>
+        $(document).ready(function(){
+            $(".quinty").change(function(){
+
+                var token = $("input[name='_token']").val()
+                var rowId = $(this).parent().find("#rowId").val();
+                var qty = $(this).parent().find("#quantity").val();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({ 
+                    dataType: "json",
+                    url: 'update/'+rowId+'/'+qty,
+                    type: 'GET',
+                    cache: false,
+                    data: {"_token":token,"id":rowId,"qty":qty},
+                    success: function(data){
+                        $.each(data, function(index, element){
+                            var totalprice = element.price*element.qty;
+                            var subtotal =+ totalprice;
+                            console.log(totalprice);
+                            console.log(subtotal);
+                        })
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
