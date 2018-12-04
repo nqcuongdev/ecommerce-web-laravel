@@ -26,21 +26,16 @@ class ShopController extends Controller
     }
 
     public function cart(Request $request,$product_id){
-        $this->data['title'] = 'Your Cart';
         $product = Products::find($product_id);
-        $cartInfo = [
+        $cartInfo = array(
             'id' => $product_id,
             'name' => $product->name,
             'price' => $product->price,
             'qty' => '1',
-            'image' => $product->image,
-        ];
-        Cart::add($cartInfo);
-        $cart = Cart::content();
-        dd($cart);
-        $this->data['cart'] = $cart;
-
-        return view('shop.shopping-cart', $this->data);
+            'option' => array('image' => $product->image)
+        );
+        $cart = Cart::add($cartInfo);
+        return view('shop.shopping-cart', compact('cart'));
     }
     public function getAbouts(){return view('shop.abouts');}
     public function getContact(){return view('shop.contact');}
