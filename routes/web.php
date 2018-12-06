@@ -22,6 +22,8 @@ Route::get('remove-item/{id}',['as'=>'removeitem','uses'=>'ShopController@remove
 Route::get('update/{id}/{qty}',['as'=>'updateitem','uses'=>'ShopController@updateCart']);
 Route::get('delivery-method',['as'=>'getdeliverymethod','uses'=>'ShopController@getDelivery']);
 Route::get('confirmation',['as'=>'confirm','uses'=>'ShopController@getConfirm']);
+Route::get('login',['as'=>'get.login','uses'=>'ShopController@getLogin']);
+Route::post('register',['as'=>'post.register','uses'=>'ShopController@postRegister']);
 Route::group(['prefix'=>'admin'],function(){
     Route::get('dashboard',['as'=>'dashboard','uses'=>'AdminController@getDashboard']);
     Route::get('slides',['as'=>'getslides','uses'=>'AdminController@getSlides']);

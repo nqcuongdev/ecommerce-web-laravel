@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Cart;
+use App\Product_Type;
+use App\Category;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,14 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('header',function($view){
             $cart = Cart::content();
             $view->with(['cart'=>$cart]);
+        });
+        view()->composer('header',function($view){
+            $category = Category::all();
+            $view->with(['category'=>$category]);
+        });
+        view()->composer('header',function($view){
+            $menu = Product_Type::join('category','product_type.id_category','=','category.id')->get();
+            $view->with(['menu'=>$menu]);  
         });
     }
 

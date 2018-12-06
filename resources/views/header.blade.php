@@ -3,10 +3,10 @@
         <p>Welcome to SmartTech center!</p>
         <div class="right-sec">
             <ul>
-                <li><a href="#">Login/Register </a></li>
+                <li><a href="{{route('get.login')}}">Login/Register </a></li>
                 <li><a href="https://goo.gl/maps/isvYAFqverq">Store Location </a></li>
                 <li><a href="#">FAQ </a></li>
-                <li><a href="#">Newsletter </a></li>
+                <li><a href="#">Blog</a></li>
             </ul>
             <div class="social-top">
                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -60,6 +60,8 @@
                 @endforeach
                 <li class="btn-cart"><a href="{{route('yourcart')}}" class="btn-round">View Cart</a></li>
             </ul>
+            @else
+
             @endif
         </li>
     </ul>
@@ -74,17 +76,21 @@
             class="fa fa-list-ul"></i> Our Categories </a>
             <div class="cate-bar-in">
                 <div id="cater" class="collapse">
-                    <ul>
+                    {{-- <ul>
                         @foreach($menu as $item)
                             
                             <li class="sub-menu"><a href="#">{{$item->id_category}}</a>
+                                @if($item->id != 0)
                                 <ul>
-                                    <li><a href="#">{{$item->name_type}}</a></li>
+                                    @foreach($item->id_category as $children)
+                                    <li><a href="#">{{$children->name_type}}</a></li>
+                                    @endforeach
                                 </ul>
-                            </li>
-                            <li><a href="#">{{$item->id_category}}</a></li>
+                                @endif
+                            </li> 
+                            <li>{{$item->name_category}}</li>
                         @endforeach
-                        </ul>
+                        </ul>--}}
                             </div>
                         </div>
                     </div>

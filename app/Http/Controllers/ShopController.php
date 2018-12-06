@@ -6,32 +6,20 @@ use App\Products;
 use App\Slides;
 use App\Category;
 use App\Product_Type;
+use App\UsersModel;
 use Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ShopController extends Controller
 {
     public function getIndex()
     {
         $slides = Slides::all();
-        $category = Category::all();      
+        $category = Category::all(); 
         return view('shop.index',compact('slides','category'));
     }
 
-    public function menu($data, $parent = 1){
-        $categories = [];
-        $menu = Product_Type::find($parent);       
-        foreach ($menu as $value) {
-            if($value['id_category'] != $parent){
-                $categories = [
-                    'parent' => $value,
-                    'children' => menu($value['id'])
-                ];
-            }
-        return $categories;
-        }
-        
-    }
     public function getProducts()
     {
         $products = Products::select('id','name','technical_description','price','sale_price','image')->paginate(12);
@@ -84,6 +72,7 @@ class ShopController extends Controller
         }
         
     }
+
     public function getConfirm(){
         if(Cart::count() != 0){
             return view('shop.confirmation');
@@ -92,5 +81,20 @@ class ShopController extends Controller
         }
     }
     public function getAbouts(){return view('shop.abouts');}
+
     public function getContact(){return view('shop.contact');}
+
+    public function getLogin(){return view('shop.login');}
+
+    public function postRegister(Request $request){
+        $user = new UsersModel();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->phone = "";
+        $user->address = "";
+        $user->status = 1;
+        $user->save();
+        return redirect('login');
+    }
 }
