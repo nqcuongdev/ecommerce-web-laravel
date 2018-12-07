@@ -3,7 +3,14 @@
         <p>Welcome to SmartTech center!</p>
         <div class="right-sec">
             <ul>
-                <li><a href="{{route('get.login')}}">Login/Register </a></li>
+                @if(Auth::check())
+                    @if(Auth::user()->status == 1)
+                        <li>Hello, {{Auth::user()->name}} wellcome back !</li>
+                        <li><a href="{{route('post.logout')}}">Logout</a></li>
+                    @endif
+                @else
+                    <li><a href="{{route('get.login')}}">Login/Register </a></li>
+                @endif 
                 <li><a href="https://goo.gl/maps/isvYAFqverq">Store Location </a></li>
                 <li><a href="#">FAQ </a></li>
                 <li><a href="#">Blog</a></li>

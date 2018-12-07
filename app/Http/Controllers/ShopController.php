@@ -8,6 +8,8 @@ use App\Category;
 use App\Product_Type;
 use App\UsersModel;
 use Cart;
+use Auth;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -86,6 +88,22 @@ class ShopController extends Controller
 
     public function getLogin(){return view('shop.login');}
 
+    public function postLogin(Request $request){
+        $checklogin = array('email'=>$request->email,'password'=>$request->password);
+        if(Auth::attempt($checklogin)){
+            if(Auth::user()->status == 1)
+                return redirect('/')->with(['flag'=>'succes','message'=>'Login Success !']);
+            else 
+                return redirect('login')->with(['flag'=>'warning','message'=>'Your account has been disable. Please contact admin !']);           
+        }else{
+            return redirect('login')->with(['flag'=>'danger','message'=>'Cannot access the website !']);
+        }
+    }
+
+    public function postLogout(){
+        Auth::logout();
+        return redirect('/');
+    }
     public function postRegister(Request $request){
         $user = new UsersModel();
         $user->name = $request->name;

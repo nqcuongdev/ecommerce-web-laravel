@@ -22,16 +22,20 @@
                 <h5>Login Your Account</h5>
                 
                 <!-- FORM -->
-                <form>
+                <form action="{{route('post.login')}}" method="POST">
+                {{csrf_field()}}
                   <ul class="row">
+                  @if(Session::has('flag'))
+                  <div class="alert alert-{{Session::get('flag')}}">{{Session::get('message')}}</div>
+                  @endif  
                     <li class="col-sm-12">
-                      <label>Username
-                        <input type="text" class="form-control" name="name" placeholder="">
+                      <label>Email
+                        <input type="email" class="form-control" name="email">
                       </label>
                     </li>
                     <li class="col-sm-12">
                       <label>Password
-                        <input type="password" class="form-control" name="pass" placeholder="">
+                        <input type="password" class="form-control" name="password">
                       </label>
                     </li>
                     <li class="col-sm-6">
@@ -40,7 +44,7 @@
                         <label for="cate1"> Keep me logged in </label>
                       </div>
                     </li>
-                    <li class="col-sm-6"> <a href="#." class="forget">Forgot your password?</a> </li>
+                    <li class="col-sm-6"> <a href="#" class="forget">Forgot your password?</a> </li>
                     <li class="col-sm-12 text-left">
                       <button type="submit" class="btn-round">Login</button>
                     </li>
@@ -68,12 +72,12 @@
                     </li>
                     <li class="col-sm-12">
                       <label>Password
-                        <input type="password" class="form-control" name="pass">
+                        <input type="password" class="form-control" name="password">
                       </label>
                     </li>
                     <li class="col-sm-12">
                         <label>Re-Password
-                            <input type="password" class="form-control" name="re-pass">
+                            <input type="password" class="form-control" name="re-password">
                         </label>
                         </li>
                     <li class="col-sm-12 text-left">
