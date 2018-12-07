@@ -76,21 +76,22 @@
             class="fa fa-list-ul"></i> Our Categories </a>
             <div class="cate-bar-in">
                 <div id="cater" class="collapse">
-                    {{-- <ul>
-                        @foreach($menu as $item)
-                            
-                            <li class="sub-menu"><a href="#">{{$item->id_category}}</a>
-                                @if($item->id != 0)
+                    <ul>
+                        @foreach($category_menu as $item)
+                            @if(count($item['children']) > 0)
+                            <li class="sub-menu"><a href="#">{{$item->name_category}}</a>
                                 <ul>
-                                    @foreach($item->id_category as $children)
-                                    <li><a href="#">{{$children->name_type}}</a></li>
+                                    @foreach($item['children'] as $children)
+                                    <li><a href="#">{{$children['name_type']}}</a></li>
                                     @endforeach
                                 </ul>
-                                @endif
-                            </li> 
-                            <li>{{$item->name_category}}</li>
-                        @endforeach
-                        </ul>--}}
+                            </li>
+                            @else
+                            <li><a href="#">{{$item->name_category}}</a></li>
+                            @endif 
+                            @endforeach
+                        </ul>
+                        
                             </div>
                         </div>
                     </div>

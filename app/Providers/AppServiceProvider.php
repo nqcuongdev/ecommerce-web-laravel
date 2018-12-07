@@ -25,8 +25,13 @@ class AppServiceProvider extends ServiceProvider
             $view->with(['category'=>$category]);
         });
         view()->composer('header',function($view){
-            $menu = Product_Type::join('category','product_type.id_category','=','category.id')->get();
-            $view->with(['menu'=>$menu]);  
+            $category = Category::all();
+            foreach ($category as $key => $value) {
+                $category[$key]['children'] = Product_Type::select('*')
+                                                ->where('id_category',$value['id'])
+                                                ->get()->toArray();
+            }
+            $view->with(['category_menu'=>$category]);  
         });
     }
 
