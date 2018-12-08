@@ -39,7 +39,7 @@
     @yield('content')
 
     @include('footer')
-    
+
 </div>
 <script src="{{url('SmartTech/js/vendors/wow.min.js')}}"></script>
 <script src="{{url('SmartTech/js/vendors/bootstrap.min.js')}}"></script>

@@ -10,24 +10,24 @@
 
                     <!-- Step 1 -->
                     <li class="col-sm-3">
-                        <div class="media-left"> <i class="fa fa-check"></i> </div>
-                        <div class="media-body"> <span>Step 1</span>
+                        <div class="media-left"><i class="fa fa-check"></i></div>
+                        <div class="media-body"><span>Step 1</span>
                             <h6>Shopping Cart</h6>
                         </div>
                     </li>
 
                     <!-- Step 3 -->
                     <li class="col-sm-3 current">
-                        <div class="media-left"> <i class="flaticon-delivery-truck"></i> </div>
-                        <div class="media-body"> <span>Step 2</span>
+                        <div class="media-left"><i class="flaticon-delivery-truck"></i></div>
+                        <div class="media-body"><span>Step 2</span>
                             <h6>Delivery Methods</h6>
                         </div>
                     </li>
 
                     <!-- Step 4 -->
                     <li class="col-sm-3">
-                        <div class="media-left"> <i class="fa fa-check"></i> </div>
-                        <div class="media-body"> <span>Step 3</span>
+                        <div class="media-left"><i class="fa fa-check"></i></div>
+                        <div class="media-body"><span>Step 3</span>
                             <h6>Confirmation</h6>
                         </div>
                     </li>
@@ -148,7 +148,8 @@
                 </div>
 
                 <!-- Button -->
-                <div class="pro-btn"> <a href="{{route('yourcart')}}" class="btn-round btn-light">Back to Payment</a> <a href="{{route('confirm')}}" class="btn-round">Go Confirmation</a> </div>
+                <div class="pro-btn"><a href="{{route('yourcart')}}" class="btn-round btn-light">Back to Payment</a> <a
+                        href="{{route('confirm')}}" class="btn-round">Go Confirmation</a></div>
             </div>
         </section>
 @endsection

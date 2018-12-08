@@ -126,32 +126,36 @@
                         <div class="item-col-3">
                             <!-- Product -->
                             @foreach($products as $item)
-                            <div class="product">
-                                <article><img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
+                                <div class="product">
+                                    <article><img class="img-responsive" src="{{url($item->image)}}"
+                                                  alt="{{$item->name}}">
 
-                                    @if($item->sale_price != 0)
-                                    <span class="sale-tag">-{{$item->sale_price}}%</span>
+                                        @if($item->sale_price != 0)
+                                            <span class="sale-tag">-{{$item->sale_price}}%</span>
                                     @endif
 
                                     <!-- Content -->
-                                    <span class="tag">Tablets</span> <a href="{{route('product-details',$item->id)}}" class="tittle">{{$item->name}}</a>
-                                    <!-- Reviews -->
-                                    <p>
-                                        {{str_limit($item->technical_description,20)}}
-                                    </p>
-                                    <div class="price">
+                                        <span class="tag">Tablets</span> <a
+                                            href="{{route('product-details',$item->id)}}"
+                                            class="tittle">{{$item->name}}</a>
+                                        <!-- Reviews -->
+                                        <p>
+                                            {{str_limit($item->technical_description,20)}}
+                                        </p>
+                                        <div class="price">
                                             @if($item->sale_price == 0)
                                                 ${{$item->price}}
                                             @else
-                                               ${{$item->price}}
+                                                ${{$item->price}}
                                                 <span>${{($item->price) - ((($item->price)*($item->sale_price))/100)}}</span>
                                             @endif
-                                    </div>
-                                    <a href="{{route('addtocart',$item->id)}}" class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
+                                        </div>
+                                        <a href="{{route('addtocart',$item->id)}}" class="cart-btn"><i
+                                                class="icon-basket-loaded"></i></a></article>
+                                </div>
                             @endforeach
-                            <!-- pagination -->
-                                {{$products->links()}}
+                        <!-- pagination -->
+                            {{$products->links()}}
                         </div>
                     </div>
                 </div>

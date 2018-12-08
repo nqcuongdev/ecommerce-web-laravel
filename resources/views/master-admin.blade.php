@@ -18,7 +18,8 @@
     <link rel="stylesheet" type="text/css" href="{{url('Admin//files/assets/icon/themify-icons/themify-icons.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('Admin/files/assets/icon/feather/css/feather.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('Admin/files/assets/icon/icofont/css/icofont.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url('Admin/files/assets/icon/typicons-icons/css/typicons.min.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{url('Admin/files/assets/icon/typicons-icons/css/typicons.min.css')}}">
 
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{url('Admin/files/assets/css/style.css')}}">

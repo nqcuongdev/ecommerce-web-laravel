@@ -24,8 +24,7 @@
                                     <button type="button"
                                             class="btn btn-primary waves-effect waves-light f-right d-inline-block md-trigger"
                                             data-modal="modal-13">
-                                        <i class="icofont icofont-plus m-r-5"></i>
-                                        Add New Slides
+                                        <i class="icofont icofont-plus m-r-5"></i>Add New Slides
                                     </button>
                                 </div>
                             @endif
@@ -54,7 +53,8 @@
                                                 <td>{{$values->price}}</td>
                                                 <td>{{$values->btn_link}}</td>
                                                 <td>
-                                                    <img src="{{url($values->image)}}" alt="{{$values->id}}" class="img-responsive" style="width: 100px;">
+                                                    <img src="{{url($values->image)}}" alt="{{$values->id}}"
+                                                         class="img-responsive" style="width: 100px;">
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -70,33 +70,33 @@
                                     <h3 class="f-26">Add New Slides</h3>
                                     <div>
                                         <div class="input-group">
-                                        <span class="input-group-addon"><i
-                                                class="icofont icofont-ui-add"></i></span>
+                                    <span class="input-group-addon"><i
+                                            class="icofont icofont-ui-add"></i></span>
                                             <input type="text" class="form-control" name="small_title">
                                         </div>
                                         <div class="input-group">
-                                        <span class="input-group-addon"><i
-                                                class="icofont icofont-ui-add"></i></span>
+                                    <span class="input-group-addon"><i
+                                            class="icofont icofont-ui-add"></i></span>
                                             <input type="text" class="form-control" name="title">
                                         </div>
                                         <div class="input-group">
-                                        <span class="input-group-addon"><i
-                                                class="icofont icofont-ui-add"></i></span>
+                                    <span class="input-group-addon"><i
+                                            class="icofont icofont-ui-add"></i></span>
                                             <input type="text" class="form-control" name="small_text">
                                         </div>
                                         <div class="input-group">
-                                        <span class="input-group-addon"><i
-                                                class="icofont icofont-ui-add"></i></span>
+                                    <span class="input-group-addon"><i
+                                            class="icofont icofont-ui-add"></i></span>
                                             <input type="text" class="form-control" name="price">
                                         </div>
                                         <div class="input-group">
-                                        <span class="input-group-addon"><i
-                                                class="icofont icofont-ui-add"></i></span>
+                                    <span class="input-group-addon"><i
+                                            class="icofont icofont-ui-add"></i></span>
                                             <input type="text" class="form-control" name="btn_link">
                                         </div>
                                         <div class="input-group">
-                                        <span class="input-group-addon"><i
-                                                class="icofont icofont-file-image"></i></span>
+                                    <span class="input-group-addon"><i
+                                            class="icofont icofont-file-image"></i></span>
                                             <input type="file" class="form-control" name="image">
                                         </div>
                                         <div class="text-center">

@@ -23,9 +23,12 @@
                         <div class="gmap_canvas">
                             <iframe width="1140" height="350" id="gmap_canvas"
                                     src="https://maps.google.com/maps?q=Khoa%20C%C3%B4ng%20ngh%E1%BB%87%20th%C3%B4ng%20tin%20v%C3%A0%20truy%E1%BB%81n%20th%C3%B4ng%20%C4%91%E1%BA%A1i%20h%E1%BB%8Dc%20%C4%91%C3%A3%20n%E1%BA%B5ng&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+
+                            </iframe>
                             <a href="https://www.embedgooglemap.net"></a></div>
-                        <style>.mapouter {
+                        <style>
+                            .mapouter {
                                 text-align: right;
                                 height: 350px;
                                 width: 1140px;
@@ -36,7 +39,8 @@
                                 background: none !important;
                                 height: 350px;
                                 width: 1140px;
-                            }</style>
+                            }
+                        </style>
                     </div>
                 </section>
 
