@@ -75,7 +75,12 @@ class AdminController extends Controller
     }
 
     public function postEditCategory(Request $request){
-        $category = Category::find($id);
-        $category->name_category = $request->name;
+        if($request->ajax()){
+            $category = Category::find($request->id);
+            $category->name_category = $request->name;
+            $category->save();
+            $category_all = Category::all();
+            return $category_all;
+        }
     }
 }

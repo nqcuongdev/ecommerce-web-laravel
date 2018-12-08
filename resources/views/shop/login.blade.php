@@ -1,9 +1,7 @@
 @extends('master')
 @section('content')
-  <!-- Content -->
   <div id="content"> 
     
-        <!-- Linking -->
         <div class="linking">
           <div class="container">
             <ol class="breadcrumb">
@@ -13,18 +11,24 @@
           </div>
         </div>
         
-        <!-- Blog -->
         <section class="login-sec padding-top-30 padding-bottom-100">
           <div class="container">
             <div class="row">
               <div class="col-md-6"> 
-                <!-- Login Your Account -->
                 <h5>Login Your Account</h5>
                 
-                <!-- FORM -->
                 <form action="{{route('post.login')}}" method="POST">
                 {{csrf_field()}}
                   <ul class="row">
+                  @if(count($errors)>0)
+                    <ul class="alert alert-danger">
+                        @foreach($errors->all() as $errs)
+                        <li>
+                          {{$errs}}
+                        </li>
+                        @endforeach
+                    </ul>
+                    @endif
                   @if(Session::has('flag'))
                   <div class="alert alert-{{Session::get('flag')}}">{{Session::get('message')}}</div>
                   @endif  
@@ -52,16 +56,28 @@
                 </form>
               </div>
               
-              <!-- Don’t have an Account? Register now -->
               <div class="col-md-6">
                 <h5>Don’t have an Account? Register now</h5>
                 
-                <!-- FORM -->
                 <form action="{{route('post.register')}}" method="POST">
                     {{ csrf_field() }}
                   <ul class="row">
+                    @if(count($errors)>0)
+                      <ul class="alert alert-danger">
+                          @foreach($errors->all() as $err)
+                          <li>
+                            {{$err}}
+                          </li>
+                          @endforeach
+                      </ul>
+                    @endif
+                    @if(Session::has('flag_reg'))
+                      <div class="alert alert-{{Session::get('flag_reg')}}">
+                        {{Session::get('message')}}
+                      </div>
+                    @endif
                     <li class="col-sm-12">
-                      <label>Username
+                      <label>Full Name
                         <input type="text" class="form-control" name="name">
                       </label>
                     </li>
@@ -89,6 +105,4 @@
             </div>
           </div>
         </section>
-        
-      <!-- End Content --> 
 @endsection

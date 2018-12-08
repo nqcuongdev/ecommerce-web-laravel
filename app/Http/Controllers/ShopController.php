@@ -89,14 +89,26 @@ class ShopController extends Controller
     public function getLogin(){return view('shop.login');}
 
     public function postLogin(Request $request){
+        $rules = [
+            'email' => 'required|email',
+            'password' => 'required',
+        ];
+        $message = [
+            'email.required'=>'Enter your email',
+            'email.email'=>'Enter the correct email format',
+            'password.required'=>'Enter correct password',
+        ];
+        $validator = $request->validate($rules);
         $checklogin = array('email'=>$request->email,'password'=>$request->password);
         if(Auth::attempt($checklogin)){
-            if(Auth::user()->status == 1)
-                return redirect('/')->with(['flag'=>'succes','message'=>'Login Success !']);
-            else 
-                return redirect('login')->with(['flag'=>'warning','message'=>'Your account has been disable. Please contact admin !']);           
+            if(Auth::user()->status == 1){
+                return redirect('/')->with(['flag'=>'success','message'=>'Login Success !']);
+            }
+            else {
+                return redirect('login')->with(['flag'=>'warning','message'=>'Your account has been disable. Please contact admin !']); 
+            }         
         }else{
-            return redirect('login')->with(['flag'=>'danger','message'=>'Cannot access the website !']);
+            return redirect('login')->with(['flag'=>'danger','message'=>'Cannot access the website! Wrong password !']);
         }
     }
 
@@ -105,6 +117,25 @@ class ShopController extends Controller
         return redirect('/');
     }
     public function postRegister(Request $request){
+        $rules = [
+            'name' => 'required|max:255',
+            'email' => 'required|email|unique::users',
+            'password' => 'required|min:6|max:20',
+            're_password'=>'required|same:password',
+        ];
+        $message = [
+            'name.required' => 'You must enter your fullname',
+            'name.max' => 'Name cannot long like this',
+            'email.required'=>'Enter your email',
+            'email.email'=>'Enter the correct email format',
+            'email.unique'=>'Email already exists',
+            'password.required'=>'Enter correct password',
+            'password.min'=>'Password of at least 6 characters',
+            'password.max' => 'Password is too long to re-enter',
+            're_password.same'=>'Passwords are not the same',
+        ];
+        $validators = $request->validate($rules);
+        dd($validator);
         $user = new UsersModel();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -113,6 +144,6 @@ class ShopController extends Controller
         $user->address = "";
         $user->status = 1;
         $user->save();
-        return redirect('login');
+        return redirect('login')->with(['flag_reg'=>'success','message'=>'Your account has been created']);
     }
 }
