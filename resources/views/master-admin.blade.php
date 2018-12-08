@@ -36,33 +36,6 @@
             <div class="ring">
                 <div class="frame"></div>
             </div>
-            <div class="ring">
-                <div class="frame"></div>
-            </div>
-            <div class="ring">
-                <div class="frame"></div>
-            </div>
-            <div class="ring">
-                <div class="frame"></div>
-            </div>
-            <div class="ring">
-                <div class="frame"></div>
-            </div>
-            <div class="ring">
-                <div class="frame"></div>
-            </div>
-            <div class="ring">
-                <div class="frame"></div>
-            </div>
-            <div class="ring">
-                <div class="frame"></div>
-            </div>
-            <div class="ring">
-                <div class="frame"></div>
-            </div>
-            <div class="ring">
-                <div class="frame"></div>
-            </div>
         </div>
     </div>
 </div>
@@ -135,6 +108,7 @@
 <script src="{{url('Admin/files/assets/js/vartical-layout.min.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/assets/pages/dashboard/analytic-dashboard.min.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/assets/js/script.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @yield('ckeditor')
 </body>
 

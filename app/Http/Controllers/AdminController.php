@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Products;
 use App\Slides;
 use App\Category;
+use App\Product_Type;
 
 class AdminController extends Controller
 {
@@ -64,12 +65,17 @@ class AdminController extends Controller
 
     public function getCategory(){
         $category = Category::all();
-        return view('admin.category-management',compact('category'));
+        $type = Product_Type::join('category','product_type.id_category','=','category.id')
+                ->select('product_type.*','category.name_category')
+                ->get();
+        $category_all = Category::where('status','=',1)->get();
+        return view('admin.category-management',compact('category','type','category_all'));
     }
 
     public function postCategory(Request $request){
         $category = new Category;
         $category->name_category = $request->name;
+        $category->status = 1;
         $category->save();
         return redirect('admin/category');
     }
@@ -78,9 +84,34 @@ class AdminController extends Controller
         if($request->ajax()){
             $category = Category::find($request->id);
             $category->name_category = $request->name;
+            $category->status = 1;
             $category->save();
-            $category_all = Category::all();
-            return $category_all;
+            return "success";
         }
+    }
+
+    public function getDisableCategory($id){
+        $category = Category::find($id);
+        $category->name_category = $category->name_category;
+        $category->status = 0;
+        $category->save();
+        return redirect()->back();
+    }
+
+    public function getActiveCategory($id){
+        $category = Category::find($id);
+        $category->name_category = $category->name_category;
+        $category->status = 1;
+        $category->save();
+        return redirect()->back();
+    }
+
+    public function postType(Request $request){
+        $type = new Product_Type();
+        $type->name_type = $request->name_type;
+        $type->id_category = $request->id_category;
+        $type->status = 1;
+        $type->save();
+        return redirect()->back();
     }
 }
