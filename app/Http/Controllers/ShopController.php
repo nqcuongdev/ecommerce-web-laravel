@@ -18,8 +18,12 @@ class ShopController extends Controller
     public function getIndex()
     {
         $slides = Slides::all();
-        $category = Category::where('status','=',1)->get(); 
-        return view('shop.index',compact('slides','category'));
+        $category = Category::where('status','=',1)->get();
+        $products_sale = Products::join('product_type','products.products_type','=','product_type.id')
+                                    ->select('products.*','product_type.name_type')
+                                    ->where([['products.status','=','1'],['products.sale_price','<>','0']])
+                                    ->get();
+        return view('shop.index',compact('slides','category','products_sale'));
     }
 
     public function getProducts()

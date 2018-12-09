@@ -50,5 +50,8 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('disable-category/{id}',['as'=>'disablecategory','uses'=>'AdminController@getDisableCategory']);
     Route::get('active-category/{id}',['as'=>'activecategory','uses'=>'AdminController@getActiveCategory']);
 
-    Route::post('type',['as'=>'posttype','uses'=>'AdminController@postType']);	
+    Route::post('type',['as'=>'posttype','uses'=>'AdminController@postType']);
+    Route::post('ajax-edittype',['as'=>'edittype','uses'=>'AdminController@postEditType']);
+    Route::get('disable-type/{id}',['as'=>'disabletype','uses'=>'AdminController@getDisableType']);
+    Route::get('active-type/{id}',['as'=>'activetype','uses'=>'AdminController@getActiveType']);	
 });

@@ -127,17 +127,14 @@
                             <!-- Product -->
                             @foreach($products as $item)
                                 <div class="product">
-                                    <article><img class="img-responsive" src="{{url($item->image)}}"
-                                                  alt="{{$item->name}}">
-
+                                    <article><a href="{{route('product-details',$item->id)}}"><img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}"></a>
                                         @if($item->sale_price != 0)
                                             <span class="sale-tag">-{{$item->sale_price}}%</span>
                                     @endif
 
                                     <!-- Content -->
-                                        <span class="tag">Tablets</span> <a
-                                            href="{{route('product-details',$item->id)}}"
-                                            class="tittle">{{$item->name}}</a>
+                                        <span class="tag">Tablets</span>
+                                        <a href="{{route('product-details',$item->id)}}" class="tittle">{{$item->name}}</a>
                                         <!-- Reviews -->
                                         <p>
                                             {{str_limit($item->technical_description,20)}}

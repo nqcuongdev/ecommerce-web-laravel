@@ -137,6 +137,8 @@
         <div class="card-block">
         <div class="table-responsive">
             <div class="dt-responsive table-responsive">
+                <form action="" method="POST">
+                    {{csrf_field()}}
                 <table id="res-config" class="table table-striped table-bordered nowrap">
                     <thead>
                         <tr>
@@ -148,32 +150,37 @@
                     </thead>
                     <tbody>
                         @foreach($type as $item)
-                            <tr>
-                                <td class="table_type">
+                            <tr class="table_type">
+                                <td class="view_type">
                                     <input class="type_id form-control d-none" disabled type="text"
                                                 value="{{$item->id}}">
-                                    <span class="text_id">{{$item->id}}</span>
+                                    <span class="type_text_id">{{$item->id}}</span>
                                 </td>
                                 <td class="view-type">
-                                    <input class="type_id form-control d-none" disabled type="text"
+                                    <input class="type_name form-control d-none" type="text"
                                                 value="{{$item->name_type}}">
-                                    <span class="text_id">{{$item->name_type}}</span>
+                                    <span class="type_text_name">{{$item->name_type}}</span>
                                     </td>
                                 <td class="view-type">
-                                    <span class="text_category">{{$item->name_category}}</span>
+                                    <select name="edit_type" id="type_category" class="type_category form-control d-none">
+                                        @foreach($category_all as $items)
+                                            <option value="{{$items->id}}" @if($items->id == $item->id_category) selected @endif>{{$items->name_category}}</option>
+                                        @endforeach
+                                    </select>
+                                    <span class="type_text_category">{{$item->name_category}}</span>
                                 </td>
                                 <td class="view-type">
                                     <button type="button" id="type_edit" class="btn btn-primary waves-effect waves-light" style="float: none;margin: 5px;">
                                         <span class="icofont icofont-ui-edit"></span>
                                     </button>
                                     @if($item->status == 1)
-                                        <a href="#">
+                                        <a href="{{route('disabletype',$item->id)}}">
                                             <button type="button" id="type_disable" class="btn btn-danger waves-effect waves-light" style="float: none;margin: 5px;">
                                                 <i class="icofont icofont-ui-block"></i>
                                             </button>
                                         </a>
                                     @else
-                                        <a href="#">
+                                        <a href="{{route('activetype',$item->id)}}">
                                             <button type="button" class="btn btn-info waves-effect waves-light" style="float: none;margin: 5px;">
                                                 <i class="icofont icofont-check"></i>
                                             </button>
@@ -190,6 +197,7 @@
                         @endforeach
                     </tbody>
                     </table>
+                    </form>
                 </div>
             </div>
         </div>
@@ -358,5 +366,84 @@
         // });
 
     });
+</script>
+<script>
+    $(document).ready(function() {
+        $('body').on('click', '#type_edit', function(event) {
+           $(this).parent().find('#type_disable').addClass('d-none');
+            $(this).parent().find('#type_save').removeClass('d-none');
+            $(this).parent().find('#type_back').removeClass('d-none');
+            $(this).parent().find('#type_edit').addClass('d-none');
+
+            $(this).closest('.table_type').find('.type_id').removeClass('d-none');
+            $(this).closest('.table_type').find('.type_name').removeClass('d-none');
+            $(this).closest('.table_type').find('.type_category').removeClass('d-none');
+            $(this).closest('.table_type').find('.type_text_id').addClass('d-none');
+            $(this).closest('.table_type').find('.type_text_name').addClass('d-none');
+            $(this).closest('.table_type').find('.type_text_category').addClass('d-none');
+
+            $('body').on('click', '#type_save', function (event) {
+                var token_type = $("input[name='_token']").val();
+                var id_type = $(this).closest('.table_type').find('.type_id').val();
+                var name_type = $(this).closest('.table_type').find('.type_name').val();
+                var category_type = $(this).closest('.table_type').find('.type_category').val();
+
+                $(this).closest('.table_type').find('.type_id').addClass('d-none');
+                $(this).closest('.table_type').find('.type_name').addClass('d-none');
+                $(this).closest('.table_type').find('.type_category').addClass('d-none');
+                $(this).closest('.table_type').find('.type_text_id').removeClass('d-none');
+                $(this).closest('.table_type').find('.type_text_name').removeClass('d-none');
+                $(this).closest('.table_type').find('.type_text_category').removeClass('d-none');
+                $(this).parent().find('#type_disable').removeClass('d-none');
+                $(this).parent().find('#type_save').addClass('d-none');
+                $(this).parent().find('#type_back').addClass('d-none');
+                $(this).parent().find('#type_edit').removeClass('d-none');
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: 'ajax-edittype',
+                    type: 'POST',
+                    data: {"_token": token_type, "id": id_type, "name": name_type, "category": category_type},
+                })
+                .done(function (res) {
+                    if(res == "success"){
+                        //location.reload();
+                        swal({
+                          title: "Success!",
+                          icon: "success",
+                        });
+                        // .then((value) => {
+                        //     location.reload();
+                        // });
+                    }
+
+                })
+                .fail(function () {
+                })
+                .always(function () {
+                });
+            });
+
+            $('body').on('click', '#type_back', function(event) {
+
+                $(this).closest('.table_type').find('.type_id').addClass('d-none');
+                $(this).closest('.table_type').find('.type_name').addClass('d-none');
+                $(this).closest('.table_type').find('.type_category').addClass('d-none');
+                $(this).closest('.table_type').find('.type_text_id').removeClass('d-none');
+                $(this).closest('.table_type').find('.type_text_name').removeClass('d-none');
+                $(this).closest('.table_type').find('.type_text_category').removeClass('d-none');
+                $(this).parent().find('#type_disable').removeClass('d-none');
+                $(this).parent().find('#type_save').addClass('d-none');
+                $(this).parent().find('#type_back').addClass('d-none');
+                $(this).parent().find('#type_edit').removeClass('d-none');
+
+            });
+         });
+        });
 </script>
 @endsection

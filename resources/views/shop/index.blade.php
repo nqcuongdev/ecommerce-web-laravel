@@ -177,12 +177,14 @@
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-pills margin-bottom-40" role="tablist">
-                    <li role="presentation" class="active"><a href="#featur" aria-controls="featur" role="tab"
-                                                              data-toggle="tab">Featured</a></li>
-                    <li role="presentation"><a href="#special" aria-controls="special" role="tab" data-toggle="tab">Special</a>
+                    <li role="presentation" class="active">
+                        <a href="#featur" aria-controls="featur" role="tab" data-toggle="tab">Featured</a>
                     </li>
-                    <li role="presentation"><a href="#on-sal" aria-controls="on-sal" role="tab"
-                                               data-toggle="tab">Onsale</a></li>
+                    <li role="presentation">
+                        <a href="#special" aria-controls="special" role="tab" data-toggle="tab">Special</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#on-sal" aria-controls="on-sal" role="tab" data-toggle="tab">Onsale</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -332,87 +334,7 @@
                     <!-- Special -->
                     <div role="tabpanel" class="tab-pane fade" id="special">
                         <!-- Items Slider -->
-                        <div class="item-col-5">
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-11.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Latop</span> <a href="#." class="tittle">Laptop Alienware 15 i7
-                                        Perfect For Playing Game</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-9.jpg" alt=""> <span
-                                        class="sale-tag">-25%</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Tablets</span> <a href="#." class="tittle">Mp3 Sumergible
-                                        Deportivo Slim Con 8GB</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00 <span>$200.00</span></div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-8.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente
-                                        Smart Watch M26 Touch Bluetooh </a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-7.jpg" alt=""> <span
-                                        class="new-tag">New</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-6.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-                        </div>
+                        sdasasa
                     </div>
 
                     <!-- on sale -->
@@ -420,82 +342,27 @@
                         <!-- Items Slider -->
                         <div class="item-col-5">
 
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-3.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Latop</span> <a href="#." class="tittle">Laptop Alienware 15 i7
-                                        Perfect For Playing Game</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
+                            @foreach($products_sale as $item)
+                                <div class="product">
+                                    <article>
+                                        <img class="img-responsive" src="{{$item->image}}" alt="Image {{$item->name}}">
+                                        <span class="sale-tag">-{{$item->sale_price}}%</span>
+                                        <span class="tag">{{$item->name_type}}</span>
+                                        <a href="{{route('product-details',$item->id)}}" class="tittle">{{$item->name}}</a>
+                                        <p class="rev margin-top-5"></p>
+                                        <div class="price">
+                                            ${{$item->price}}
+                                            <span>${{($item->price) - ((($item->price)*($item->sale_price))/100)}}</span>
+                                        </div>
+                                        <a href="{{route('addtocart',$item->id)}}" class="cart-btn"><i class="icon-basket-loaded"></i></a>
+                                    </article>
+                                </div>
+                            @endforeach
 
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-1.jpg" alt=""> <span
-                                        class="sale-tag">-25%</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Tablets</span> <a href="#." class="tittle">Mp3 Sumergible
-                                        Deportivo Slim Con 8GB</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00 <span>$200.00</span></div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-2.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente
-                                        Smart Watch M26 Touch Bluetooh </a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-5.jpg" alt=""> <span
-                                        class="new-tag">New</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-4.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
                         </div>
+
                     </div>
+                </div>
                 </div>
             </div>
         </section>
@@ -649,19 +516,37 @@
         <section class="main-tabs-sec padding-top-60 padding-bottom-0">
             <div class="container">
                 <ul class="nav margin-bottom-40" role="tablist">
-                    <li role="presentation" class="active"><a href="#tv-au" aria-controls="featur" role="tab"
-                                                              data-toggle="tab"> <i class="flaticon-computer"></i> TV &
-                            Audios <span>236 item(s)</span></a></li>
-                    <li role="presentation"><a href="#smart" aria-controls="special" role="tab" data-toggle="tab"><i
-                                class="flaticon-smartphone"></i>Smartphones <span>150 item(s)</span></a></li>
-                    <li role="presentation"><a href="#deks-lap" aria-controls="on-sal" role="tab" data-toggle="tab"><i
-                                class="flaticon-laptop"></i>Desk & Laptop <span>268 item(s)</span></a></li>
-                    <li role="presentation"><a href="#game-com" aria-controls="special" role="tab" data-toggle="tab"><i
-                                class="flaticon-gamepad-1"></i>Game Console <span>79 item(s)</span></a></li>
-                    <li role="presentation"><a href="#watches" aria-controls="on-sal" role="tab" data-toggle="tab"><i
-                                class="flaticon-computer-1"></i>Watches <span>105 item(s)</span></a></li>
-                    <li role="presentation"><a href="#access" aria-controls="on-sal" role="tab" data-toggle="tab"><i
-                                class="flaticon-keyboard"></i>Accessories <span>816 item(s)</span></a></li>
+                    <li role="presentation" class="active">
+                        <a href="#tv-au" aria-controls="featur" role="tab" data-toggle="tab">
+                            <i class="flaticon-computer"></i>
+                            TV & Audios <span>236 item(s)</span>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#smart" aria-controls="special" role="tab" data-toggle="tab">
+                            <i class="flaticon-smartphone"></i>Smartphones <span>150 item(s)</span>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#deks-lap" aria-controls="on-sal" role="tab" data-toggle="tab">
+                            <i class="flaticon-laptop"></i>Desktop & Laptop <span>268 item(s)</span>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#game-com" aria-controls="special" role="tab" data-toggle="tab">
+                            <i class="flaticon-gamepad-1"></i>Game Console <span>79 item(s)</span>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#watches" aria-controls="on-sal" role="tab" data-toggle="tab">
+                            <i class="flaticon-computer-1"></i>Watches<span>105 item(s)</span>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#access" aria-controls="on-sal" role="tab" data-toggle="tab">
+                            <i class="flaticon-keyboard"></i>Accessories <span>816 item(s)</span>
+                        </a>
+                    </li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -1319,20 +1204,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Clients img -->
-        <section class="light-gry-bg clients-img">
-            <div class="container">
-                <ul>
-                    <li><img src="images/c-img-1.png" alt=""></li>
-                    <li><img src="images/c-img-2.png" alt=""></li>
-                    <li><img src="images/c-img-3.png" alt=""></li>
-                    <li><img src="images/c-img-4.png" alt=""></li>
-                    <li><img src="images/c-img-5.png" alt=""></li>
-                </ul>
-            </div>
-        </section>
-
         <!-- Newslatter -->
         <section class="newslatter">
             <div class="container">

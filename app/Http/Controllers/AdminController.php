@@ -114,4 +114,33 @@ class AdminController extends Controller
         $type->save();
         return redirect()->back();
     }
+
+    public function postEditType(Request $request){
+        if($request->ajax()){
+            $type = Product_Type::find($request->id);
+            $type->name_type = $request->name;
+            $type->id_category = $request->category;
+            $type->status = 1;
+            $type->save();
+            return "success";
+        }
+    }
+
+    public function getDisableType($id){
+        $type = Product_Type::find($id);
+        $type->name_type = $type->name_type;
+        $type->id_category = $type->id_category;
+        $type->status = 0;
+        $type->save();
+        return redirect()->back();
+    }
+
+    public function getActiveType($id){
+        $type = Product_Type::find($id);
+        $type->name_type = $type->name_type;
+        $type->id_category = $type->id_category;
+        $type->status = 1;
+        $type->save();
+        return redirect()->back();
+    }
 }
