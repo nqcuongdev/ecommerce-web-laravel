@@ -135,10 +135,6 @@
                                     <!-- Content -->
                                         <span class="tag">Tablets</span>
                                         <a href="{{route('product-details',$item->id)}}" class="tittle">{{$item->name}}</a>
-                                        <!-- Reviews -->
-                                        <p>
-                                            {{str_limit($item->technical_description,20)}}
-                                        </p>
                                         <div class="price">
                                             @if($item->sale_price == 0)
                                                 ${{$item->price}}
@@ -147,8 +143,9 @@
                                                 <span>${{($item->price) - ((($item->price)*($item->sale_price))/100)}}</span>
                                             @endif
                                         </div>
-                                        <a href="{{route('addtocart',$item->id)}}" class="cart-btn"><i
-                                                class="icon-basket-loaded"></i></a></article>
+                                        <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
+                                            <i lass="icon-basket-loaded"></i></a>
+                                    </article>
                                 </div>
                             @endforeach
                         <!-- pagination -->

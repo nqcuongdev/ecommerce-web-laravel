@@ -36,12 +36,17 @@ class AdminController extends Controller
         $slides->save();
         return redirect('admin/slides');
     }
+
     public function getProducts()
     {
         $products = Products::all();
         return view('admin.products',compact('products'));
     }
 
+    public function getAddProducts(){
+        $product_type = Product_Type::where('status','=',1)->get();
+         return view('admin.add-products',compact('product_type'));
+        }
     public function postProducts(Request $request)
     {
         $products = new Products;
@@ -59,6 +64,7 @@ class AdminController extends Controller
         $products->image = $link;
 
         $products->available = $request->available;
+        $products->status = 1;
         $products->save();
         return redirect('admin/products');
     }

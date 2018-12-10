@@ -189,9 +189,9 @@
                                             </div>
                                         </div>
                                         <!-- List Details -->
-                                        <div class="bullet-round-list">
-                                            {{$products->technical_description}}
-                                        </div>
+                                        <ul class="bullet-round-list">
+                                            {!! $products->technical_description !!}
+                                        </ul>
                                         <!-- Quinty -->
                                         <div class="margin-top-25 ">
                                             <div class="quinty">

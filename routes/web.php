@@ -42,6 +42,7 @@ Route::group(['prefix'=>'admin'],function(){
     Route::post('slides',['as'=>'postslides','uses'=>'AdminController@postSlides']);
 
     Route::get('products',['as'=>'admin.getproducts','uses'=>'AdminController@getProducts']);
+    Route::get('add-products',['as'=>'admin.addproducts','uses'=>'AdminController@getAddProducts']);
     Route::post('products',['as'=>'admin.postproducts','uses'=>'AdminController@postProducts']);
 
     Route::get('category',['as'=>'getcategory','uses'=>'AdminController@getCategory']);
