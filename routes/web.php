@@ -34,8 +34,6 @@ Route::post('login',['as'=>'post.login','uses'=>'ShopController@postLogin']);
 Route::get('logout',['as'=>'get.logout','uses'=>'ShopController@postLogout']);
 Route::post('register',['as'=>'post.register','uses'=>'ShopController@postRegister']);
 
-Route::get('admin/login',['as'=>'get.adminlogin','uses'=>'AdminController@getLogin']);
-Route::post('admin/login',['as'=>'post.adminlogin','uses'=>'AdminController@postLogin']);
 Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 
     Route::get('dashboard',['as'=>'dashboard','uses'=>'AdminController@getDashboard']);
@@ -56,5 +54,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
     Route::post('type',['as'=>'posttype','uses'=>'AdminController@postType']);
     Route::post('ajax-edittype',['as'=>'edittype','uses'=>'AdminController@postEditType']);
     Route::get('disable-type/{id}',['as'=>'disabletype','uses'=>'AdminController@getDisableType']);
-    Route::get('active-type/{id}',['as'=>'activetype','uses'=>'AdminController@getActiveType']);	
+    Route::get('active-type/{id}',['as'=>'activetype','uses'=>'AdminController@getActiveType']);
+    
+    Route::get('logout',['as'=>'get.adminlogout','uses'=>'AdminController@getAdminLogout']);
 });

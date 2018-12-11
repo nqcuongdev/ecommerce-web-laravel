@@ -8,35 +8,11 @@ use App\Slides;
 use App\Category;
 use App\Product_Type;
 use Auth;
+use Admin;
 
+use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
-    public function getLogin(){ return view('admin.admin-login');}
-
-    public function postLogin(){
-        $rules = [
-            'username' => 'required',
-            'password' => 'required',
-        ];
-        $message = [
-            'username.required'=>'Enter your Username',
-            'password.required'=>'Enter correct password',
-        ];
-        $validator = $request->validate($rules);
-        $checklogin = array('username'=>$request->username,'password'=>$request->password);
-        if(Auth::attempt($checklogin)){
-            if(Auth::user()->status == 1){
-                if(Auth::user()->group_id == 1 || Auth::user()->group_id == 2)
-                    return redirect('admin/dashboard');
-            }
-            else {
-                return redirect('admin/login'); 
-            }         
-        }else{
-            return redirect('admin/login')->with(['flag'=>'danger','message'=>'Cannot access the website! Wrong password !']);
-        }
-    }
-
     public function getDashboard()
     {
         return view('admin.dashboard');
@@ -175,5 +151,10 @@ class AdminController extends Controller
         $type->status = 1;
         $type->save();
         return redirect()->back();
+    }
+
+    public function getAdminLogout(){
+        Auth::guard('admins')->logout();
+        return redirect('/');
     }
 }

@@ -1,7 +1,6 @@
 @extends('master')
 @section('content')
     <div id="content">
-
         <div class="linking">
             <div class="container">
                 <ol class="breadcrumb">

@@ -6,7 +6,8 @@ use App\Products;
 use App\Slides;
 use App\Category;
 use App\Product_Type;
-use App\UsersModel;
+use User;
+use Admin;
 use Cart;
 use Auth;
 
@@ -92,7 +93,15 @@ class ShopController extends Controller
 
     public function getContact(){return view('shop.contact');}
 
-    public function getLogin(){return view('shop.login');}
+    public function getLogin(){
+        if(Auth::check()){
+            if(Auth::guard('users')->user()->status == 1){
+                return redirect('/');               
+            }
+        }else{
+            return view('shop.login');
+        }
+    }
 
     public function postLogin(Request $request){
         $rules = [
@@ -106,14 +115,24 @@ class ShopController extends Controller
         ];
         $validator = $request->validate($rules);
         $checklogin = array('email'=>$request->email,'password'=>$request->password);
-        if(Auth::attempt($checklogin)){
-            if(Auth::user()->status == 1){
+        if(Auth::guard('users')->attempt($checklogin)){
+            if(Auth::guard('users')->user()->status == 1){
                 return redirect('/')->with(['flag'=>'success','message'=>'Login Success !']);
             }
             else {
                 return redirect('login')->with(['flag'=>'warning','message'=>'Your account has been disable. Please contact admin !']); 
             }         
-        }else{
+        }else if(Auth::guard('admins')->attempt($checklogin)){
+            if(Auth::guard('admins')->user()->status == 1){
+                if(Auth::guard('admins')->user()->group_id == 1 || Auth::guard('admins')->user()->group_id == 2){
+                    return redirect('admin/dashboard');
+                }    
+            }
+            else {
+                return redirect('login'); 
+            } 
+        }
+        else{
             return redirect('login')->with(['flag'=>'danger','message'=>'Cannot access the website! Wrong password !']);
         }
     }
@@ -141,7 +160,6 @@ class ShopController extends Controller
             're_password.same'=>'Passwords are not the same',
         ];
         $validators = $request->validate($rules);
-        dd($validator);
         $user = new UsersModel();
         $user->name = $request->name;
         $user->email = $request->email;

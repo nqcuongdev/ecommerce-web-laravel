@@ -16,14 +16,16 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check()){
-            $user = Auth::user();
-            if($user->group_id == 1 && $user->group_id == 2)
-                return $next($request);
-            else
-                return redirect('admin/login');
+        if(Auth::guard('admins')->check()){
+            $user = Auth::guard('admins')->user();
+            if(Auth::guard('admins')->user()->status == 1){
+                if($user->group_id == 1 || $user->group_id == 2)
+                    return $next($request);
+                else
+                    return redirect('login');
+            }
         }else
-            return redirect('admin/login');
+            return redirect('login');
         
     }
 }
