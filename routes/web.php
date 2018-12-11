@@ -34,7 +34,9 @@ Route::post('login',['as'=>'post.login','uses'=>'ShopController@postLogin']);
 Route::get('logout',['as'=>'get.logout','uses'=>'ShopController@postLogout']);
 Route::post('register',['as'=>'post.register','uses'=>'ShopController@postRegister']);
 
-Route::group(['prefix'=>'admin'],function(){
+Route::get('admin/login',['as'=>'get.adminlogin','uses'=>'AdminController@getLogin']);
+Route::post('admin/login',['as'=>'post.adminlogin','uses'=>'AdminController@postLogin']);
+Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 
     Route::get('dashboard',['as'=>'dashboard','uses'=>'AdminController@getDashboard']);
 
