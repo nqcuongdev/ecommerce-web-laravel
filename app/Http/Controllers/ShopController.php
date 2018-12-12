@@ -22,14 +22,20 @@ class ShopController extends Controller
         $category = Category::where('status','=',1)->get();
         $products_sale = Products::join('product_type','products.products_type','=','product_type.id')
                                     ->select('products.*','product_type.name_type')
-                                    ->where([['products.status','=','1'],['products.sale_price','<>','0']])
+                                    ->where([
+                                        ['products.status','=','1'],
+                                        ['products.sale_price','<>','0'],
+                                        ['products.new_product','=','0']
+                                    ])
                                     ->get();
         return view('shop.index',compact('slides','category','products_sale'));
     }
 
     public function getProducts()
     {
-        $products = Products::select('id','name','technical_description','price','sale_price','image')->paginate(12);
+        $products = Products::join('product_type','products.products_type','=','product_type.id')
+                            ->select('products.id','products.name','products.price','sale_price','products.image','product_type.name_type')
+                            ->paginate(12);
         $category = Category::select('id','name_category')
                     ->where('status','=',1)
                     ->get();

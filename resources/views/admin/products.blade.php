@@ -66,14 +66,12 @@
                                                                     <label class="text-danger">Out Of Stock</label>
                                                                 </td>
                                                                 <td class="action-icon">
-                                                                    <a href="#!" class="m-r-15 text-muted"
-                                                                       data-toggle="tooltip" data-placement="top"
-                                                                       title="" data-original-title="Edit"><i
-                                                                            class="icofont icofont-ui-edit"></i></a>
-                                                                    <a href="#!" class="text-muted"
-                                                                       data-toggle="tooltip" data-placement="top"
-                                                                       title="" data-original-title="Delete"><i
-                                                                            class="icofont icofont-delete-alt"></i></a>
+                                                                    <a href="{{route('admin.geteditproducts',$item->id)}}" class="m-r-15 text-muted">
+                                                                        <i class="icofont icofont-ui-edit"></i>
+                                                                    </a>
+                                                                    <a href="#!" class="text-muted">
+                                                                        <i class="icofont icofont-delete-alt"></i>
+                                                                    </a>
                                                                 </td>
                                                             </tr>
                                                         @endforeach

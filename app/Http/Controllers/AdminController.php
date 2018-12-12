@@ -68,6 +68,7 @@ class AdminController extends Controller
 
         $products->available = $request->available;
         $products->status = 1;
+        $products->new_product = $request->isnew;
         $products->save();
         return redirect('admin/products');
     }
@@ -156,5 +157,17 @@ class AdminController extends Controller
     public function getAdminLogout(){
         Auth::guard('admins')->logout();
         return redirect('/');
+    }
+
+    public function getEditProducts($id){
+        $products = Products::where([
+                                ['products.status','=','1'],
+                                ['products.id','=',$id]
+                            ])
+                            ->join('product_type','products.products_type','=','product_type.id')
+                            ->select('products.id','products.name','products.price','sale_price','products.image','product_type.id as type_id')
+                            ->first();
+        $product_type = Product_Type::where('status','=',1)->get();
+        return view('admin.edit-products',compact('products','product_type'));
     }
 }

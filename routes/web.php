@@ -44,6 +44,8 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
     Route::get('products',['as'=>'admin.getproducts','uses'=>'AdminController@getProducts']);
     Route::get('add-products',['as'=>'admin.addproducts','uses'=>'AdminController@getAddProducts']);
     Route::post('products',['as'=>'admin.postproducts','uses'=>'AdminController@postProducts']);
+    Route::get('edit-products/{id}',['as'=>'admin.geteditproducts','uses'=>'AdminController@getEditProducts']);
+    Route::post('edit-products/{id}',['as'=>'admin.posteditproducts','uses'=>'AdminController@postEditProducts']);
 
     Route::get('category',['as'=>'getcategory','uses'=>'AdminController@getCategory']);
     Route::post('category',['as'=>'postcategory','uses'=>'AdminController@postCategory']);

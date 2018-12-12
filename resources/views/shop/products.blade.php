@@ -127,24 +127,31 @@
                             <!-- Product -->
                             @foreach($products as $item)
                                 <div class="product">
-                                    <article><a href="{{route('product-details',$item->id)}}"><img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}"></a>
+                                    <article>
+                                        <a href="{{route('product-details',$item->id)}}">
+                                            <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
+                                        </a>
                                         @if($item->sale_price != 0)
                                             <span class="sale-tag">-{{$item->sale_price}}%</span>
-                                    @endif
-
-                                    <!-- Content -->
-                                        <span class="tag">Tablets</span>
-                                        <a href="{{route('product-details',$item->id)}}" class="tittle">{{$item->name}}</a>
+                                        @endif
+                                        <span class="tag">{{$item->name_type}}</span>
+                                        <a href="{{route('product-details',$item->id)}}" class="tittle">
+                                            {{$item->name}}
+                                        </a>
+                                        <p class="rev margin-top-5"></p>
                                         <div class="price">
                                             @if($item->sale_price == 0)
                                                 ${{$item->price}}
                                             @else
                                                 ${{$item->price}}
-                                                <span>${{($item->price) - ((($item->price)*($item->sale_price))/100)}}</span>
+                                                <span>
+                                                    ${{($item->price) - ((($item->price)*($item->sale_price))/100)}}
+                                                </span>
                                             @endif
                                         </div>
                                         <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
-                                            <i lass="icon-basket-loaded"></i></a>
+                                            <i class="icon-basket-loaded"></i>
+                                        </a>
                                     </article>
                                 </div>
                             @endforeach
