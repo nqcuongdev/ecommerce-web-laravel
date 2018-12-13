@@ -55,7 +55,9 @@
                                                                 <td>
                                                                     <img src="{{url($item->image)}}"
                                                                          alt="{{$item->name}}"
-                                                                         style="width:30%;height:30%;display:block;">
+                                                                         width="100px"
+                                                                         height="100px"
+                                                                         style="display:block;">
                                                                 </td>
                                                                 <td>{{$item->name}}</td>
                                                                 <td>{{$item->name_type}}</td>
@@ -81,7 +83,7 @@
                                                                             New
                                                                         </label>
                                                                     @else 
-                                                                        <label class="text-warning">
+                                                                        <label class="text-primary">
                                                                             Old
                                                                         </label>
                                                                     @endif

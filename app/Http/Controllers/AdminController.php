@@ -43,7 +43,12 @@ class AdminController extends Controller
 
     public function getProducts()
     {
-        $products = Products::join('product_type','products.products_type','=','product_type.id')->get();
+        $products = Products::join('product_type','products.products_type','=','product_type.id')
+                            ->select('products.id','products.name',
+                            'products.price','sale_price','products.image',
+                            'products.technical_description','products.description','products.available','products.status','products.new_product',
+                            'product_type.id as type_id','product_type.name_type')
+                            ->orderBy('products.id')->get();
         return view('admin.products',compact('products'));
     }
 
@@ -85,6 +90,54 @@ class AdminController extends Controller
         $products->status = 1;
         $products->new_product = $request->new_product;
 
+        $products->save();
+        return redirect('admin/products');
+    }
+
+    public function getEditProducts($id){
+        $products = Products::where([
+                                ['products.status','=','1'],
+                                ['products.id','=',$id]
+                            ])
+                            ->join('product_type','products.products_type','=','product_type.id')
+                            ->select('products.id','products.name',
+                            'products.price','sale_price','products.image',
+                            'products.technical_description','products.description','product_type.id as type_id',
+                            'product_type.name_type')->get();
+        $product_type = Product_Type::where('status','=',1)->get();
+        return view('admin.edit-products',compact('products','product_type'));
+    }
+
+    public function getDisableProducts($id){
+        $products = Products::find($id);
+        $products->name = $products->name;
+        $products->products_type = $products->products_type;
+        $products->technical_description = $products->technical_description;
+        $products->description = $products->description;
+        $products->price = $products->price;
+        $products->sale_price = $products->sale_price;
+        $products->image = $products->image;
+
+        $products->available = $products->available;
+        $products->status = 0;
+        $products->new_product = $products->new_product;
+        $products->save();
+        return redirect('admin/products');
+    }
+
+    public function getActiveProducts($id){
+        $products = Products::find($id);
+        $products->name = $products->name;
+        $products->products_type = $products->products_type;
+        $products->technical_description = $products->technical_description;
+        $products->description = $products->description;
+        $products->price = $products->price;
+        $products->sale_price = $products->sale_price;
+        $products->image = $products->image;
+
+        $products->available = $products->available;
+        $products->status = 1;
+        $products->new_product = $products->new_product;
         $products->save();
         return redirect('admin/products');
     }
@@ -173,52 +226,6 @@ class AdminController extends Controller
     public function getAdminLogout(){
         Auth::guard('admins')->logout();
         return redirect('/');
-    }
-
-    public function getEditProducts($id){
-        $products = Products::where([
-                                ['products.status','=','1'],
-                                ['products.id','=',$id]
-                            ])
-                            ->join('product_type','products.products_type','=','product_type.id')
-                            ->select('products.id','products.name','products.price','sale_price','products.image','product_type.id as type_id','product_type.name_type')
-                            ->first();
-        $product_type = Product_Type::where('status','=',1)->get();
-        return view('admin.edit-products',compact('products','product_type'));
-    }
-
-    public function getDisableProducts($id){
-        $products = Products::find($id);
-        $products->name = $products->name;
-        $products->products_type = $products->products_type;
-        $products->technical_description = $products->technical_description;
-        $products->description = $products->description;
-        $products->price = $products->price;
-        $products->sale_price = $products->sale_price;
-        $products->image = $products->image;
-
-        $products->available = $products->available;
-        $products->status = 0;
-        $products->new_product = $products->new_product;
-        $products->save();
-        return redirect('admin/products');
-    }
-
-    public function getActiveProducts($id){
-        $products = Products::find($id);
-        $products->name = $products->name;
-        $products->products_type = $products->products_type;
-        $products->technical_description = $products->technical_description;
-        $products->description = $products->description;
-        $products->price = $products->price;
-        $products->sale_price = $products->sale_price;
-        $products->image = $products->image;
-
-        $products->available = $products->available;
-        $products->status = 1;
-        $products->new_product = $products->new_product;
-        $products->save();
-        return redirect('admin/products');
     }
 
     public function getBlogManagement(){

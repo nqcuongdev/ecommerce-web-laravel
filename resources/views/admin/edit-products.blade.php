@@ -34,17 +34,13 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Technical Description</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" name="technical_description">
-                                                    {{$products->technical_description}}
-                                                </textarea>
+                                                <textarea class="form-control" name="technical_description"></textarea>
                                             </div>                                                    
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Description</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" name="description">
-                                                    {{$products->description}}
-                                                </textarea>
+                                                <textarea class="form-control" name="description"></textarea>
                                             </div>                                                    
                                         </div>
                                         <div class="form-group row">
@@ -112,6 +108,7 @@
             filebrowserFlashUploadUrl: '{{ url('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
         });
     </script>
+    <script>CKEDITOR.instances['description'].setData('{!! $products->description !!}');</script>
     <script>
         CKEDITOR.replace('technical_description', {
             filebrowserBrowseUrl: '{{ url('ckfinder/ckfinder.html') }}',
@@ -122,6 +119,7 @@
             filebrowserFlashUploadUrl: '{{ url('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
         });
     </script>
+    <script>CKEDITOR.instances['technical_description'].setData('{!! $products->technical_description !!}');</script>
     <script type="text/javascript"
             src="{{url('ckfinder/ckfinder-laravel-package/public/ckfinder/ckfinder.js')}}"></script>
 @endsection

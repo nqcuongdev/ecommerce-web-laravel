@@ -53,8 +53,7 @@
                                                 <td>{{$values->price}}</td>
                                                 <td>{{$values->btn_link}}</td>
                                                 <td>
-                                                    <img src="{{url($values->image)}}" alt="{{$values->id}}"
-                                                         class="img-responsive" style="width: 100px;">
+                                                    <img src="{{url($values->image)}}" alt="{{$values->id}}" width="200px" height="100px" class="img-responsive" style="display:block;">
                                                 </td>
                                             </tr>
                                         @endforeach
