@@ -43,8 +43,7 @@
         @if(Cart::count() != 0)
             <ul class="nav navbar-right cart-pop">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="itm-cont">{{Cart::count()}}</span>
                         <i class="flaticon-shopping-bag"></i>
                         <strong>My Cart</strong><br>
@@ -55,13 +54,12 @@
                             <li>
 
                                 <div class="media-left">
-                                    <a href="#" class="thumb">
-                                        <img src="{{url($item->options->image)}}" class="img-responsive"
-                                             alt="{{$item->name}}">
+                                    <a href="{{route('product-details',$item->id)}}" class="thumb">
+                                        <img src="{{url($item->options->image)}}" class="img-responsive" alt="{{$item->name}}">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <a href="#" class="tittle">{{$item->name}}</a>
+                                    <a href="{{route('product-details',$item->id)}}" class="tittle">{{$item->name}}</a>
                                     <span>${{$item->price}} x {{$item->qty}}</span>
                                 </div>
                             </li>
@@ -123,7 +121,7 @@
                         <a href="{{route('products')}}">Shop</a>
                     </li>
                     <li>
-                        <a href="#">Blog</a>
+                        <a href="{{route('blog')}}">Blog</a>
                     </li>
                     <li>
                         <a href="{{route('contact')}}">Contact</a>

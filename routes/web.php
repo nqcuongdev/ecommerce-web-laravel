@@ -29,6 +29,8 @@ Route::get('delivery-method',['as'=>'getdeliverymethod','uses'=>'ShopController@
 
 Route::get('confirmation',['as'=>'confirm','uses'=>'ShopController@getConfirm']);
 
+Route::get('blog',['as'=>'blog','uses'=>'ShopController@getBlog']);
+
 Route::get('login',['as'=>'get.login','uses'=>'ShopController@getLogin']);
 Route::post('login',['as'=>'post.login','uses'=>'ShopController@postLogin']);
 Route::get('logout',['as'=>'get.logout','uses'=>'ShopController@postLogout']);
@@ -46,6 +48,8 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
     Route::post('products',['as'=>'admin.postproducts','uses'=>'AdminController@postProducts']);
     Route::get('edit-products/{id}',['as'=>'admin.geteditproducts','uses'=>'AdminController@getEditProducts']);
     Route::post('edit-products/{id}',['as'=>'admin.posteditproducts','uses'=>'AdminController@postEditProducts']);
+    Route::get('disable-products/{id}',['as'=>'admin.getdisableproducts','uses'=>'AdminController@getDisableProducts']);
+    Route::get('active-products/{id}',['as'=>'admin.getactiveproducts','uses'=>'AdminController@getActiveProducts']);
 
     Route::get('category',['as'=>'getcategory','uses'=>'AdminController@getCategory']);
     Route::post('category',['as'=>'postcategory','uses'=>'AdminController@postCategory']);

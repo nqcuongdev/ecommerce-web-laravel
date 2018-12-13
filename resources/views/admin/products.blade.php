@@ -45,6 +45,7 @@
                                                             <th>Price</th>
                                                             <th>Sale Price</th>
                                                             <th>Stock</th>
+                                                            <th>New Products</th>
                                                             <th>Action</th>
                                                         </tr>
                                                         </thead>
@@ -54,24 +55,50 @@
                                                                 <td>
                                                                     <img src="{{url($item->image)}}"
                                                                          alt="{{$item->name}}"
-                                                                         style="width:20%;height:20%;">
+                                                                         style="width:30%;height:30%;display:block;">
                                                                 </td>
                                                                 <td>{{$item->name}}</td>
-                                                                <td>{{$item->products_type}}</td>
+                                                                <td>{{$item->name_type}}</td>
                                                                 <td class="pro-name">{{str_limit($item->technical_description,10)}}</td>
                                                                 <td class="pro-name">{{str_limit($item->description,10)}}</td>
                                                                 <td>{{$item->price}}</td>
                                                                 <td>{{$item->sale_price}}</td>
                                                                 <td>
-                                                                    <label class="text-danger">Out Of Stock</label>
+                                                                        @if($item->available)
+                                                                        <label class="text-success">
+                                                                            In Stock
+                                                                        </label>
+                                                                        @else
+                                                                        <label class="text-warning">
+                                                                            Out of Stock
+                                                                        </label>
+                                                                        @endif
+                                                                    
+                                                                </td>
+                                                                <td>
+                                                                    @if($item->new_product == 1)
+                                                                        <label class="text-success">
+                                                                            New
+                                                                        </label>
+                                                                    @else 
+                                                                        <label class="text-warning">
+                                                                            Old
+                                                                        </label>
+                                                                    @endif
                                                                 </td>
                                                                 <td class="action-icon">
                                                                     <a href="{{route('admin.geteditproducts',$item->id)}}" class="m-r-15 text-muted">
                                                                         <i class="icofont icofont-ui-edit"></i>
                                                                     </a>
-                                                                    <a href="#!" class="text-muted">
-                                                                        <i class="icofont icofont-delete-alt"></i>
+                                                                    @if($item->status == 1)
+                                                                    <a href="{{route('admin.getdisableproducts',$item->id)}}" class="text-muted">
+                                                                        <i class="icofont icofont-ui-block"></i>
                                                                     </a>
+                                                                    @else
+                                                                    <a href="{{route('admin.getactiveproducts',$item->id)}}" class="text-muted">
+                                                                        <i class="icofont icofont-check"></i>
+                                                                    </a>
+                                                                    @endif
                                                                 </td>
                                                             </tr>
                                                         @endforeach

@@ -34,7 +34,7 @@ class ShopController extends Controller
     public function getProducts()
     {
         $products = Products::join('product_type','products.products_type','=','product_type.id')
-                            ->select('products.id','products.name','products.price','sale_price','products.image','product_type.name_type')
+                            ->select('products.id','products.name','products.price','products.sale_price','products.image','products.new_product','product_type.name_type')
                             ->paginate(12);
         $category = Category::select('id','name_category')
                     ->where('status','=',1)
@@ -147,6 +147,7 @@ class ShopController extends Controller
         Auth::logout();
         return redirect('/');
     }
+    
     public function postRegister(Request $request){
         $rules = [
             'name' => 'required|max:255',
@@ -175,5 +176,9 @@ class ShopController extends Controller
         $user->status = 1;
         $user->save();
         return redirect('login')->with(['flag_reg'=>'success','message'=>'Your account has been created']);
+    }
+
+    public function getBlog(){
+        return view('shop.blog');
     }
 }

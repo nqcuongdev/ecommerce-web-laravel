@@ -114,7 +114,6 @@
                                 <!-- by Default -->
                                 <li>
                                     <select class="selectpicker">
-                                        <option>Sort by Default</option>
                                         <option>Low to High</option>
                                         <option>High to Low</option>
                                     </select>
@@ -132,7 +131,10 @@
                                             <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
                                         </a>
                                         @if($item->sale_price != 0)
-                                            <span class="sale-tag">-{{$item->sale_price}}%</span>
+                                            <span class="sale-tag">-{{$item->sale_price}}%</span>  
+                                        @endif
+                                        @if($item->new_product == 1)
+                                            <span class="new-tag">New</span>
                                         @endif
                                         <span class="tag">{{$item->name_type}}</span>
                                         <a href="{{route('product-details',$item->id)}}" class="tittle">

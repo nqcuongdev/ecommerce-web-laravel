@@ -26,7 +26,7 @@
                                                 <select id="hello-single" class="form-control" name="products_type">
                                                     <option value="">---- Select Type ----</option>
                                                     @foreach($product_type as $type)
-                                                        <option value="{{$type->id}}" @if($products->type_id = $type->id) selected @endif>{{$type->name_type}}</option>
+                                                        <option value="{{$type->id}}" @if($products->type_id == $type->id) selected @endif>{{$type->name_type}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
