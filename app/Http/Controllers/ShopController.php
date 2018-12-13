@@ -6,6 +6,7 @@ use App\Products;
 use App\Slides;
 use App\Category;
 use App\Product_Type;
+use App\BlogModel;
 use User;
 use Admin;
 use Cart;
@@ -42,7 +43,10 @@ class ShopController extends Controller
         return view('shop.products',compact('products','category'));
     }
     public function getProductDetails($id){
-        $products = Products::find($id);
+        $products = Products::where([
+            ['id','=',$id],
+            ['status','=','1']
+        ])->first();
         return view('shop.products-details',compact('products'));
     }
 
@@ -179,6 +183,15 @@ class ShopController extends Controller
     }
 
     public function getBlog(){
-        return view('shop.blog');
+        $blog = BlogModel::where('status','=',1)->paginate(6);
+        return view('shop.blog',compact('blog'));
+    }
+
+    public function getBlogDetails($id){
+        $blog = BlogModel::where([
+            ['id','=',$id],
+            ['status','=','1']
+        ])->first();
+        return view('shop.blog-details',compact('blog'));
     }
 }

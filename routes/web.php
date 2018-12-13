@@ -30,6 +30,7 @@ Route::get('delivery-method',['as'=>'getdeliverymethod','uses'=>'ShopController@
 Route::get('confirmation',['as'=>'confirm','uses'=>'ShopController@getConfirm']);
 
 Route::get('blog',['as'=>'blog','uses'=>'ShopController@getBlog']);
+Route::get('blog-details/{id}',['as'=>'blog-details','uses'=>'ShopController@getBlogDetails']);
 
 Route::get('login',['as'=>'get.login','uses'=>'ShopController@getLogin']);
 Route::post('login',['as'=>'post.login','uses'=>'ShopController@postLogin']);
@@ -61,6 +62,13 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
     Route::post('ajax-edittype',['as'=>'edittype','uses'=>'AdminController@postEditType']);
     Route::get('disable-type/{id}',['as'=>'disabletype','uses'=>'AdminController@getDisableType']);
     Route::get('active-type/{id}',['as'=>'activetype','uses'=>'AdminController@getActiveType']);
+
+    Route::get('blog-management',['as'=>'get.blog-managment','uses'=>'AdminController@getBlogManagement']);
+    Route::get('add-blog',['as'=>'get.add-blog','uses'=>'AdminController@getAddBlog']);
+    Route::post('add-blog',['as'=>'post.add-blog','uses'=>'AdminController@postAddBlog']);
+    Route::get('disable-blog/{id}',['as'=>'get.disable-blog','uses'=>'AdminController@getDisableBlog']);
+    Route::get('active-blog/{id}',['as'=>'get.active-blog','uses'=>'AdminController@getActiveBlog']);
+    Route::get('delete-blog/{id}',['as'=>'get.delete-blog','uses'=>'AdminController@getDeleteBlog']);
     
     Route::get('logout',['as'=>'get.adminlogout','uses'=>'AdminController@getAdminLogout']);
 });

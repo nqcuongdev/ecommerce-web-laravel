@@ -83,6 +83,12 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="{{route('get.blog-managment')}}">
+                                    <span class="pcoded-micon"><i class="typcn typcn-contacts"></i></span>
+                                    <span class="pcoded-mtext">Blog</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

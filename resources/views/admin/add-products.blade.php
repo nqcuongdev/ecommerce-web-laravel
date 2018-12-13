@@ -78,7 +78,18 @@
                                             <div class="col-sm-10">
                                                 <input type="file" class="form-control" name="image">
                                             </div>
-                                        </div>          
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Details Images</label>
+                                            <div class="col-sm-10">
+                                                <input type="file" class="form-control" name="image_1">
+                                                <input type="file" class="form-control" name="image_2">
+                                                <input type="file" class="form-control" name="image_3">
+                                                <input type="file" class="form-control" name="image_4">
+                                                <input type="file" class="form-control" name="image_5">
+                                                <input type="file" class="form-control" name="image_6">
+                                            </div>
+                                        </div>           
                                         <div class="form-group row">
                                             <button type="submit" class="btn btn-primary waves-effect form-control">
                                                 Add

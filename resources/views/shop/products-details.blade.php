@@ -118,48 +118,20 @@
                                         <article class="slider-item on-nav">
                                             <div id="slider" class="flexslider">
                                                 <ul class="slides">
+                                                    @foreach(json_decode($products->details_image) as $single_image)
                                                     <li>
-                                                        <img src="images/item-img-1-1.jpg" alt="">
+                                                        <img src="{{url($single_image)}}" alt="Carousel Image">
                                                     </li>
-                                                    <li>
-                                                        <img src="images/item-img-1-2.jpg" alt="">
-                                                    </li>
-                                                    <li>
-                                                        <img src="images/item-img-1-3.jpg" alt="">
-                                                    </li>
-                                                    <li>
-                                                        <img src="images/item-img-1-1.jpg" alt="">
-                                                    </li>
-                                                    <li>
-                                                        <img src="images/item-img-1-2.jpg" alt="">
-                                                    </li>
-                                                    <li>
-                                                        <img src="images/item-img-1-3.jpg" alt="">
-                                                    </li>
-                                                    <!-- items mirrored twice, total of 12 -->
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                             <div id="carousel" class="flexslider">
                                                 <ul class="slides">
+                                                    @foreach(json_decode($products->details_image) as $single_image)
                                                     <li>
-                                                        <img src="images/item-img-1-1.jpg" alt="">
+                                                        <img src="{{url($single_image)}}" alt="Carousel Image">
                                                     </li>
-                                                    <li>
-                                                        <img src="images/item-img-1-2.jpg" alt="">
-                                                    </li>
-                                                    <li>
-                                                        <img src="images/item-img-1-3.jpg" alt="">
-                                                    </li>
-                                                    <li>
-                                                        <img src="images/item-img-1-1.jpg" alt="">
-                                                    </li>
-                                                    <li>
-                                                        <img src="images/item-img-1-2.jpg" alt="">
-                                                    </li>
-                                                    <li>
-                                                        <img src="images/item-img-1-3.jpg" alt="">
-                                                    </li>
-                                                    <!-- items mirrored twice, total of 12 -->
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </article>

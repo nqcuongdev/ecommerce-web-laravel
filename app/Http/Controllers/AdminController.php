@@ -7,6 +7,7 @@ use App\Products;
 use App\Slides;
 use App\Category;
 use App\Product_Type;
+use App\BlogModel;
 use Auth;
 use Admin;
 
@@ -66,9 +67,24 @@ class AdminController extends Controller
         $link = 'Smarttech/images/products/' . $image_pr->getClientOriginalName();
         $products->image = $link;
 
+        //Multi file
+        $image_details = array();
+        for ($i = 1; $i <= 6; $i++) {
+            $name = 'image_'.$i;
+            if ($request->hasFile($name)){
+                $file[$i] = $request->$name;
+                $file[$i]->move(public_path('/Smarttech/images/products/product-details/'), $file[$i]->getClientOriginalName());
+                $links[$i] = 'Smarttech/images/products/product-details/' . $file[$i]->getClientOriginalName();
+                array_push($image_details, $links[$i]);
+            }
+        }
+        $image_details = json_encode($image_details);
+        $products->details_image = $image_details;
+
         $products->available = $request->available;
         $products->status = 1;
-        $products->new_product = $request->isnew;
+        $products->new_product = $request->new_product;
+
         $products->save();
         return redirect('admin/products');
     }
@@ -117,7 +133,7 @@ class AdminController extends Controller
     }
 
     public function postType(Request $request){
-        $type = new Product_Type();
+        $type = new Product_Type;
         $type->name_type = $request->name_type;
         $type->id_category = $request->id_category;
         $type->status = 1;
@@ -203,5 +219,58 @@ class AdminController extends Controller
         $products->new_product = $products->new_product;
         $products->save();
         return redirect('admin/products');
+    }
+
+    public function getBlogManagement(){
+        $blog = BlogModel::all();
+        return view('admin.blog-list', compact('blog'));
+    }
+
+    public function getAddBlog(){ return view('admin.add-blog'); }
+
+    public function postAddBlog(Request $request){
+        $blog = new BlogModel;
+
+        $blog->author = $request->author;
+        $blog->title = $request->title;
+        $blog->content = $request->content;
+
+        //Process upload file
+        $image = $request->image;
+        $image->move(public_path('/Smarttech/images/blog'), $image->getClientOriginalName());
+        $link = 'Smarttech/images/blog/' . $image->getClientOriginalName();
+        $blog->image = $link;
+
+        $blog->status = 1;
+        $blog->save();
+        return redirect('admin/blog-management');
+    }
+
+    public function getDisableBlog($id){
+        $blog = BlogModel::find($id);
+        $blog->author = $blog->author;
+        $blog->title = $blog->title;
+        $blog->content = $blog->content;
+        $blog->image = $blog->image;
+        $blog->status = 0;
+        $blog->save();
+        return redirect('admin/blog-management');
+    }
+
+    public function getActiveBlog($id){
+        $blog = BlogModel::find($id);
+        $blog->author = $blog->author;
+        $blog->title = $blog->title;
+        $blog->content = $blog->content;
+        $blog->image = $blog->image;
+        $blog->status = 1;
+        $blog->save();
+        return redirect('admin/blog-management');
+    }
+
+    public function getDeleteBlog($id){
+        $blog = BlogModel::find($id);
+        $blog->delete();
+        return redirect('admin/blog-management');
     }
 }
