@@ -83,7 +83,7 @@
                                                                             New
                                                                         </label>
                                                                     @else 
-                                                                        <label class="text-primary">
+                                                                        <label class="text-warning">
                                                                             Old
                                                                         </label>
                                                                     @endif

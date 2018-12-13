@@ -12,7 +12,7 @@
                                     <h5>Add New Products</h5>
                                 </div>
                                 <div class="card-block">
-                                    <form action="{{route('admin.posteditproducts',$products->id)}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{route('admin.posteditproducts',$products->product_id)}}" method="POST" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Product Name</label>      
@@ -78,6 +78,25 @@
                                             <div class="col-sm-10">
                                                 <img src="{{url($products->image)}}" alt="Image">
                                                 <input type="file" class="form-control" name="image">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Details Images</label>
+                                            <div class="col-sm-10">
+                                                @if($products->details_image != NULL)
+                                                @if(sizeof(json_decode($products->details_image)) == 6)
+                                                    @foreach(json_decode($products->details_image) as $key => $value)                                                    
+                                                        <img src="{{url($value)}}" width="100px" height="100px" style="display:block;" alt="Image {{$key}}">
+                                                        <input type="file" class="form-control" name="image_{{$key}}"> 
+                                                    @endforeach
+                                                @else
+                                                    @foreach(json_decode($products->details_image) as $key => $value)                                                    
+                                                        <img src="{{url($value)}}" width="100px" height="100px" style="display:block;" alt="Image {{$key}}">
+                                                        <input type="file" class="form-control" name="image_{{$key}}"> 
+                                                    @endforeach
+                                                    <input type="file" class="form-control" name="image_6">
+                                                @endif
+                                                @endif
                                             </div>
                                         </div>          
                                         <div class="form-group row">

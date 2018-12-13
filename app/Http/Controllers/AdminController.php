@@ -95,17 +95,54 @@ class AdminController extends Controller
     }
 
     public function getEditProducts($id){
-        $products = Products::where([
-                                ['products.status','=','1'],
-                                ['products.id','=',$id]
-                            ])
+        $products = Products::find($id)
                             ->join('product_type','products.products_type','=','product_type.id')
-                            ->select('products.id','products.name',
-                            'products.price','sale_price','products.image',
+                            ->select('products.id as product_id','products.name',
+                            'products.price','sale_price','products.image','products.details_image',
                             'products.technical_description','products.description','product_type.id as type_id',
-                            'product_type.name_type')->get();
+                            'product_type.name_type')->first();
         $product_type = Product_Type::where('status','=',1)->get();
         return view('admin.edit-products',compact('products','product_type'));
+    }
+
+    public function postEditProducts(Request $request, $id){
+        $products = Products::find($id);
+        $products->name = $request->name;
+        $products->products_type = $request->products_type;
+        $products->technical_description = $request->technical_description;
+        $products->description = $request->description;
+        $products->price = $request->price;
+        $products->sale_price = $request->sale_price;
+
+        if($request->has('image')){
+            //Process upload file
+            $image_pr = $request->image;
+            $image_pr->move(public_path('/Smarttech/images/products'), $image_pr->getClientOriginalName());
+            $link = 'Smarttech/images/products/' . $image_pr->getClientOriginalName();
+            $products->image = $link;
+            $products->image = $link;
+        }else{
+            $products->image = $products->image;
+        }
+
+        $image_details = array();
+        for ($i = 1; $i <= 6; $i++) {
+            $name = 'image_'.$i;
+            if ($request->hasFile($name)){
+                $file[$i] = $request->$name;
+                $file[$i]->move(public_path('/Smarttech/images/products/product-details/'), $file[$i]->getClientOriginalName());
+                $links[$i] = 'Smarttech/images/products/product-details/' . $file[$i]->getClientOriginalName();
+                array_push($image_details, $links[$i]);
+            }
+        }
+        $image_details = json_encode($image_details);
+        $products->details_image = $image_details;
+
+        $products->available = $request->available;
+        $products->status = 1;
+        $products->new_product = $request->new_product;
+        $products->save();
+        return redirect('admin/products');
     }
 
     public function getDisableProducts($id){
