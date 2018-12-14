@@ -91,9 +91,10 @@
                                             </div>
                                         </div>           
                                         <div class="form-group row">
-                                            <button type="submit" class="btn btn-primary waves-effect form-control">
-                                                Add
-                                            </button>
+                                            <label class="col-sm-2"></label>
+                                            <div class="col-sm-10">
+                                                <button type="submit" class="btn btn-primary waves-effect">Add</button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>

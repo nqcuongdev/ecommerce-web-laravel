@@ -186,17 +186,32 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <!-- Special -->
-                    <div role="tabpanel" class="tab-pane fade" id="special">
-                        <!-- Items Slider -->
-                        sdasasa
+
+                    <div role="tabpanel" class="tab-pane active fade in" id="special"> 
+                        <div class="item-col-5">
+                            @foreach($product_new as $item)
+                                <div class="product">
+                                    <article>
+                                        <img class="img-responsive" src="{{$item->image}}" alt="Image {{$item->name}}">
+                                        <span class="new-tag">New</span>
+                                        <span class="tag">{{$item->name_type}}</span>
+                                        <a href="{{route('product-details',$item->id)}}" class="tittle">{{$item->name}}</a>
+                                        <p class="rev margin-top-5"></p>
+                                        <div class="price">
+                                            ${{$item->price}}
+                                        </div>
+                                        <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
+                                            <i class="icon-basket-loaded"></i>
+                                        </a>
+                                    </article>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
 
                     <!-- on sale -->
                     <div role="tabpanel" class="tab-pane fade" id="on-sal">
-                        <!-- Items Slider -->
                         <div class="item-col-5">
-
                             @foreach($products_sale as $item)
                                 <div class="product">
                                     <article>
@@ -215,9 +230,7 @@
                                     </article>
                                 </div>
                             @endforeach
-
                         </div>
-
                     </div>
                 </div>
                 </div>
@@ -1025,39 +1038,19 @@
                 </div>
                 <div id="blog-slide" class="with-nav">
 
-                    <!-- Blog Post -->
+                    @foreach($blog as $single_blog)
                     <div class="blog-post">
-                        <article><img class="img-responsive" src="images/blog-img-1.jpg" alt=""> <span><i
-                                    class="fa fa-bookmark-o"></i> 25 Dec, 2017</span> <span><i
-                                    class="fa fa-comment-o"></i> 86 Comments</span> <a href="#." class="tittle">It’s why
-                                there’s nothing else like Mac. </a>
-                            <p>Etiam porttitor ante non tellus pulvinar, non vehicula lorem fermentum. Nulla vitae
-                                efficitur mi [...] </p>
-                            <a href="#.">Readmore</a></article>
+                        <article>
+                            <img class="img-responsive" src="{{url($single_blog->image)}}" alt="Image Blog">
+                            <span><i class="fa fa-bookmark-o"></i> {{$single_blog->created_at->format('d M ,Y')}}</span>
+                            <span><i class="fa fa-comment-o"></i> 86 Comments</span>
+                            <a href="{{route('blog-details',$single_blog->id)}}" class="tittle">{{$single_blog->title}}</a>
+                            <p>{!!str_limit($single_blog->content,128)!!}</p>
+                            <a href="{{route('blog-details',$single_blog->id)}}">Readmore</a>
+                        </article>
                     </div>
+                    @endforeach
 
-                    <!-- Blog Post -->
-                    <div class="blog-post">
-                        <article><img class="img-responsive" src="images/blog-img-2.jpg" alt=""> <span><i
-                                    class="fa fa-bookmark-o"></i> 25 Dec, 2017</span> <span><i
-                                    class="fa fa-comment-o"></i> 86 Comments</span> <a href="#." class="tittle">Get the
-                                power to take your business to the
-                                next level. </a>
-                            <p>Etiam porttitor ante non tellus pulvinar, non vehicula lorem fermentum. Nulla vitae
-                                efficitur mi [...] </p>
-                            <a href="#.">Readmore</a></article>
-                    </div>
-
-                    <!-- Blog Post -->
-                    <div class="blog-post">
-                        <article><img class="img-responsive" src="images/blog-img-3.jpg" alt=""> <span><i
-                                    class="fa fa-bookmark-o"></i> 25 Dec, 2017</span> <span><i
-                                    class="fa fa-comment-o"></i> 86 Comments</span> <a href="#." class="tittle">It’s why
-                                there’s nothing else like Mac. </a>
-                            <p>Etiam porttitor ante non tellus pulvinar, non vehicula lorem fermentum. Nulla vitae
-                                efficitur mi [...] </p>
-                            <a href="#.">Readmore</a></article>
-                    </div>
                 </div>
             </div>
         </section>

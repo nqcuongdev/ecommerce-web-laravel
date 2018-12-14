@@ -25,9 +25,11 @@
                                 <!-- Product list card start -->
                                 <div class="card">
                                     <div class="card-header">
-                                        <a href="{{route('admin.addproducts')}}"><button type="button" class="btn btn-primary waves-effect waves-light f-right d-inline-block md-trigger">
-                                            <i class="icofont icofont-plus m-r-5"></i> Add Product
-                                        </button></a>
+                                        <a href="{{route('admin.addproducts')}}">
+                                            <button type="button" class="btn btn-primary waves-effect waves-light f-right d-inline-block md-trigger">
+                                                <i class="icofont icofont-plus m-r-5"></i> Add Product
+                                            </button>
+                                        </a>
                                     </div>
                                     <div class="card-block">
                                         <div class="table-responsive">

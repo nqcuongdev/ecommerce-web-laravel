@@ -95,9 +95,9 @@ class AdminController extends Controller
     }
 
     public function getEditProducts($id){
-        $products = Products::find($id)
+        $products = Products::where([['products.id','=',$id],['products.status','=','1']])
                             ->join('product_type','products.products_type','=','product_type.id')
-                            ->select('products.id as product_id','products.name',
+                            ->select('products.id','products.name',
                             'products.price','sale_price','products.image','products.details_image',
                             'products.technical_description','products.description','product_type.id as type_id',
                             'product_type.name_type')->first();

@@ -40,6 +40,7 @@
                 <!-- Payout Method -->
                 <div class="pay-method">
                     <div class="row">
+                            <form class="delivery">
                         <div class="col-md-6">
 
                             <!-- Your information -->
@@ -47,85 +48,39 @@
                                 <h2>Your information</h2>
                                 <hr>
                             </div>
-                            <form>
+                            
+                                {{csrf_field()}}
                                 <div class="row">
 
                                     <!-- Name -->
-                                    <div class="col-sm-6">
-                                        <label> First name
-                                            <input class="form-control" type="text">
-                                        </label>
-                                    </div>
-
-                                    <!-- Number -->
-                                    <div class="col-sm-6">
-                                        <label> Last Name
-                                            <input class="form-control" type="text">
-                                        </label>
-                                    </div>
-
-                                    <!-- Card Number -->
-                                    <div class="col-sm-7">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <label> Country </label>
-                                                <select class="selectpicker">
-                                                    <option> USA</option>
-                                                    <option> USA</option>
-                                                    <option> USA</option>
-                                                    <option> USA</option>
-                                                    <option> USA</option>
-                                                    <option> USA</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <label> City </label>
-                                                <select class="selectpicker">
-                                                    <option> City</option>
-                                                    <option> City</option>
-                                                    <option> City</option>
-                                                    <option> City</option>
-                                                    <option> City</option>
-                                                    <option> City</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <label> State
-                                            <input class="form-control" type="text">
-                                        </label>
-                                    </div>
-
-                                    <!-- Zip code -->
-                                    <div class="col-sm-4">
-                                        <label> Zip code
-                                            <input class="form-control" type="text">
+                                    <div class="col-sm-12">
+                                        <label> Full name
+                                            <input class="form-control" type="text" id="fullname">
                                         </label>
                                     </div>
 
                                     <!-- Address -->
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-12">
                                         <label> Address
-                                            <input class="form-control" type="text">
+                                            <input class="form-control" type="text" id="address">
                                         </label>
                                     </div>
 
                                     <!-- Phone -->
                                     <div class="col-sm-6">
                                         <label> Phone
-                                            <input class="form-control" type="text">
+                                            <input class="form-control" type="text" id="phone">
                                         </label>
                                     </div>
 
                                     <!-- Number -->
                                     <div class="col-sm-6">
                                         <label> Email
-                                            <input class="form-control" type="email">
+                                            <input class="form-control" type="email" id="email">
                                         </label>
                                     </div>
                                 </div>
-                            </form>
+                            
                         </div>
 
                         <!-- Select Your Transportation -->
@@ -136,7 +91,7 @@
                             </div>
                             <div class="transportation">
                                 <div class="col-sm-10">
-                                    <select name="tax" class="form-control">
+                                    <select id="tax" class="form-control">
                                         <option value="0"><span>7 - 12 days</span></option>
                                         <option value="25"><span>4 - 7 days</span></option>
                                         <option value="75"><span>24 - 48 Hours</span></option>
@@ -144,12 +99,47 @@
                                 </div>
                             </div>
                         </div>
+                    </form>
                     </div>
                 </div>
 
                 <!-- Button -->
-                <div class="pro-btn"><a href="{{route('yourcart')}}" class="btn-round btn-light">Back to Payment</a> <a
-                        href="{{route('confirm')}}" class="btn-round">Go Confirmation</a></div>
+                <div class="pro-btn">
+                    <a href="{{route('yourcart')}}" class="btn-round btn-light">Back to Payment</a>
+                    <a href="{{--{{route('confirm')}}--}}#" class="btn-round confirm">Go Confirmation</a>
+                </div>
             </div>
         </section>
+<script>
+    $(document).ready(function(){
+
+        $(".delivery").change(function(){
+            var token = $("input[name='_token']").val();
+            var fullname = $("#fullname").val();
+            var address = $("#address").val();
+            var phone = $("#phone").val();
+            var email = $("#email").val();
+            var tax = $("#tax").val();
+
+            $(".confirm").click(function(){
+
+                $.ajax({
+                    url: 'ajax-post-oder',
+                    type: 'POST',
+                    data: {token: 'token',fullname: 'fullname',address: 'address',phone: 'phone',email: 'email',tax: 'tax'},
+                })
+                .done(function(res) {
+                    console.log("success");
+                })
+                .fail(function() {
+                    console.log("error");
+                })
+                .always(function() {
+                    console.log("complete");
+                });
+                
+            });
+        });
+    });
+</script>
 @endsection

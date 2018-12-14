@@ -7,8 +7,9 @@ use App\Slides;
 use App\Category;
 use App\Product_Type;
 use App\BlogModel;
-use User;
-use Admin;
+use App\Order;
+use App\User;
+use App\Admin;
 use Cart;
 use Auth;
 
@@ -23,13 +24,14 @@ class ShopController extends Controller
         $category = Category::where('status','=',1)->get();
         $products_sale = Products::join('product_type','products.products_type','=','product_type.id')
                                     ->select('products.*','product_type.name_type')
-                                    ->where([
-                                        ['products.status','=','1'],
-                                        ['products.sale_price','<>','0'],
-                                        ['products.new_product','=','0']
-                                    ])
+                                    ->where([['products.status','=','1'],['products.sale_price','<>','0']])
                                     ->get();
-        return view('shop.index',compact('slides','category','products_sale'));
+        $product_new = Products::join('product_type','products.products_type','=','product_type.id')
+                                ->select('products.*','product_type.name_type')
+                                ->where([['products.status','=','1'],['products.new_product','=','1']])
+                                ->get();
+        $blog = BlogModel::where('status','=',1)->limit(5)->get();
+        return view('shop.index',compact('slides','category','products_sale','blog','product_new'));
     }
 
     public function getProducts()
@@ -85,11 +87,26 @@ class ShopController extends Controller
 
     public function getDelivery(){
         if(Cart::count() != 0){
-            return view('shop.delivery-method');
+            if(Auth::guard('users')->check()){
+                $user = User::where([['status','=','1'],['id','=',Auth::guard('users')->user()->id]])->get();
+                return view('shop.delivery-method');
+            }
+            
         }else{
             return redirect('products');
         }
         
+    }
+
+    public function postOrder(Request $request){
+        if($request->ajax()){
+            $order = new Order;
+            $fullname = $request->fullname;
+            $address = $request->address;
+            $phone = $request->phone;
+            $email = $request->email;
+            $tax = $request->tax;
+        }
     }
 
     public function getConfirm(){

@@ -131,7 +131,7 @@
         $(document).ready(function () {
             $(".quinty").change(function () {
 
-                var token = $("input[name='_token']").val()
+                var token = $("input[name='_token']").val();
                 var rowId = $(this).parent().find("#rowId").val();
                 var qty = $(this).parent().find("#quantity").val();
 

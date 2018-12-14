@@ -26,6 +26,7 @@ Route::get('remove-item/{id}',['as'=>'removeitem','uses'=>'ShopController@remove
 Route::get('update/{id}/{qty}',['as'=>'updateitem','uses'=>'ShopController@updateCart']);
 
 Route::get('delivery-method',['as'=>'getdeliverymethod','uses'=>'ShopController@getDelivery']);
+Route::get('ajax-post-oder',['as'=>'post.ajax-post-oder','uses'=>'ShopController@postOrder']);
 
 Route::get('confirmation',['as'=>'confirm','uses'=>'ShopController@getConfirm']);
 

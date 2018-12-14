@@ -94,8 +94,7 @@
                                         <h6>Phone:</h6>
                                         <p>(+84) 33 731 7788</p>
                                         <h6>Email:</h6>
-                                        <p>nqcuong.17it3@sict.udn.vn
-                                            nqcuong.dev@sict.udn.vn</p>
+                                        <p>nqcuong.17it3@sict.udn.vn</p>
                                     </div>
                                 </div>
                             </div>

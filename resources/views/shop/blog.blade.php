@@ -26,7 +26,8 @@
                                 </div>
                                 <div class="col-xs-5">
                                     <span>
-                                        <i class="fa fa-bookmark-o"></i>{{$item->created_at->format('d M Y')}}
+                                        <i class="fa fa-bookmark-o"></i>
+                                        {{$item->created_at->format('d M Y')}}
                                     </span>
                                     <span><i class="fa fa-comment-o"></i> 86 Comments</span>
                                     <a href="{{route('blog-details',$item->id)}}" class="tittle">{{$item->title}}</a>
