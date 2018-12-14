@@ -10,6 +10,8 @@ use App\BlogModel;
 use App\Order;
 use App\User;
 use App\Admin;
+use App\Guest;
+use App\OrderDetails;
 use Cart;
 use Auth;
 
@@ -89,6 +91,8 @@ class ShopController extends Controller
         if(Cart::count() != 0){
             if(Auth::guard('users')->check()){
                 $user = User::where([['status','=','1'],['id','=',Auth::guard('users')->user()->id]])->get();
+                return view('shop.delivery-method',compact('user'));
+            }else{
                 return view('shop.delivery-method');
             }
             
@@ -99,23 +103,88 @@ class ShopController extends Controller
     }
 
     public function postOrder(Request $request){
-        if($request->ajax()){
             $order = new Order;
-            $fullname = $request->fullname;
-            $address = $request->address;
-            $phone = $request->phone;
-            $email = $request->email;
-            $tax = $request->tax;
-        }
+            if(Auth::guard('users')->check() == null){
+                $guest = new Guest;
+                $guest->name = $request->fullname;
+                $guest->address = $request->address;
+                $guest->phone = $request->phone;
+                $guest->email = $request->email;
+
+                if($guest->save() == 1){
+                    $guest_id = "GUEST".$guest->id;
+                    $total = $request->shipcost;
+                    $order->id_customer = $guest_id;
+                    $order->qty = Cart::count();
+                    $order->shipping = $request->shipcost;
+                    $order->total = str_replace(',', '', Cart::total()) + $total;
+                    $order->status = 1;
+                    $order->save();
+
+                    $cart = Cart::content();
+                    foreach ($cart as $key => $value) {
+                        $oder_details = new OrderDetails;
+                        $oder_details->product_id = $value->id;
+                        $oder_details->qty = $value->qty;
+                        $oder_details->order_id = $order->id;
+                        $oder_details->save();
+                    }
+                }
+
+
+            }else{
+                $Total = $request->shipcost;
+                $order->id_customer =  Auth::guard('users')->user()->id;
+                $order->qty = Cart::count();
+                $order->shipping = $request->shipcost;
+                $order->total = str_replace(',', '', Cart::total()) + $Total;
+                $order->status = 1;
+                $order->save();
+
+                $cart = Cart::content();
+                foreach ($cart as $key => $value) {
+                        $oder_details = new OrderDetails;
+                        $oder_details->product_id = $value->id;
+                        $oder_details->qty = $value->qty;
+                        $oder_details->price = $value->price;   
+                        $oder_details->oder_id = $order->id;
+                        $oder_details->save();
+                }
+
+                return redirect()->route('confirm',$order->id);
+            }
+
+            
     }
 
-    public function getConfirm(){
+    public function getConfirm($id){
         if(Cart::count() != 0){
-            return view('shop.confirmation');
+            if(Auth::guard('users')->check()){
+                $user = User::where([['status','=','1'],['id','=',Auth::guard('users')->user()->id]])->get(); 
+                $information_order = Order::join('order_details','order_details.oder_id','=','oder.id')
+                                            ->join('products','products.id','=','order_details.product_id')
+                                            ->where([['oder.id','=',$id],['oder.status','=','1']])
+                                            ->select('oder.*','order_details.*','products.name')
+                                            ->get();
+                $get_shipping = Order::where([['id','=',$id],['status','=','1']])
+                                    ->select('shipping','total')->first();
+                return view('shop.confirmation',compact('user','information_order','get_shipping'));
+            }else{
+                $information_order = Order::join('order_details','order_details.oder_id','=','oder.id')
+                                            ->join('products','products.id','=','order_details.product_id')
+                                            ->where([['oder.id','=',$id],['oder.status','=','1']])
+                                            ->select('oder.*','order_details.*','products.name')
+                                            ->get();
+                $get_shipping = Order::where([['id','=',$id],['status','=','1']])
+                                    ->select('shipping','total')->first();
+                return view('shop.confirmation',compact('information_order','get_shipping'));
+            }
+            
         }else{
             return redirect('products');
         }
     }
+
     public function getAbouts(){return view('shop.abouts');}
 
     public function getContact(){return view('shop.contact');}

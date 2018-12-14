@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $table = 'order';
+    protected $table = 'oder';
     protected $fillable = ['qty','sub_total','total','note'];
 }

@@ -46,81 +46,76 @@
                         <hr>
                     </div>
 
-                    <!-- Check Item List -->
+                    @foreach($information_order as $key => $list_order)
                     <ul class="row check-item">
                         <li class="col-xs-6">
-                            <p>E-book Reader Lector De Libros Digitales 7''</p>
+                            <p>{{$list_order->name}}</p>
                         </li>
                         <li class="col-xs-2 text-center">
-                            <p>$200.00</p>
+                            <p>${{$list_order->price}}</p>
                         </li>
                         <li class="col-xs-2 text-center">
-                            <p>02 Items</p>
+                            <p>{{$list_order->qty}} Items</p>
                         </li>
                         <li class="col-xs-2 text-center">
-                            <p>$400.00</p>
+                            <p>${{$list_order->total}}</p>
                         </li>
                     </ul>
-
-                    <!-- Check Item List -->
-                    <ul class="row check-item">
-                        <li class="col-xs-6">
-                            <p>Portero Visor Timbre Camara Ip Wifi lunax 2.7</p>
-                        </li>
-                        <li class="col-xs-2 text-center">
-                            <p>$100.00</p>
-                        </li>
-                        <li class="col-xs-2 text-center">
-                            <p>01 Items</p>
-                        </li>
-                        <li class="col-xs-2 text-center">
-                            <p>$100.00</p>
-                        </li>
-                    </ul>
-
+                    @endforeach
 
                     <!-- Delivery infomation -->
                     <div class="heading margin-top-50">
                         <h2>Delivery infomation</h2>
                         <hr>
                     </div>
-
-                    <!-- Information -->
+                    
+                    @if(Auth::guard('users')->check() == null)
+                    nothing
+                    @else
                     <ul class="row check-item infoma">
                         <li class="col-sm-3">
                             <h6>Name</h6>
-                            <span>Alex Adkins</span></li>
+                            <span>{{Auth::guard('users')->user()->name}}</span>
+                        </li>
                         <li class="col-sm-3">
                             <h6>Phone</h6>
-                            <span>(+100) 987 654 3210</span></li>
-                        <li class="col-sm-3">
-                            <h6>Country</h6>
-                            <span>USA</span></li>
+                            <span>{{Auth::guard('users')->user()->phone}}</span>
+                        </li>
                         <li class="col-sm-3">
                             <h6>Email</h6>
-                            <span>Alexadkins@gmail.com</span></li>
-                        <li class="col-sm-3">
-                            <h6>City</h6>
-                            <span>NewYork</span></li>
-                        <li class="col-sm-3">
-                            <h6>State</h6>
-                            <span>NewYork</span></li>
-                        <li class="col-sm-3">
-                            <h6>Zipcode</h6>
-                            <span>01234</span></li>
+                            <span>{{Auth::guard('users')->user()->email}}</span>
+                        </li>
                         <li class="col-sm-3">
                             <h6>Address</h6>
-                            <span>569 Lexington Ave, New York, NY</span></li>
+                            <span>{{Auth::guard('users')->user()->address}}</span>
+                        </li>
                     </ul>
+                    @endif
 
                     <!-- Information -->
                     <ul class="row check-item infoma exp">
                         <li class="col-sm-6"><span>Expert Delivery</span></li>
                         <li class="col-sm-3">
-                            <h6>24 - 48 hours</h6>
+                            <h6>
+                                @if($get_shipping->shipping == 0)
+                                    7 - 12 days
+                                @elseif($get_shipping->shipping == 25)
+                                    4 - 7 days
+                                @elseif($get_shipping->shipping == 75)
+                                    24 - 48 hours
+                                @endif
+                            </h6>
                         </li>
                         <li class="col-sm-3">
-                            <h5>+25</h5>
+                            <h5>
+                                @if($get_shipping->shipping == 0)
+                                    0
+                                @elseif($get_shipping->shipping == 25)
+                                    +25
+                                @elseif($get_shipping->shipping == 75)
+                                    +75
+                                @endif
+                            </h5>
                         </li>
                     </ul>
 
@@ -128,7 +123,7 @@
                     <div class="totel-price">
                         <h4>
                             <small> Total Price:</small>
-                            $525.00
+                            ${{$get_shipping->total}}
                         </h4>
                     </div>
                 </div>

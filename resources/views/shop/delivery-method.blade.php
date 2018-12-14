@@ -36,11 +36,12 @@
         </div>
         <!-- Payout Method -->
         <section class="padding-bottom-60">
+            @if(Auth::guard('users')->check() == null)
             <div class="container">
                 <!-- Payout Method -->
                 <div class="pay-method">
-                    <div class="row">
-                            <form class="delivery">
+                    <div class="row">  
+                        <form action="{{ route('post.post-oder') }}" method="POST">
                         <div class="col-md-6">
 
                             <!-- Your information -->
@@ -55,28 +56,28 @@
                                     <!-- Name -->
                                     <div class="col-sm-12">
                                         <label> Full name
-                                            <input class="form-control" type="text" id="fullname">
+                                            <input class="form-control" type="text" name="fullname">
                                         </label>
                                     </div>
 
                                     <!-- Address -->
                                     <div class="col-sm-12">
                                         <label> Address
-                                            <input class="form-control" type="text" id="address">
+                                            <input class="form-control" type="text" name="address">
                                         </label>
                                     </div>
 
                                     <!-- Phone -->
                                     <div class="col-sm-6">
                                         <label> Phone
-                                            <input class="form-control" type="text" id="phone">
+                                            <input class="form-control" type="number" name="phone">
                                         </label>
                                     </div>
 
                                     <!-- Number -->
                                     <div class="col-sm-6">
                                         <label> Email
-                                            <input class="form-control" type="email" id="email">
+                                            <input class="form-control" type="email" name="email">
                                         </label>
                                     </div>
                                 </div>
@@ -91,55 +92,68 @@
                             </div>
                             <div class="transportation">
                                 <div class="col-sm-10">
-                                    <select id="tax" class="form-control">
+                                    <select name="shipcost" class="form-control">
                                         <option value="0"><span>7 - 12 days</span></option>
                                         <option value="25"><span>4 - 7 days</span></option>
                                         <option value="75"><span>24 - 48 Hours</span></option>
                                     </select>
                                 </div>
-                            </div>
+                            </div>  
                         </div>
-                    </form>
-                    </div>
+                        <div class="col-md-6 margin-top-10 margin-left-5">
+                            <a href="{{route('get.login')}}">You don't have account ? Register now !</a>
+                        </div>
+                        </div>
                 </div>
 
                 <!-- Button -->
                 <div class="pro-btn">
                     <a href="{{route('yourcart')}}" class="btn-round btn-light">Back to Payment</a>
-                    <a href="{{--{{route('confirm')}}--}}#" class="btn-round confirm">Go Confirmation</a>
+                    <button type="submit" class="btn-round confirm">Go Confirmation</button>
                 </div>
             </div>
+                    </form>
+                    @else
+                    <div class="container">
+                <!-- Payout Method -->
+                        <div class="pay-method">
+                            <div class="row">  
+                            <form action="{{ route('post.post-oder') }}" method="POST">
+                                {{csrf_field()}}
+                                <div class="col-md-6">
+                                    <div class="contact-info">
+                                        <h5>Your name: {{Auth::guard('users')->user()->name}}</h5>
+                                        <h6>Address: {{Auth::guard('users')->user()->address}}</h6>
+                                        <h6>Email: {{Auth::guard('users')->user()->email}}</h6>
+                                        <h6>Phone Number: {{Auth::guard('users')->user()->phone}}</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="heading">
+                                        <h2>Select Your Transportation</h2>
+                                        <hr>
+                                    </div>
+                                    <div class="transportation">
+                                        <div class="col-sm-10">
+                                            <select name="shipcost" class="form-control">
+                                                <option value="0"><span>7 - 12 days</span></option>
+                                                <option value="25"><span>4 - 7 days</span></option>
+                                                <option value="75"><span>24 - 48 Hours</span></option>
+                                            </select>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pro-btn">
+                            <a href="{{route('yourcart')}}" class="btn-round btn-light">Back to Payment</a>
+                            <input type="submit" class="btn-round confirm" value="Go Confirmation">
+                        </div>
+                    </div>
+                    </form>
+                    
+                    
+            @endif
         </section>
-<script>
-    $(document).ready(function(){
-
-        $(".delivery").change(function(){
-            var token = $("input[name='_token']").val();
-            var fullname = $("#fullname").val();
-            var address = $("#address").val();
-            var phone = $("#phone").val();
-            var email = $("#email").val();
-            var tax = $("#tax").val();
-
-            $(".confirm").click(function(){
-
-                $.ajax({
-                    url: 'ajax-post-oder',
-                    type: 'POST',
-                    data: {token: 'token',fullname: 'fullname',address: 'address',phone: 'phone',email: 'email',tax: 'tax'},
-                })
-                .done(function(res) {
-                    console.log("success");
-                })
-                .fail(function() {
-                    console.log("error");
-                })
-                .always(function() {
-                    console.log("complete");
-                });
-                
-            });
-        });
-    });
-</script>
 @endsection
