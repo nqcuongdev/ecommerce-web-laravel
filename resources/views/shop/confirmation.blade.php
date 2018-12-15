@@ -129,8 +129,10 @@
                 </div>
 
                 <!-- Button -->
-                <div class="pro-btn"><a href="{{route('getdeliverymethod')}}" class="btn-round btn-light">Back to
-                        Delivery</a> <a href="{{route('index')}}" class="btn-round">Confirmation</a></div>
+                <div class="pro-btn">
+                    <a href="{{route('getdeliverymethod')}}" class="btn-round btn-light">Back to Delivery</a>
+                    <a href="{{route('success-order',$get_shipping->id)}}" class="btn-round">Confirmation</a>
+                </div>
             </div>
         </section>
 @endsection

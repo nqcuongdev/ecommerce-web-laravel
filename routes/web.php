@@ -27,8 +27,8 @@ Route::get('update/{id}/{qty}',['as'=>'updateitem','uses'=>'ShopController@updat
 
 Route::get('delivery-method',['as'=>'getdeliverymethod','uses'=>'ShopController@getDelivery']);
 Route::post('post-oder',['as'=>'post.post-oder','uses'=>'ShopController@postOrder']);
-
 Route::get('confirmation/{id}',['as'=>'confirm','uses'=>'ShopController@getConfirm']);
+Route::get('success-order/{id}',['as'=>'success-order','uses'=>'ShopController@getSuccessOrder']);
 
 Route::get('blog',['as'=>'blog','uses'=>'ShopController@getBlog']);
 Route::get('blog-details/{id}',['as'=>'blog-details','uses'=>'ShopController@getBlogDetails']);
@@ -37,6 +37,8 @@ Route::get('login',['as'=>'get.login','uses'=>'ShopController@getLogin']);
 Route::post('login',['as'=>'post.login','uses'=>'ShopController@postLogin']);
 Route::get('logout',['as'=>'get.logout','uses'=>'ShopController@postLogout']);
 Route::post('register',['as'=>'post.register','uses'=>'ShopController@postRegister']);
+
+Route::get('export-bill/{id}',['as'=>'export-bill','uses'=>'PDFController@index']);
 
 Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 

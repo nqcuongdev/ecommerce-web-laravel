@@ -167,7 +167,7 @@ class ShopController extends Controller
                                             ->select('oder.*','order_details.*','products.name')
                                             ->get();
                 $get_shipping = Order::where([['id','=',$id],['status','=','1']])
-                                    ->select('shipping','total')->first();
+                                    ->select('shipping','total','id')->first();
                 return view('shop.confirmation',compact('user','information_order','get_shipping'));
             }else{
                 $information_order = Order::join('order_details','order_details.oder_id','=','oder.id')
@@ -176,13 +176,19 @@ class ShopController extends Controller
                                             ->select('oder.*','order_details.*','products.name')
                                             ->get();
                 $get_shipping = Order::where([['id','=',$id],['status','=','1']])
-                                    ->select('shipping','total')->first();
+                                    ->select('shipping','total','id')->first();
                 return view('shop.confirmation',compact('information_order','get_shipping'));
             }
             
         }else{
             return redirect('products');
         }
+    }
+
+    public function getSuccessOrder($id){
+        $order = Order::where([['id','=',$id],['status','=','1']])->first();
+        Cart::destroy();
+        return view('shop.success-order',compact('order'));
     }
 
     public function getAbouts(){return view('shop.abouts');}
