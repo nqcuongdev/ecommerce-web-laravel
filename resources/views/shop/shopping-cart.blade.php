@@ -55,7 +55,8 @@
                         <tr>
                             <td>
                                 <div class="media">
-                                    <div class="media-left"><a href="#">
+                                    <div class="media-left">
+                                        <a href="#">
                                             <img class="img-responsive" src="{{url($item->options->image)}}" alt="">
                                         </a>
                                     </div>

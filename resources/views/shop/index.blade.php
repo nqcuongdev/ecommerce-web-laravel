@@ -115,7 +115,8 @@
                                 <div class="position-center-center">
                                     <h5>New line required</h5>
                                     <h4>Smartphone s7</h4>
-                                    <span class="price">$259.99</span></div>
+                                    <span class="price">$259.99</span>
+                                </div>
                             </div>
                         </div>
 
@@ -124,7 +125,8 @@
                             <h4>Weekly <span>Sale!</span></h4>
                             <p>Saving up to 50% off all online
                                 store items this week.</p>
-                            <a href="{{route('products')}}" class="btn-round">Shop now</a></div>
+                            <a href="{{route('products')}}" class="btn-round">Shop now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,28 +146,32 @@
                         <div class="media-left"><i class="flaticon-delivery-truck-1"></i></div>
                         <div class="media-body">
                             <h5>Free Shipping</h5>
-                            <span>On order over $99</span></div>
+                            <span>On order over $99</span>
+                        </div>
                     </li>
                     <!-- Money Return -->
                     <li>
                         <div class="media-left"><i class="flaticon-arrows"></i></div>
                         <div class="media-body">
                             <h5>Money Return</h5>
-                            <span>30 Days money return</span></div>
+                            <span>30 Days money return</span>
+                        </div>
                     </li>
                     <!-- Support 24/7 -->
                     <li>
                         <div class="media-left"><i class="flaticon-operator"></i></div>
                         <div class="media-body">
                             <h5>Support 24/7</h5>
-                            <span>Hotline: (+100) 123 456 7890</span></div>
+                            <span>Hotline: (+100) 123 456 7890</span>
+                        </div>
                     </li>
                     <!-- Safe Payment -->
                     <li>
                         <div class="media-left"><i class="flaticon-business"></i></div>
                         <div class="media-body">
                             <h5>Safe Payment</h5>
-                            <span>Protect online payment</span></div>
+                            <span>Protect online payment</span>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -181,7 +187,8 @@
                         <a href="#special" aria-controls="special" role="tab" data-toggle="tab">New Products</a>
                     </li>
                     <li role="presentation">
-                        <a href="#on-sal" aria-controls="on-sal" role="tab" data-toggle="tab">Sale</a></li>
+                        <a href="#on-sal" aria-controls="on-sal" role="tab" data-toggle="tab">Sale</a>
+                    </li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -257,7 +264,8 @@
                                 <h5>Smart Watch 2.0</h5>
                                 <p>Space Gray Aluminum Case
                                     with Black/Volt Real Sport Band <span>38mm | 42mm</span></p>
-                                <a href="#." class="btn-round">View Detail</a></div>
+                                <a href="#." class="btn-round">View Detail</a>
+                            </div>
                         </div>
                     </div>
 
