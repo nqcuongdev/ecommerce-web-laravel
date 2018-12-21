@@ -70,8 +70,31 @@
                     </div>
                     
                     @if(Auth::guard('users')->check() == null)
-                    nothing
+                    @foreach($guest as $value)
+
+                    <ul class="row check-item infoma">
+                        <li class="col-sm-3">
+                            <h6>Name</h6>
+                            <span>{{$value->guest_name}}</span>
+                        </li>
+                        <li class="col-sm-3">
+                            <h6>Phone</h6>
+                            <span>{{$value->phone}}</span>
+                        </li>
+                        <li class="col-sm-3">
+                            <h6>Email</h6>
+                            <span>{{$value->email}}</span>
+                        </li>
+                        <li class="col-sm-3">
+                            <h6>Address</h6>
+                            <span>{{$value->address}}</span>
+                        </li>
+                    </ul>
+
+                    @endforeach
+
                     @else
+
                     <ul class="row check-item infoma">
                         <li class="col-sm-3">
                             <h6>Name</h6>
@@ -90,6 +113,7 @@
                             <span>{{Auth::guard('users')->user()->address}}</span>
                         </li>
                     </ul>
+
                     @endif
 
                     <!-- Information -->

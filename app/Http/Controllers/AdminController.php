@@ -8,6 +8,10 @@ use App\Slides;
 use App\Category;
 use App\Product_Type;
 use App\BlogModel;
+use App\Order;
+use App\OrderDetails;
+use App\Guest;
+use App\User;
 use Auth;
 use Admin;
 
@@ -317,4 +321,32 @@ class AdminController extends Controller
         $blog->delete();
         return redirect('admin/blog-management');
     }
+
+    public function getOrderManagement(){
+        $orders = Order::all();
+        return view('admin.order-management',compact('orders'));
+    }
+
+    public function getOrderDetails($id){
+
+        $order = Order::where('oder.id','=',$id)
+                        ->join('order_details','order_details.oder_id','=','oder.id')
+                        ->join('products','products.id','=','order_details.product_id')
+                        ->first();
+
+                $str_id = $order->id_customer;
+                if(is_int($str_id) != 0){
+                    $customer_id = substr($str_id,5,strlen($str_id));
+                    $customer = Guest::where('id','=',$customer_id)
+                            ->select('name as customer_name','phone','address','email')
+                            ->get();
+                }else {
+                    $customer_id = $str_id;
+                    $customer = User::where('id','=',$customer_id)
+                            ->select('name as customer_name','phone','address','email')
+                            ->first();
+                }
+                    
+            return view('admin.order-details',compact('order','customer'));
+        }
 }

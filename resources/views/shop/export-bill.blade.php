@@ -5,15 +5,27 @@
 			<div class="row mb-4">
 				<div class="col-sm-6">
 					<h4 class="mb-3">Your Information</h4>
-					<div>
-						<strong>Name : {{Auth::guard('users')->user()->name}}</strong>
-					</div>
+
 					@if(Auth::guard('users')->check() == null)
-					<h1></h1>
+
+					@foreach($guest as $value)
+
+						<div>
+							<strong>Name : {{$value->guest_name}}</strong>
+						</div>
+						<div>Phone : {{$value->phone}}</div>
+						<div>Email : {{$value->email}}</div>
+						<div>Address : {{$value->address}}</div>
+
+					@endforeach
+
 					@else
-					<div>Phone : {{Auth::guard('users')->user()->phone}}</div>
-					<div>Email : {{Auth::guard('users')->user()->email}}</div>
-					<div>Address : {{Auth::guard('users')->user()->address}}</div>
+						<div>
+							<strong>Name : {{Auth::guard('users')->user()->name}}</strong>
+						</div>
+						<div>Phone : {{Auth::guard('users')->user()->phone}}</div>
+						<div>Email : {{Auth::guard('users')->user()->email}}</div>
+						<div>Address : {{Auth::guard('users')->user()->address}}</div>
 					@endif	
 				</div>
 			</div>

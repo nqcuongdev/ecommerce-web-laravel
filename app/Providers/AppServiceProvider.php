@@ -28,9 +28,9 @@ class AppServiceProvider extends ServiceProvider
             $category = Category::where('status','=',1)->get();
             foreach ($category as $key => $value) {
                 $category[$key]['children'] = Product_Type::select('*')
-                                                ->where('id_category',$value['id'])
-                                                ->where('status','=',1)
-                                                ->get()->toArray();
+                                                            ->where('id_category',$value['id'])
+                                                            ->where('status','=',1)
+                                                            ->get()->toArray();
             }
             $view->with(['category_menu'=>$category]);  
         });

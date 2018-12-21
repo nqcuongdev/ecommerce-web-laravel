@@ -126,10 +126,13 @@ class ShopController extends Controller
                         $oder_details = new OrderDetails;
                         $oder_details->product_id = $value->id;
                         $oder_details->qty = $value->qty;
-                        $oder_details->order_id = $order->id;
+                        $oder_details->price = $value->price; 
+                        $oder_details->oder_id = $order->id;
                         $oder_details->save();
                     }
                 }
+
+                return redirect()->route('confirm',$order->id);
 
 
             }else{
@@ -175,9 +178,19 @@ class ShopController extends Controller
                                             ->where([['oder.id','=',$id],['oder.status','=','1']])
                                             ->select('oder.*','order_details.*','products.name')
                                             ->get();
+                //Get id from order table GUESTXX then get the number of string
+                //to select Guest
+                foreach ($information_order as $value) {
+                    $str_id = $value->id_customer;
+                    $guest_id = substr($str_id,5,strlen($str_id));
+                }
+
+                $guest = Guest::where('id','=',$guest_id)
+                                ->select('name as guest_name','phone','address','email')
+                                ->get();
                 $get_shipping = Order::where([['id','=',$id],['status','=','1']])
                                     ->select('shipping','total','id')->first();
-                return view('shop.confirmation',compact('information_order','get_shipping'));
+                return view('shop.confirmation',compact('guest','information_order','get_shipping'));
             }
             
         }else{
@@ -269,6 +282,7 @@ class ShopController extends Controller
         $user->password = Hash::make($request->password);
         $user->phone = "";
         $user->address = "";
+        $user->image = "";
         $user->status = 1;
         $user->save();
         return redirect('login')->with(['flag_reg'=>'success','message'=>'Your account has been created']);

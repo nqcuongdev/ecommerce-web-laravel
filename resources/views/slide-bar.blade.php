@@ -89,6 +89,12 @@
                                     <span class="pcoded-mtext">Blog</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{route('get.order-managment')}}">
+                                    <span class="pcoded-micon"><i class="ti-shopping-cart"></i></span>
+                                    <span class="pcoded-mtext">Order</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\OrderDetails;
+use App\Guest;
 use PDF;
 use Cart;
 use Auth;
@@ -32,9 +33,18 @@ class PDFController extends Controller
                                         ->where([['oder.id','=',$id],['oder.status','=','1']])
                                         ->select('oder.*','order_details.*','products.name')
                                         ->get();
+
+            foreach ($information_order as $value) {
+                $guest_id = $value->id_customer[-1];
+            }
+
+            $guest = Guest::where('id','=',$guest_id)
+                            ->select('name as guest_name','phone','address','email')
+                            ->get();
+
             $get_shipping = Order::where([['id','=',$id],['status','=','1']])
                                 ->select('shipping','total')->first();
-            $pdf = PDF::loadView('shop.export-bill',compact('information_order','get_shipping'));
+            $pdf = PDF::loadView('shop.export-bill',compact('guest','information_order','get_shipping'));
 			return $pdf->download('YourBill.pdf');
         }
         
