@@ -74,7 +74,9 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
     Route::get('delete-blog/{id}',['as'=>'get.delete-blog','uses'=>'AdminController@getDeleteBlog']);
 
     Route::get('order-management',['as'=>'get.order-managment','uses'=>'AdminController@getOrderManagement']);
-    Route::get('order-details/{id}',['as'=>'get.order-details','uses'=>'AdminController@getOrderDetails']);
+    Route::get('status-success/{id}',['as'=>'get.status-success','uses'=>'AdminController@getSuccessStatus']);
+    Route::get('status-cancel/{id}',['as'=>'get.status-cancel','uses'=>'AdminController@getCancelStatus']);
+    Route::get('delete-order/{id}',['as'=>'get.delete-order','uses'=>'AdminController@getDeleteOrder']);
     
     Route::get('logout',['as'=>'get.adminlogout','uses'=>'AdminController@getAdminLogout']);
 });

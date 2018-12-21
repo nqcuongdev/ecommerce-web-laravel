@@ -44,18 +44,27 @@
                                                         @endif
                                                         
                                                     </td>
-                                                    <td>{{$order->total}}</td>
+                                                    <td>${{$order->total}}</td>
                                                     <td>{{$order->created_at->format('d/m/Y')}}</td>
                                                     <td>
-                                                        <a href="{{route('get.order-details',$order->id)}}">
+                                                        @if($order->status == 1)
+                                                        <a href="{{route('get.status-success',$order->id)}}">
                                                             <button class="btn btn-info">
-                                                                <i class="icofont icofont-eye-alt"></i>
+                                                                <i class="icofont icofont-check"></i>
                                                             </button>
                                                         </a>
-                                                        @if($order->status == 2)
+                                                        <a href="{{route('get.status-cancel',$order->id)}}">
+                                                            <button class="btn btn-danger">
+                                                                <i class="icofont icofont-ui-block"></i>
+                                                            </button>
+                                                        </a>
+                                                        @elseif($order->status == 2 || $order->status == 3)
+                                                        <a href="{{route('get.delete-order',$order->id)}}">
                                                             <button class="btn btn-danger">
                                                                 <i class="ti-trash"></i>
                                                             </button>
+                                                        </a>
+                                                            
                                                         @endif
                                                         
                                                     </td>

@@ -328,7 +328,6 @@ class AdminController extends Controller
     }
 
     public function getOrderDetails($id){
-
         $order = Order::where('oder.id','=',$id)
                         ->join('order_details','order_details.oder_id','=','oder.id')
                         ->join('products','products.id','=','order_details.product_id')
@@ -349,4 +348,34 @@ class AdminController extends Controller
                     
             return view('admin.order-details',compact('order','customer'));
         }
+
+    public function getSuccessStatus($id){
+        $order = Order::find($id);
+        $order->id = $order->id;
+        $order->qty = $order->qty;
+        $order->shipping = $order->shipping;
+        $order->total = $order->total;
+        $order->status = 2;
+        $order->save();
+        return redirect()->back();
+    }
+
+    public function getCancelStatus($id){
+        $order = Order::find($id);
+        $order->id = $order->id;
+        $order->qty = $order->qty;
+        $order->shipping = $order->shipping;
+        $order->total = $order->total;
+        $order->status = 3;
+        $order->save();
+        return redirect()->back();
+    }
+
+    public function getDeleteOrder($id){
+        $order = Order::join('order_details','order_details.oder_id','=','oder.id')
+                        ->where('oder.id','=',$id)
+                        ->get();
+        
+        return redirect()->back();
+    }
 }
