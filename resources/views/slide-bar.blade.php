@@ -95,6 +95,12 @@
                                     <span class="pcoded-mtext">Order</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="">
+                                    <span class="pcoded-micon"><i class="ti-user"></i></span>
+                                    <span class="pcoded-mtext">Customer</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

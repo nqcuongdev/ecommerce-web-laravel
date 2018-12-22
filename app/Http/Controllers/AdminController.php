@@ -371,6 +371,7 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    //Error
     public function getDeleteOrder($id){
         $order = Order::join('order_details','order_details.oder_id','=','oder.id')
                         ->where('oder.id','=',$id)
