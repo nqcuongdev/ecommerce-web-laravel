@@ -96,7 +96,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="{{route('get.user-managment')}}">
                                     <span class="pcoded-micon"><i class="ti-user"></i></span>
                                     <span class="pcoded-mtext">Customer</span>
                                 </a>

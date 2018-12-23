@@ -77,6 +77,8 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
     Route::get('status-success/{id}',['as'=>'get.status-success','uses'=>'AdminController@getSuccessStatus']);
     Route::get('status-cancel/{id}',['as'=>'get.status-cancel','uses'=>'AdminController@getCancelStatus']);
     Route::get('delete-order/{id}',['as'=>'get.delete-order','uses'=>'AdminController@getDeleteOrder']);
+
+    Route::get('user-management',['as'=>'get.user-managment','uses'=>'AdminController@getUserManagement']);
     
     Route::get('logout',['as'=>'get.adminlogout','uses'=>'AdminController@getAdminLogout']);
 });

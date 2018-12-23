@@ -379,4 +379,10 @@ class AdminController extends Controller
         
         return redirect()->back();
     }
+
+    public function getUserManagement(){
+        $user = User::all();
+        $guest = Guest::all();
+        return view('admin.user-management',compact('user','guest'));
+    }
 }
