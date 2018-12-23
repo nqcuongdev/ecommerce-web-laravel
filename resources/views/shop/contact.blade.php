@@ -48,7 +48,22 @@
                 <div class="contact">
                     <div class="contact-form">
                         <!-- FORM  -->
-                        <form role="form" id="contact_form" class="contact-form" method="post" onSubmit="return false">
+                        @if(count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+                        @if($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                            <strong>{{$message}}</strong>
+                        </div>
+                        @endif
+                        <form id="contact_form" class="contact-form" method="post" action="{{route('post.contact')}}">
+                            {{csrf_field()}}
                             <div class="row">
                                 <div class="col-md-8">
 
@@ -58,27 +73,24 @@
                                     </div>
                                     <ul class="row">
                                         <li class="col-sm-6">
-                                            <label>First Name
-                                                <input type="text" class="form-control" name="name" id="name"
-                                                       placeholder="">
+                                            <label>
+                                                Full Name
+                                                <input type="text" class="form-control" name="fullname" id="name">
                                             </label>
                                         </li>
                                         <li class="col-sm-6">
-                                            <label>Last Name
-                                                <input type="text" class="form-control" name="email" id="email"
-                                                       placeholder="">
+                                            <label>
+                                                Email
+                                                <input type="text" class="form-control" name="email" id="email">
                                             </label>
                                         </li>
                                         <li class="col-sm-12">
                                             <label>Message
-                                                <textarea class="form-control" name="message" id="message" rows="5"
-                                                          placeholder=""></textarea>
+                                                <textarea class="form-control" name="message" id="message" rows="5"></textarea>
                                             </label>
                                         </li>
                                         <li class="col-sm-12 no-margin">
-                                            <button type="submit" value="submit" class="btn-round" id="btn_submit"
-                                                    onClick="proceed();">Send Message
-                                            </button>
+                                            <button type="submit" value="submit" class="btn-round">Send Message</button>
                                         </li>
                                     </ul>
                                 </div>

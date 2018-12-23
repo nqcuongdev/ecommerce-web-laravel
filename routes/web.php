@@ -19,6 +19,7 @@ Route::get('product-details/{id}',['as'=>'product-details','uses'=>'ShopControll
 Route::get('abouts',['as'=>'abouts','uses'=>'ShopController@getAbouts']);
 
 Route::get('contact',['as'=>'contact','uses'=>'ShopController@getContact']);
+Route::post('contact',['as'=>'post.contact','uses'=>'MailController@sendMail']);
 
 Route::get('add-to-cart/{id}',['as'=>'addtocart','uses'=>'ShopController@addtocart']);
 Route::get('cart',['as'=>'yourcart','uses'=>'ShopController@getCart']);
