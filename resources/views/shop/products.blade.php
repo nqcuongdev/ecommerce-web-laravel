@@ -28,7 +28,7 @@
                                 <ul>
                                     @foreach($category as $item)
                                         <li>
-                                            <input id="cate{{$item->id}}" class="styled" type="checkbox">
+                                            <input value="cate{{$item->id}}" id="cate{{$item->id}}" class="styled" type="checkbox">
                                             <label for="cate{{$item->id}}">{{$item->name_category}}</label>
                                         </li>
                                     @endforeach
@@ -40,62 +40,9 @@
                             <!-- PRICE -->
                             <div class="cost-price-content">
                                 <div id="price-range" class="price-range"></div>
-                                <span id="price-min" class="price-min">20</span> <span id="price-max" class="price-max">80</span>
-                                <a href="#" class="btn-round">Filter</a></div>
-
-                            <!-- Featured Brands -->
-                            <h6>Featured Brands</h6>
-                            <div class="checkbox checkbox-primary">
-                                <ul>
-                                    <li>
-                                        <input id="brand1" class="styled" type="checkbox">
-                                        <label for="brand1"> Apple <span>(217)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand2" class="styled" type="checkbox">
-                                        <label for="brand2"> Acer <span>(79)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand3" class="styled" type="checkbox">
-                                        <label for="brand3"> Asus <span>(283)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand4" class="styled" type="checkbox">
-                                        <label for="brand4">Samsung <span>(116)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand5" class="styled" type="checkbox">
-                                        <label for="brand5"> LG <span>(29)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand6" class="styled" type="checkbox">
-                                        <label for="brand6"> Electrolux <span>(179)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand7" class="styled" type="checkbox">
-                                        <label for="brand7"> Toshiba <span>(38)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand8" class="styled" type="checkbox">
-                                        <label for="brand8"> Sharp <span>(205)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand9" class="styled" type="checkbox">
-                                        <label for="brand9"> Sony <span>(35)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand10" class="styled" type="checkbox">
-                                        <label for="brand10"> HTC <span>(59)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand11" class="styled" type="checkbox">
-                                        <label for="brand11"> Lenovo <span>(68)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand12" class="styled" type="checkbox">
-                                        <label for="brand12">Sanyo (19) </label>
-                                    </li>
-                                </ul>
+                                <span id="price-min" class="price-min">20</span>
+                                <span id="price-max" class="price-max">80</span>
+                                <a href="#" class="btn-round">Filter</a>
                             </div>
                         </div>
                     </div>
@@ -122,10 +69,10 @@
                         </div>
 
                         <!-- Items -->
-                        <div class="item-col-3">
+                        <div class="item-col-3 fillter_pr">
                             <!-- Product -->
                             @foreach($products as $item)
-                                <div class="product">
+                                <div class="product" data-category="cate{{$item->id_category}}">
                                     <article>
                                         <a href="{{route('product-details',$item->id)}}">
                                             <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
@@ -182,6 +129,19 @@
         </section>
     </div>
     <!-- End Content -->
+    {{-- Fillter product flow category --}}
+    <script>
+        $('input[type="checkbox"]').click(function() {
+        if ($('input[type="checkbox"]:checked').length > 0) {
+            $('.product').hide();
+            $('input[type="checkbox"]:checked').each(function() {
+                $('.product[data-category=' + this.id + ']').show();
+            });
+        } else {
+            $('.product').show();
+        }
+    });
+    </script>
     <script>
         $(document).ready(function ($) {
 
@@ -196,7 +156,7 @@
                 serialization: {
                     lower: [
                         $.Link({
-                            target: $("#price-min")
+                           target: $("#price-min")
                         })
                     ],
                     upper: [

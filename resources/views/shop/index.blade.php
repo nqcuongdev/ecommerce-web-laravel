@@ -397,32 +397,32 @@
                     <li role="presentation" class="active">
                         <a href="#tv-au" aria-controls="featur" role="tab" data-toggle="tab">
                             <i class="flaticon-computer"></i>
-                            TV & Audios <span>236 item(s)</span>
+                            TV & Audios <span>{{count($TV)}} items</span>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#smart" aria-controls="special" role="tab" data-toggle="tab">
-                            <i class="flaticon-smartphone"></i>Smartphones <span>150 item(s)</span>
+                            <i class="flaticon-smartphone"></i>Smartphones & Tablet <span>{{count($Smartphone)}} items</span>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#deks-lap" aria-controls="on-sal" role="tab" data-toggle="tab">
-                            <i class="flaticon-laptop"></i>Desktop & Laptop <span>268 item(s)</span>
+                            <i class="flaticon-laptop"></i>Desktop & Laptop <span>{{count($Computer)}} items</span>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#game-com" aria-controls="special" role="tab" data-toggle="tab">
-                            <i class="flaticon-gamepad-1"></i>Game Console <span>79 item(s)</span>
+                            <i class="flaticon-gamepad-1"></i>Gaming<span>{{count($Gaming)}} items</span>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#watches" aria-controls="on-sal" role="tab" data-toggle="tab">
-                            <i class="flaticon-computer-1"></i>Watches<span>105 item(s)</span>
+                            <i class="flaticon-computer-1"></i>Accessories<span>{{count($Accessories)}} items</span>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#access" aria-controls="on-sal" role="tab" data-toggle="tab">
-                            <i class="flaticon-keyboard"></i>Accessories <span>816 item(s)</span>
+                            <i class="flaticon-commerce"></i>Camera <span>{{count($Camera)}} items</span>
                         </a>
                     </li>
                 </ul>
@@ -434,602 +434,244 @@
 
                         <!-- Items -->
                         <div class="item-slide-5 with-bullet no-nav">
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-1.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Latop</span> <a href="#." class="tittle">Laptop Alienware 15 i7
-                                        Perfect For Playing Game</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-2.jpg" alt=""> <span
-                                        class="sale-tag">-25%</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Tablets</span> <a href="#." class="tittle">Mp3 Sumergible
-                                        Deportivo Slim Con 8GB</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00 <span>$200.00</span></div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-3.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente
-                                        Smart Watch M26 Touch Bluetooh </a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-4.jpg" alt=""> <span
-                                        class="new-tag">New</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-5.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-6.jpg" alt=""> <span
-                                        class="sale-tag">-25%</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Tablets</span> <a href="#." class="tittle">Mp3 Sumergible
-                                        Deportivo Slim Con 8GB</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00 <span>$200.00</span></div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-7.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente
-                                        Smart Watch M26 Touch Bluetooh </a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-8.jpg" alt=""> <span
-                                        class="new-tag">New</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-9.jpg" alt=""> <span
-                                        class="sale-tag">-25%</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Tablets</span> <a href="#." class="tittle">Mp3 Sumergible
-                                        Deportivo Slim Con 8GB</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00 <span>$200.00</span></div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-10.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente
-                                        Smart Watch M26 Touch Bluetooh </a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-11.jpg" alt=""> <span
-                                        class="new-tag">New</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-                        </div>
-                    </div>
+                                        @if(count($TV) > 0)
+                                        @foreach($TV as $item)
+                                        <div class="product">
+                                            <article>
+                                                <a href="{{route('product-details',$item->id)}}">
+                                                    <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
+                                                </a>
+                                                @if($item->sale_price != 0)
+                                                    <span class="sale-tag">-{{$item->sale_price}}%</span>  
+                                                @endif
+                                                @if($item->new_product == 1)
+                                                    <span class="new-tag">New</span>
+                                                @endif
+                                                <span class="tag">{{$item->name_type}}</span>
+                                                <a href="{{route('product-details',$item->id)}}" class="tittle">
+                                                    {{$item->name}}
+                                                </a>
+                                                <p class="rev margin-top-5"></p>
+                                                <div class="price">
+                                                    @if($item->sale_price == 0)
+                                                        ${{$item->price}}
+                                                    @else
+                                                        ${{$item->price}}
+                                                        <span>
+                                                            ${{($item->price) - ((($item->price)*($item->sale_price))/100)}}
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                                <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
+                                                    <i class="icon-basket-loaded"></i>
+                                                </a>
+                                            </article>
+                                        </div>
+                                        @endforeach
+                                        @endif
+                                        </div>
 
                     <!-- Smartphones -->
                     <div role="tabpanel" class="tab-pane fade" id="smart">
                         <!-- Items -->
                         <div class="item-col-5">
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-11.jpg" alt=""> <span
-                                        class="sale-tag">-25%</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-8.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-5.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente
-                                        Smart Watch M26 Touch Bluetooh </a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-17.jpg" alt=""> <span
-                                        class="new-tag">New</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-15.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
+                        @if(count($Smartphone) > 0)
+                        @foreach($Smartphone as $item)
+                        <div class="product">
+                            <article>
+                                <a href="{{route('product-details',$item->id)}}">
+                                    <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
+                                </a>
+                                @if($item->sale_price != 0)
+                                    <span class="sale-tag">-{{$item->sale_price}}%</span>  
+                                @endif
+                                @if($item->new_product == 1)
+                                    <span class="new-tag">New</span>
+                                @endif
+                                <span class="tag">{{$item->name_type}}</span>
+                                <a href="{{route('product-details',$item->id)}}" class="tittle">
+                                    {{$item->name}}
+                                </a>
+                                <p class="rev margin-top-5"></p>
+                                <div class="price">
+                                    @if($item->sale_price == 0)
+                                        ${{$item->price}}
+                                    @else
+                                        ${{$item->price}}
+                                        <span>
+                                            ${{($item->price) - ((($item->price)*($item->sale_price))/100)}}
+                                        </span>
+                                    @endif
+                                </div>
+                                <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
+                                    <i class="icon-basket-loaded"></i>
+                                </a>
+                            </article>
+                        </div>
+                        @endforeach
+                        @endif
                         </div>
                     </div>
                     <!-- Desk & Laptop -->
                     <div role="tabpanel" class="tab-pane fade" id="deks-lap">
-
-                        <!-- Items -->
                         <div class="item-col-5">
-
-                            <!-- Product -->
+                            @if(count($Computer) > 0)
+                            @foreach($Computer as $item)
                             <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-2.jpg" alt=""> <span
-                                        class="sale-tag">-25%</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
+                                <article>
+                                    <a href="{{route('product-details',$item->id)}}">
+                                        <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
+                                    </a>
+                                    @if($item->sale_price != 0)
+                                        <span class="sale-tag">-{{$item->sale_price}}%</span>  
+                                    @endif
+                                    @if($item->new_product == 1)
+                                        <span class="new-tag">New</span>
+                                    @endif
+                                    <span class="tag">{{$item->name_type}}</span>
+                                    <a href="{{route('product-details',$item->id)}}" class="tittle">
+                                        {{$item->name}}
+                                    </a>
+                                    <p class="rev margin-top-5"></p>
+                                    <div class="price">
+                                        @if($item->sale_price == 0)
+                                            ${{$item->price}}
+                                        @else
+                                            ${{$item->price}}
+                                            <span>
+                                                ${{($item->price) - ((($item->price)*($item->sale_price))/100)}}
+                                            </span>
+                                        @endif
+                                    </div>
+                                    <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
+                                        <i class="icon-basket-loaded"></i>
+                                    </a>
+                                </article>
                             </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-3.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
+                            @endforeach
+                            @endif
                             </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-4.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente
-                                        Smart Watch M26 Touch Bluetooh </a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-13.jpg" alt=""> <span
-                                        class="new-tag">New</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-15.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-                        </div>
                     </div>
                     <!-- Game Console -->
                     <div role="tabpanel" class="tab-pane fade" id="game-com">
 
-                        <!-- Items -->
-                        <div class="item-col-5">
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-9.jpg" alt=""> <span
-                                        class="sale-tag">-25%</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-1.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-5.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente
-                                        Smart Watch M26 Touch Bluetooh </a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-3.jpg" alt=""> <span
-                                        class="new-tag">New</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-2.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-                        </div>
+                            <div class="item-col-5">
+                                    @if(count($Gaming) > 0)
+                                    @foreach($Gaming as $item)
+                                    <div class="product">
+                                        <article>
+                                            <a href="{{route('product-details',$item->id)}}">
+                                                <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
+                                            </a>
+                                            @if($item->sale_price != 0)
+                                                <span class="sale-tag">-{{$item->sale_price}}%</span>  
+                                            @endif
+                                            @if($item->new_product == 1)
+                                                <span class="new-tag">New</span>
+                                            @endif
+                                            <span class="tag">{{$item->name_type}}</span>
+                                            <a href="{{route('product-details',$item->id)}}" class="tittle">
+                                                {{$item->name}}
+                                            </a>
+                                            <p class="rev margin-top-5"></p>
+                                            <div class="price">
+                                                @if($item->sale_price == 0)
+                                                    ${{$item->price}}
+                                                @else
+                                                    ${{$item->price}}
+                                                    <span>
+                                                        ${{($item->price) - ((($item->price)*($item->sale_price))/100)}}
+                                                    </span>
+                                                @endif
+                                            </div>
+                                            <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
+                                                <i class="icon-basket-loaded"></i>
+                                            </a>
+                                        </article>
+                                    </div>
+                                    @endforeach
+                                    @endif
+                                    </div>
                     </div>
                     <!-- Watches -->
                     <div role="tabpanel" class="tab-pane fade" id="watches">
-
-                        <!-- Items -->
-                        <div class="item-col-5">
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-8.jpg" alt=""> <span
-                                        class="sale-tag">-25%</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-9.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-17.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente
-                                        Smart Watch M26 Touch Bluetooh </a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-16.jpg" alt=""> <span
-                                        class="new-tag">New</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-12.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-                        </div>
+                            <div class="item-col-5">
+                                    @if(count($Accessories) > 0)
+                                    @foreach($Accessories as $item)
+                                    <div class="product">
+                                        <article>
+                                            <a href="{{route('product-details',$item->id)}}">
+                                                <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
+                                            </a>
+                                            @if($item->sale_price != 0)
+                                                <span class="sale-tag">-{{$item->sale_price}}%</span>  
+                                            @endif
+                                            @if($item->new_product == 1)
+                                                <span class="new-tag">New</span>
+                                            @endif
+                                            <span class="tag">{{$item->name_type}}</span>
+                                            <a href="{{route('product-details',$item->id)}}" class="tittle">
+                                                {{$item->name}}
+                                            </a>
+                                            <p class="rev margin-top-5"></p>
+                                            <div class="price">
+                                                @if($item->sale_price == 0)
+                                                    ${{$item->price}}
+                                                @else
+                                                    ${{$item->price}}
+                                                    <span>
+                                                        ${{($item->price) - ((($item->price)*($item->sale_price))/100)}}
+                                                    </span>
+                                                @endif
+                                            </div>
+                                            <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
+                                                <i class="icon-basket-loaded"></i>
+                                            </a>
+                                        </article>
+                                    </div>
+                                    @endforeach
+                                    @endif
+                                    </div>
                     </div>
                     <!-- Accessories -->
                     <div role="tabpanel" class="tab-pane fade" id="access">
-
-                        <!-- Items -->
-                        <div class="item-col-5">
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-11.jpg" alt=""> <span
-                                        class="sale-tag">-25%</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-12.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-16.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente
-                                        Smart Watch M26 Touch Bluetooh </a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                            class="fa fa-star-o"></i> <span class="margin-left-10">5 Review(s)</span>
-                                    </p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-15.jpg" alt=""> <span
-                                        class="new-tag">New</span>
-
-                                    <!-- Content -->
-                                    <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                        Bluetooth Con Air Mouse</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-
-                            <!-- Product -->
-                            <div class="product">
-                                <article><img class="img-responsive" src="images/item-img-1-14.jpg" alt="">
-                                    <!-- Content -->
-                                    <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7"
-                                        128GB full HD</a>
-                                    <!-- Reviews -->
-                                    <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                        <span class="margin-left-10">5 Review(s)</span></p>
-                                    <div class="price">$350.00</div>
-                                    <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a></article>
-                            </div>
-                        </div>
+                            <div class="item-col-5">
+                                    @if(count($Camera) > 0)
+                                    @foreach($Camera as $item)
+                                    <div class="product">
+                                        <article>
+                                            <a href="{{route('product-details',$item->id)}}">
+                                                <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
+                                            </a>
+                                            @if($item->sale_price != 0)
+                                                <span class="sale-tag">-{{$item->sale_price}}%</span>  
+                                            @endif
+                                            @if($item->new_product == 1)
+                                                <span class="new-tag">New</span>
+                                            @endif
+                                            <span class="tag">{{$item->name_type}}</span>
+                                            <a href="{{route('product-details',$item->id)}}" class="tittle">
+                                                {{$item->name}}
+                                            </a>
+                                            <p class="rev margin-top-5"></p>
+                                            <div class="price">
+                                                @if($item->sale_price == 0)
+                                                    ${{$item->price}}
+                                                @else
+                                                    ${{$item->price}}
+                                                    <span>
+                                                        ${{($item->price) - ((($item->price)*($item->sale_price))/100)}}
+                                                    </span>
+                                                @endif
+                                            </div>
+                                            <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
+                                                <i class="icon-basket-loaded"></i>
+                                            </a>
+                                        </article>
+                                    </div>
+                                    @endforeach
+                                    @endif
+                                    </div>
                     </div>
                 </div>
             </div>
