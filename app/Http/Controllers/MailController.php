@@ -20,7 +20,7 @@ class MailController extends Controller
             'message' => $request->message
         );
 
-        Mail::to('nqcuong.17it3@sict.udn.vn')->send(new SendMailController($data));
+        Mail::to($request->email)->send(new SendMailController($data));
         return back()->with('success','Thanks for contacting us !');
     }
 }

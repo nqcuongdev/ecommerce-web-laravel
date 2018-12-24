@@ -17,7 +17,7 @@ class SendMailController extends Mailable
      * @return void
      */
 
-    public $data;
+    protected $data;
 
     public function __construct($data)
     {
