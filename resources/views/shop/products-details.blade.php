@@ -22,38 +22,12 @@
                             <h6>Categories</h6>
                             <div class="checkbox checkbox-primary">
                                 <ul>
-                                    <li>
-                                        <input id="cate1" class="styled" type="checkbox">
-                                        <label for="cate1"> Home Audio & Theater </label>
-                                    </li>
-                                    <li>
-                                        <input id="cate2" class="styled" type="checkbox">
-                                        <label for="cate2"> TV & Video</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate3" class="styled" type="checkbox">
-                                        <label for="cate3"> Camera, Photo & Video</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate4" class="styled" type="checkbox">
-                                        <label for="cate4"> Cell Phones & Accessories</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate5" class="styled" type="checkbox">
-                                        <label for="cate5"> Headphones</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate6" class="styled" type="checkbox">
-                                        <label for="cate6"> Video Games</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate7" class="styled" type="checkbox">
-                                        <label for="cate7"> Bluetooth & Wireless Speakers</label>
-                                    </li>
-                                    <li>
-                                        <input id="cate8" class="styled" type="checkbox">
-                                        <label for="cate8"> Gaming Console</label>
-                                    </li>
+                                    @foreach($category as $item)
+                                        <li>
+                                            <input value="cate{{$item->id}}" id="cate{{$item->id}}" class="styled" type="checkbox" @if($products->id_category == $item->id) checked @endif>
+                                            <label for="cate{{$item->id}}">{{$item->name_category}}</label>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <!-- Categories -->
@@ -63,48 +37,6 @@
                                 <div id="price-range" class="price-range"></div>
                                 <span id="price-min" class="price-min">20</span> <span id="price-max" class="price-max">80</span>
                                 <a href="#." class="btn-round">Filter</a>
-                            </div>
-                            <!-- Featured Brands -->
-                            <h6>Featured Brands</h6>
-                            <div class="checkbox checkbox-primary">
-                                <ul>
-                                    <li>
-                                        <input id="brand1" class="styled" type="checkbox">
-                                        <label for="brand1"> Apple <span>(217)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand2" class="styled" type="checkbox">
-                                        <label for="brand2"> Acer <span>(79)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand3" class="styled" type="checkbox">
-                                        <label for="brand3"> Asus <span>(283)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand4" class="styled" type="checkbox">
-                                        <label for="brand4">Samsung <span>(116)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand5" class="styled" type="checkbox">
-                                        <label for="brand5"> LG <span>(29)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand6" class="styled" type="checkbox">
-                                        <label for="brand6"> Electrolux <span>(179)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand7" class="styled" type="checkbox">
-                                        <label for="brand7"> Toshiba <span>(38)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand8" class="styled" type="checkbox">
-                                        <label for="brand8"> Sharp <span>(205)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input id="brand9" class="styled" type="checkbox">
-                                        <label for="brand9"> Sony <span>(35)</span> </label>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>

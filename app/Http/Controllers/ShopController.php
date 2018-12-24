@@ -72,11 +72,14 @@ class ShopController extends Controller
         return view('shop.products',compact('products','category'));
     }
     public function getProductDetails($id){
-        $products = Products::where([
-            ['id','=',$id],
-            ['status','=','1']
-        ])->first();
-        return view('shop.products-details',compact('products'));
+        $products = Products::join('product_type','products.products_type','=','product_type.id')
+                            ->select('products.*','product_type.name_type','product_type.id_category')
+                            ->where([
+                                ['products.id','=',$id],
+                                ['products.status','=','1']
+                            ])->first();
+        $category = Category::where('status','=',1)->get();
+        return view('shop.products-details',compact('products','category'));
     }
 
     public function addtocart(Request $request,$product_id){
