@@ -17,7 +17,7 @@ class MailController extends Controller
         $data = array(
             'name' => $request->fullname,
             'mail' => $request->email,
-            'message' => $request->message
+            'message' => $request->message,
         );
         
         Mail::send('shop.email-content',$data, function($message) use ($data){
