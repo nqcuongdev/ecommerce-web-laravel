@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\SendMailController;
 
 class MailController extends Controller
 {
@@ -17,10 +16,15 @@ class MailController extends Controller
 
         $data = array(
             'name' => $request->fullname,
+            'mail' => $request->email,
             'message' => $request->message
         );
-
-        Mail::to($request->email)->send(new SendMailController($data));
+        
+        Mail::send('shop.email-content',$data, function($message) use ($data){
+            $message->to($data['mail']);
+            $message->subject('Thanks for your contact');
+            $message->from('nqcuong.17it3@sict.udn.vn');
+        });
         return back()->with('success','Thanks for contacting us !');
     }
 }
