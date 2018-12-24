@@ -42,7 +42,7 @@
                                 <div id="price-range" class="price-range"></div>
                                 <span id="price-min" class="price-min">20</span>
                                 <span id="price-max" class="price-max">80</span>
-                                <a href="#" class="btn-round">Filter</a>
+                                <a href="#" class="btn-round" id="filter">Filter</a>
                             </div>
                         </div>
                     </div>
@@ -145,6 +145,7 @@
     <script>
         $(document).ready(function ($) {
 
+            console.log("dit bo mafy");
             //  Price Filter ( noUiSlider Plugin)
             $("#price-range").noUiSlider({
                 range: {
@@ -172,9 +173,11 @@
                 }
             });
 
-            console.log($("#price-min").text());
-            console.log($("#price-max").text());
+            
+            $('body').on('click', '#filter', function (event) {
+                console.log("Dit me may");
+                console.log($("#price-min").text());
+            });
         })
-
     </script>
 @endsection

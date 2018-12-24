@@ -78,9 +78,9 @@
                             </td>
                             <td id="totalprice" class="text-center padding-top-60">
                                 ${{number_format($item->qty * $item->price)}}</td>
-                            <td class="text-center padding-top-60"><a href="{{route('removeitem',$item->rowId)}}"
-                                                                      class="remove"><i
-                                        class="fa fa-close"></i></a></td>
+                            <td class="text-center padding-top-60">
+                                <a href="{{route('removeitem',$item->rowId)}}" class="remove">
+                                    <i class="fa fa-close"></i></a></td>
                         </tr>
                     @endforeach
 
