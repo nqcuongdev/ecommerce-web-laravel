@@ -90,12 +90,18 @@
                                             {!! $products->technical_description !!}
                                         </ul>
                                         <!-- Quinty -->
+                                        <form action="" method="POST">
                                         <div class="margin-top-25 ">
                                             <div class="quinty">
-                                                <input type="number" value="01">
+                                                {{csrf_field()}}
+                                                <input type="text" value="{{$products->id}}" hidden class="id">
+                                                <input type="number" class="qtycart" value="1">
                                             </div>
-                                            <a href="{{route('addtocart',$products->id)}}" class="btn-round"><i
-                                                    class="icon-basket-loaded margin-right-5"></i> Add to Cart</a>
+                                            <a href="#" type="submit" class="btn-round">
+                                                <i class="icon-basket-loaded margin-right-5"></i>
+                                                Add to Cart
+                                            </a>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +113,8 @@
                                     <li role="presentation" class="active"><a href="#pro-detil" role="tab"
                                                                               data-toggle="tab">Product Details</a></li>
                                     <li role="presentation"><a href="#ship" role="tab" data-toggle="tab">Shipping &
-                                            Payment</a></li>
+                                            Payment</a>
+                                        </li>
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
@@ -403,4 +410,33 @@
                 </div>
             </div>
         </section>
+<script>
+    $(document).ready(function(){
+        $(".quinty").change(function(){
+            var token = $("input[name='_token']").val();
+            var qty = $(".qtycart").val();
+            var id = $(".id").val();
+
+            console.log(token);
+            console.log(qty);
+            console.log(id);
+
+            $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    dataType: "json",
+                    url: 'add-to-cart',
+                    type: 'GET',
+                    cache: false,
+                    data: {"_token": token,"qty": qty,"id":id},
+                    success: function (data) {
+                        console.log("Thanh cong");
+                    }
+            });
+        });
+    });
+</script>
 @endsection

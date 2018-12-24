@@ -47,7 +47,7 @@
                         <span class="itm-cont">{{Cart::count()}}</span>
                         <i class="flaticon-shopping-bag"></i>
                         <strong>My Cart</strong><br>
-                        <span>{{Cart::count()}} item(s) - ${{Cart::subtotal()}}</span>
+                        <span class="info-cart">{{Cart::count()}} item(s) - ${{Cart::subtotal()}}</span>
                     </a>
                     <ul class="dropdown-menu">
                         @foreach($cart as $item)

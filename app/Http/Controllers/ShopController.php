@@ -85,15 +85,18 @@ class ShopController extends Controller
 
     public function addtocart(Request $request,$product_id){
         $product = Products::find($product_id);
-        Cart::add(array(
-            'id' => $product_id,
-            'name' => $product->name,
-            'price' => $product->price,
-            'qty' => 1,
-            'options' => array('image' => $product->image)
-        ));
-        $cart = Cart::content();
-        return redirect('cart');
+        if($request->ajax()){
+            Cart::add(array(
+                'id' => $product_id,
+                'name' => $product->name,
+                'price' => $product->price,
+                'qty' => $request->qty,
+                'options' => array('image' => $product->image)
+            ));
+        }
+
+        //$cart = Cart::content();
+        //return redirect('cart');
     }
 
     public function getCart(){

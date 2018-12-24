@@ -66,7 +66,7 @@
                                 </div>
                             </td>
                             <td class="text-center padding-top-60">${{$item->price}}</td>
-                            <td class="text-center"><!-- Quinty -->
+                            <td class="text-center">
 
                                 <div class="quinty padding-top-20">
                                     <form action="" method="POST">
@@ -97,7 +97,7 @@
 
                     <!-- Grand total -->
                     <div class="g-totel">
-                        <h5>Grand total: <span>${{Cart::subtotal()}}</span></h5>
+                        <h5>Grand total: <span class="grand-total">${{Cart::subtotal()}}</span></h5>
                     </div>
                 </div>
 
@@ -151,8 +151,12 @@
                         $.each(data, function (index, element) {
                             var totalprice = element.price * element.qty;
                             var subtotal = +totalprice;
-                            console.log(totalprice);
-                            console.log(subtotal);
+
+                            //Render data in html
+                            $('.itm-cont').html(qty);
+                            $('.info-cart').html(qty+" item(s) - $"+subtotal);
+                            $("#totalprice").html("$"+subtotal);
+                            $(".grand-total").html("$"+subtotal);
                         })
                     }
                 });
