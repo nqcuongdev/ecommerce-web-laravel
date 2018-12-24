@@ -170,7 +170,10 @@
                         prefix: '$'
                     }
                 }
-            })
+            });
+
+            console.log($("#price-min").text());
+            console.log($("#price-max").text());
         })
 
     </script>

@@ -3,8 +3,8 @@
     <div class="linking">
         <div class="container">
             <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Cell Phones & Accessories</a></li>
+                <li><a href="{{route('index')}}">Home</a></li>
+                <li><a href="#">{{$products->category}}</a></li>
                 <li class="active">{{$products->name}}</li>
             </ol>
         </div>
@@ -31,13 +31,6 @@
                                 </ul>
                             </div>
                             <!-- Categories -->
-                            <h6>Price</h6>
-                            <!-- PRICE -->
-                            <div class="cost-price-content">
-                                <div id="price-range" class="price-range"></div>
-                                <span id="price-min" class="price-min">20</span> <span id="price-max" class="price-max">80</span>
-                                <a href="#." class="btn-round">Filter</a>
-                            </div>
                         </div>
                     </div>
                     <!-- Products -->
@@ -410,35 +403,4 @@
                 </div>
             </div>
         </section>
-        <script>
-            $(document).ready(function ($) {
-
-                //  Price Filter ( noUiSlider Plugin)
-                $("#price-range").noUiSlider({
-                    range: {
-                        'min': [0],
-                        'max': [1000]
-                    },
-                    start: [40, 940],
-                    connect: true,
-                    serialization: {
-                        lower: [
-                            $.Link({
-                                target: $("#price-min")
-                            })
-                        ],
-                        upper: [
-                            $.Link({
-                                target: $("#price-max")
-                            })
-                        ],
-                        format: {
-                            // Set formatting
-                            decimals: 2,
-                            prefix: '$'
-                        }
-                    }
-                })
-            })
-        </script>
 @endsection

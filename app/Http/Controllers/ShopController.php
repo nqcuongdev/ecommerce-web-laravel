@@ -73,7 +73,8 @@ class ShopController extends Controller
     }
     public function getProductDetails($id){
         $products = Products::join('product_type','products.products_type','=','product_type.id')
-                            ->select('products.*','product_type.name_type','product_type.id_category')
+                            ->join('category','category.id','=','product_type.id_category')
+                            ->select('products.*','product_type.name_type','product_type.id_category','category.name_category as category')
                             ->where([
                                 ['products.id','=',$id],
                                 ['products.status','=','1']
