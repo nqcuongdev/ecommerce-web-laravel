@@ -34,7 +34,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-
+{{-- 
                             <!-- Categories -->
                             <h6>Price</h6>
                             <!-- PRICE -->
@@ -43,7 +43,7 @@
                                 <span id="price-min" class="price-min">20</span>
                                 <span id="price-max" class="price-max">80</span>
                                 <a href="#" class="btn-round" id="filter">Filter</a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 
@@ -142,10 +142,9 @@
         }
     });
     </script>
-    <script>
+    {{-- <script>
         $(document).ready(function ($) {
 
-            console.log("dit bo mafy");
             //  Price Filter ( noUiSlider Plugin)
             $("#price-range").noUiSlider({
                 range: {
@@ -175,9 +174,11 @@
 
             
             $('body').on('click', '#filter', function (event) {
-                console.log("Dit me may");
-                console.log($("#price-min").text());
+                var price-min = $("#price-min").text();
+                var price-max = $("#price-max").text();
+
+
             });
         })
-    </script>
+    </script> --}}
 @endsection

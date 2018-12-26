@@ -54,9 +54,13 @@ class ShopController extends Controller
         $Camera = Products::where('products_type','=',7)
                         ->orWhere('products_type','=',3)
                         ->get();
+        $products_list = Products::join('product_type','products.products_type','=','product_type.id')
+                                ->select('products.id','products.name','products.price','products.sale_price','products.image','products.new_product','products.products_type','product_type.name_type','product_type.id_category')
+                                ->orderBy('products.price','asc')
+                                ->inRandomOrder()->limit(8)->get();
         return view('shop.index',compact(
             'slides','category','products_sale','blog','product_new',
-            'TV','Smartphone','Computer','Gaming','Accessories','Camera'
+            'TV','Smartphone','Computer','Gaming','Accessories','Camera','products_list'
         ));
     }
 
@@ -80,12 +84,17 @@ class ShopController extends Controller
                                 ['products.status','=','1']
                             ])->first();
         $category = Category::where('status','=',1)->get();
-        return view('shop.products-details',compact('products','category'));
+        
+        $products_list = Products::join('product_type','products.products_type','=','product_type.id')
+                            ->select('products.id','products.name','products.price','products.sale_price','products.image','products.new_product','products.products_type','product_type.name_type','product_type.id_category')
+                            ->orderBy('products.price','asc')
+                            ->get();
+
+        return view('shop.products-details',compact('products','category','products_list'));
     }
 
-    public function addtocart(Request $request,$product_id){
-        $product = Products::find($product_id);
-        if($request->ajax()){
+    public function addtocart(Request $request){
+            $product = Products::find($request->id);
             Cart::add(array(
                 'id' => $product_id,
                 'name' => $product->name,
@@ -93,10 +102,9 @@ class ShopController extends Controller
                 'qty' => $request->qty,
                 'options' => array('image' => $product->image)
             ));
-        }
 
-        //$cart = Cart::content();
-        //return redirect('cart');
+        $cart = Cart::content();
+        return redirect('cart');
     }
 
     public function getCart(){
@@ -130,8 +138,7 @@ class ShopController extends Controller
             
         }else{
             return redirect('products');
-        }
-        
+        }   
     }
 
     public function postOrder(Request $request){

@@ -97,11 +97,11 @@
                                                 <input type="text" value="{{$products->id}}" hidden class="id">
                                                 <input type="number" class="qtycart" value="1">
                                             </div>
-                                            <a href="#" type="submit" class="btn-round">
+                                            <a href="#" class="btn-round" id="atc">
                                                 <i class="icon-basket-loaded margin-right-5"></i>
                                                 Add to Cart
                                             </a>
-                                            </form>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
@@ -110,11 +110,12 @@
                             <div class="item-tabs-sec">
                                 <!-- Nav tabs -->
                                 <ul class="nav" role="tablist">
-                                    <li role="presentation" class="active"><a href="#pro-detil" role="tab"
-                                                                              data-toggle="tab">Product Details</a></li>
-                                    <li role="presentation"><a href="#ship" role="tab" data-toggle="tab">Shipping &
-                                            Payment</a>
-                                        </li>
+                                    <li role="presentation" class="active">
+                                        <a href="#pro-detil" role="tab" data-toggle="tab">Product Details</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#ship" role="tab" data-toggle="tab">Shipping & Payment</a>
+                                    </li>
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
@@ -138,137 +139,39 @@
                             <!-- Items Slider -->
                             <div class="item-slide-4 with-nav">
                                 <!-- Product -->
-                                <div class="product">
+                                @foreach($products_list as $item)
+                                <div class="product" data-category="cate{{$item->id_category}}">
                                     <article>
-                                        <img class="img-responsive" src="images/item-img-1-1.jpg" alt="">
-                                        <!-- Content -->
-                                        <span class="tag">Latop</span> <a href="#." class="tittle">Laptop Alienware 15
-                                            i7 Perfect For Playing Game</a>
-                                        <!-- Reviews -->
-                                        <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                                class="fa fa-star-o"></i> <span
-                                                class="margin-left-10">5 Review(s)</span></p>
-                                        <div class="price">$350.00</div>
-                                        <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
+                                        <a href="{{route('product-details',$item->id)}}">
+                                            <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
+                                        </a>
+                                        @if($item->sale_price != 0)
+                                            <span class="sale-tag">-{{$item->sale_price}}%</span>  
+                                        @endif
+                                        @if($item->new_product == 1)
+                                            <span class="new-tag">New</span>
+                                        @endif
+                                        <span class="tag">{{$item->name_type}}</span>
+                                        <a href="{{route('product-details',$item->id)}}" class="tittle">
+                                            {{$item->name}}
+                                        </a>
+                                        <p class="rev margin-top-5"></p>
+                                        <div class="price">
+                                            @if($item->sale_price == 0)
+                                                ${{$item->price}}
+                                            @else
+                                                ${{$item->price}}
+                                                <span>
+                                                    ${{($item->price) - ((($item->price)*($item->sale_price))/100)}}
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
+                                            <i class="icon-basket-loaded"></i>
+                                        </a>
                                     </article>
                                 </div>
-                                <!-- Product -->
-                                <div class="product">
-                                    <article>
-                                        <img class="img-responsive" src="images/item-img-1-2.jpg" alt=""> <span
-                                            class="sale-tag">-25%</span>
-                                        <!-- Content -->
-                                        <span class="tag">Tablets</span> <a href="#." class="tittle">Mp3 Sumergible
-                                            Deportivo Slim Con 8GB</a>
-                                        <!-- Reviews -->
-                                        <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                                class="fa fa-star-o"></i> <span
-                                                class="margin-left-10">5 Review(s)</span></p>
-                                        <div class="price">$350.00 <span>$200.00</span></div>
-                                        <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                                    </article>
-                                </div>
-                                <!-- Product -->
-                                <div class="product">
-                                    <article>
-                                        <img class="img-responsive" src="images/item-img-1-3.jpg" alt="">
-                                        <!-- Content -->
-                                        <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj
-                                            Inteligente Smart Watch M26 Touch </a>
-                                        <!-- Reviews -->
-                                        <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                                class="fa fa-star-o"></i> <span
-                                                class="margin-left-10">5 Review(s)</span></p>
-                                        <div class="price">$350.00</div>
-                                        <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                                    </article>
-                                </div>
-                                <!-- Product -->
-                                <div class="product">
-                                    <article>
-                                        <img class="img-responsive" src="images/item-img-1-4.jpg" alt=""> <span
-                                            class="new-tag">New</span>
-                                        <!-- Content -->
-                                        <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado
-                                            Inalambrico Bluetooth Con Air Mouse</a>
-                                        <!-- Reviews -->
-                                        <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                                class="fa fa-star-o"></i> <span
-                                                class="margin-left-10">5 Review(s)</span></p>
-                                        <div class="price">$350.00</div>
-                                        <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                                    </article>
-                                </div>
-                                <!-- Product -->
-                                <div class="product">
-                                    <article>
-                                        <img class="img-responsive" src="images/item-img-1-5.jpg" alt="">
-                                        <!-- Content -->
-                                        <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook
-                                            7" 128GB full HD</a>
-                                        <!-- Reviews -->
-                                        <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                                class="fa fa-star-o"></i> <span
-                                                class="margin-left-10">5 Review(s)</span></p>
-                                        <div class="price">$350.00</div>
-                                        <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                                    </article>
-                                </div>
-                                <!-- Product -->
-                                <div class="product">
-                                    <article>
-                                        <img class="img-responsive" src="images/item-img-1-6.jpg" alt=""> <span
-                                            class="sale-tag">-25%</span>
-                                        <!-- Content -->
-                                        <span class="tag">Tablets</span> <a href="#." class="tittle">Mp3 Sumergible
-                                            Deportivo Slim Con 8GB</a>
-                                        <!-- Reviews -->
-                                        <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                                class="fa fa-star-o"></i> <span
-                                                class="margin-left-10">5 Review(s)</span></p>
-                                        <div class="price">$350.00 <span>$200.00</span></div>
-                                        <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                                    </article>
-                                </div>
-                                <!-- Product -->
-                                <div class="product">
-                                    <article>
-                                        <img class="img-responsive" src="images/item-img-1-7.jpg" alt="">
-                                        <!-- Content -->
-                                        <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj
-                                            Inteligente Smart Watch M26 Touch </a>
-                                        <!-- Reviews -->
-                                        <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                                class="fa fa-star-o"></i> <span
-                                                class="margin-left-10">5 Review(s)</span></p>
-                                        <div class="price">$350.00</div>
-                                        <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                                    </article>
-                                </div>
-                                <!-- Product -->
-                                <div class="product">
-                                    <article>
-                                        <img class="img-responsive" src="images/item-img-1-8.jpg" alt=""> <span
-                                            class="new-tag">New</span>
-                                        <!-- Content -->
-                                        <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado
-                                            Inalambrico Bluetooth Con Air Mouse</a>
-                                        <!-- Reviews -->
-                                        <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i> <i
-                                                class="fa fa-star-o"></i> <span
-                                                class="margin-left-10">5 Review(s)</span></p>
-                                        <div class="price">$350.00</div>
-                                        <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                                    </article>
-                                </div>
+                            @endforeach
                             </div>
                         </section>
                     </div>
@@ -286,157 +189,40 @@
                 <!-- Items Slider -->
                 <div class="item-slide-5 with-nav">
                     <!-- Product -->
-                    <div class="product">
-                        <article>
-                            <img class="img-responsive" src="images/item-img-1-1.jpg" alt="">
-                            <!-- Content -->
-                            <span class="tag">Latop</span> <a href="#." class="tittle">Laptop Alienware 15 i7 Perfect
-                                For Playing Game</a>
-                            <!-- Reviews -->
-                            <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span
-                                    class="margin-left-10">5 Review(s)</span></p>
-                            <div class="price">$350.00</div>
-                            <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                        </article>
-                    </div>
-                    <!-- Product -->
-                    <div class="product">
-                        <article>
-                            <img class="img-responsive" src="images/item-img-1-2.jpg" alt=""> <span class="sale-tag">-25%</span>
-                            <!-- Content -->
-                            <span class="tag">Tablets</span> <a href="#." class="tittle">Mp3 Sumergible Deportivo Slim
-                                Con 8GB</a>
-                            <!-- Reviews -->
-                            <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span
-                                    class="margin-left-10">5 Review(s)</span></p>
-                            <div class="price">$350.00 <span>$200.00</span></div>
-                            <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                        </article>
-                    </div>
-                    <!-- Product -->
-                    <div class="product">
-                        <article>
-                            <img class="img-responsive" src="images/item-img-1-3.jpg" alt="">
-                            <!-- Content -->
-                            <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente Smart
-                                Watch M26 Touch Bluetooh </a>
-                            <!-- Reviews -->
-                            <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span
-                                    class="margin-left-10">5 Review(s)</span></p>
-                            <div class="price">$350.00</div>
-                            <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                        </article>
-                    </div>
-                    <!-- Product -->
-                    <div class="product">
-                        <article>
-                            <img class="img-responsive" src="images/item-img-1-4.jpg" alt=""> <span
-                                class="new-tag">New</span>
-                            <!-- Content -->
-                            <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                Bluetooth Con Air Mouse</a>
-                            <!-- Reviews -->
-                            <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span
-                                    class="margin-left-10">5 Review(s)</span></p>
-                            <div class="price">$350.00</div>
-                            <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                        </article>
-                    </div>
-                    <!-- Product -->
-                    <div class="product">
-                        <article>
-                            <img class="img-responsive" src="images/item-img-1-5.jpg" alt="">
-                            <!-- Content -->
-                            <span class="tag">Appliances</span> <a href="#." class="tittle">Funda Para Ebook 7" 128GB
-                                full HD</a>
-                            <!-- Reviews -->
-                            <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span
-                                    class="margin-left-10">5 Review(s)</span></p>
-                            <div class="price">$350.00</div>
-                            <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                        </article>
-                    </div>
-                    <!-- Product -->
-                    <div class="product">
-                        <article>
-                            <img class="img-responsive" src="images/item-img-1-6.jpg" alt=""> <span class="sale-tag">-25%</span>
-                            <!-- Content -->
-                            <span class="tag">Tablets</span> <a href="#." class="tittle">Mp3 Sumergible Deportivo Slim
-                                Con 8GB</a>
-                            <!-- Reviews -->
-                            <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span
-                                    class="margin-left-10">5 Review(s)</span></p>
-                            <div class="price">$350.00 <span>$200.00</span></div>
-                            <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                        </article>
-                    </div>
-                    <!-- Product -->
-                    <div class="product">
-                        <article>
-                            <img class="img-responsive" src="images/item-img-1-7.jpg" alt="">
-                            <!-- Content -->
-                            <span class="tag">Appliances</span> <a href="#." class="tittle">Reloj Inteligente Smart
-                                Watch M26 Touch Bluetooh </a>
-                            <!-- Reviews -->
-                            <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span
-                                    class="margin-left-10">5 Review(s)</span></p>
-                            <div class="price">$350.00</div>
-                            <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                        </article>
-                    </div>
-                    <!-- Product -->
-                    <div class="product">
-                        <article>
-                            <img class="img-responsive" src="images/item-img-1-8.jpg" alt=""> <span
-                                class="new-tag">New</span>
-                            <!-- Content -->
-                            <span class="tag">Accessories</span> <a href="#." class="tittle">Teclado Inalambrico
-                                Bluetooth Con Air Mouse</a>
-                            <!-- Reviews -->
-                            <p class="rev"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                    class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span
-                                    class="margin-left-10">5 Review(s)</span></p>
-                            <div class="price">$350.00</div>
-                            <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                        </article>
-                    </div>
+                    @foreach($products_list as $item)
+                                <div class="product" data-category="cate{{$item->id_category}}">
+                                    <article>
+                                        <a href="{{route('product-details',$item->id)}}">
+                                            <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
+                                        </a>
+                                        @if($item->sale_price != 0)
+                                            <span class="sale-tag">-{{$item->sale_price}}%</span>  
+                                        @endif
+                                        @if($item->new_product == 1)
+                                            <span class="new-tag">New</span>
+                                        @endif
+                                        <span class="tag">{{$item->name_type}}</span>
+                                        <a href="{{route('product-details',$item->id)}}" class="tittle">
+                                            {{$item->name}}
+                                        </a>
+                                        <p class="rev margin-top-5"></p>
+                                        <div class="price">
+                                            @if($item->sale_price == 0)
+                                                ${{$item->price}}
+                                            @else
+                                                ${{$item->price}}
+                                                <span>
+                                                    ${{($item->price) - ((($item->price)*($item->sale_price))/100)}}
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
+                                            <i class="icon-basket-loaded"></i>
+                                        </a>
+                                    </article>
+                                </div>
+                            @endforeach
                 </div>
             </div>
         </section>
-<script>
-    $(document).ready(function(){
-        $(".quinty").change(function(){
-            var token = $("input[name='_token']").val();
-            var qty = $(".qtycart").val();
-            var id = $(".id").val();
-
-            console.log(token);
-            console.log(qty);
-            console.log(id);
-
-            $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    dataType: "json",
-                    url: 'add-to-cart',
-                    type: 'GET',
-                    cache: false,
-                    data: {"_token": token,"qty": qty,"id":id},
-                    success: function (data) {
-                        console.log("Thanh cong");
-                    }
-            });
-        });
-    });
-</script>
 @endsection

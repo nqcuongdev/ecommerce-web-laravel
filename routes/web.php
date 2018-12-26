@@ -21,7 +21,7 @@ Route::get('abouts',['as'=>'abouts','uses'=>'ShopController@getAbouts']);
 Route::get('contact',['as'=>'contact','uses'=>'ShopController@getContact']);
 Route::post('contact',['as'=>'post.contact','uses'=>'MailController@sendMail']);
 
-Route::get('add-to-cart',['as'=>'addtocart','uses'=>'ShopController@addtocart']);
+Route::get('add-to-cart/{id}',['as'=>'addtocart','uses'=>'ShopController@addtocart']);
 Route::get('cart',['as'=>'yourcart','uses'=>'ShopController@getCart']);
 Route::get('remove-item/{id}',['as'=>'removeitem','uses'=>'ShopController@removeCart']);
 Route::get('update/{id}/{qty}',['as'=>'updateitem','uses'=>'ShopController@updateCart']);
