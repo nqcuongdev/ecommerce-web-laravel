@@ -39,6 +39,9 @@ Route::post('login',['as'=>'post.login','uses'=>'ShopController@postLogin']);
 Route::get('logout',['as'=>'get.logout','uses'=>'ShopController@postLogout']);
 Route::post('register',['as'=>'post.register','uses'=>'ShopController@postRegister']);
 
+Route::get('profile',['as'=>'get.profile','uses'=>'ShopController@getProfile']);
+Route::post('profile',['as'=>'post.profile','uses'=>'ShopController@postProfile']);
+
 Route::get('export-bill/{id}',['as'=>'export-bill','uses'=>'PDFController@index']);
 
 Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){

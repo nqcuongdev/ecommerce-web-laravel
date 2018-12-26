@@ -339,4 +339,46 @@ class ShopController extends Controller
         ])->first();
         return view('shop.blog-details',compact('blog'));
     }
+
+    public function getProfile(){
+        if(Auth::guard('users')->check()){
+            $user = User::find(Auth::guard('users')->user()->id)->first();
+
+            $order = Order::where('id_customer','=',Auth::guard('users')->user()->id)->get();
+            return view('shop.profile-user',compact('user','order'));
+        }else
+            return redirect('/');
+    }
+
+    public function postProfile(Request $request){
+        $user = User::find(Auth::guard('users')->user()->id);
+        
+        if($request->has('name'))
+            $user->name = $request->name;
+        else 
+            $user->name = $user->name;
+
+        if($request->has('address'))
+            $user->address = $request->address;
+        else 
+            $user->address = $user->address;
+        
+        if($request->has('phone'))
+            $user->phone = $request->phone;
+        else 
+            $user->phone = $user->phone;
+        
+        if($request->has('image')){
+            $image = $request->image;
+            $image->move(public_path('/Smarttech/images/avatar'), $image->getClientOriginalName());
+            $link = 'Smarttech/images/avatar/' . $image->getClientOriginalName();
+            $user->image = $link;
+        }else{
+            $user->image = $user->image;
+        }
+        $user->email = $user->email;
+        $user->status = $user->status;
+        $user->save();
+        return redirect('profile')->with(['flag_reg'=>'success','message'=>'Your account has been updated']);
+    }
 }

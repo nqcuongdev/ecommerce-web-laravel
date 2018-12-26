@@ -7,6 +7,7 @@
                     @if(Auth::user()->status == 1)
                         <li>Hello, {{Auth::user()->name}} wellcome back !</li>
                         <li><a href="{{route('get.logout')}}">Logout</a></li>
+                        <li><a href="{{route('get.profile')}}">Profile</a></li>
                     @endif
                 @else
                     <li><a href="{{route('get.login')}}">Login/Register </a></li>
