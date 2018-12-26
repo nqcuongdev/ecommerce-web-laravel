@@ -145,7 +145,6 @@
     <script>
         $(document).ready(function ($) {
 
-            console.log("dit bo mafy");
             //  Price Filter ( noUiSlider Plugin)
             $("#price-range").noUiSlider({
                 range: {
@@ -175,8 +174,8 @@
 
             
             $('body').on('click', '#filter', function (event) {
-                console.log("Dit me may");
                 console.log($("#price-min").text());
+                console.log($("#price-max").text());
             });
         })
     </script>
