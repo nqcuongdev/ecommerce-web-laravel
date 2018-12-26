@@ -167,9 +167,6 @@
 
             
             $('body').on('click', '#filter', function (event) {
-                var price-min = $("#price-min").text();
-                var price-max = $("#price-max").text();
-
 
             });
         })
