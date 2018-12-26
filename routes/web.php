@@ -44,6 +44,8 @@ Route::post('profile',['as'=>'post.profile','uses'=>'ShopController@postProfile'
 
 Route::get('export-bill/{id}',['as'=>'export-bill','uses'=>'PDFController@index']);
 
+Route::get('search',['as'=>'search','uses'=>'ShopController@getSearch']);
+
 Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 
     Route::get('dashboard',['as'=>'dashboard','uses'=>'AdminController@getDashboard']);

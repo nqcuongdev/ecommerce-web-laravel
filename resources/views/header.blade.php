@@ -30,14 +30,16 @@
     <div class="container">
         <div class="logo"><a href="{{route('index')}}"><img src="{{url('SmartTech/images/logo.png')}}" alt=""></a></div>
         <div class="search-cate">
+            <form action="{{route('search')}}" method="GET">
             <select class="selectpicker">
                 <option> All Categories</option>
                 @foreach($category as $item)
                     <option> {{$item->name_category}}</option>
                 @endforeach
             </select>
-            <input type="search" placeholder="Search entire store here...">
+            <input type="text" name="key" placeholder="Search products of here...">
             <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
+        </form>
         </div>
 
         <!-- Cart Part -->

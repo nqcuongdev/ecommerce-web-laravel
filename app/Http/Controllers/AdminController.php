@@ -20,7 +20,15 @@ class AdminController extends Controller
 {
     public function getDashboard()
     {
-        return view('admin.dashboard');
+        $order = Order::where('status','=',1)
+                        ->select('oder.total')->first();
+        $member = User::where('status','=',1)->count();
+        $guest = User::all()->count();
+
+        $user = $member + $guest;
+
+        $products = Products::where('status','=',1)->count();
+        return view('admin.dashboard',compact('order','user','products'));
     }
 
     public function getSlides(){

@@ -93,13 +93,13 @@ class ShopController extends Controller
         return view('shop.products-details',compact('products','category','products_list'));
     }
 
-    public function addtocart(Request $request){
+    public function addtocart(Request $request,$product_id){
             $product = Products::find($request->id);
             Cart::add(array(
                 'id' => $product_id,
                 'name' => $product->name,
                 'price' => $product->price,
-                'qty' => $request->qty,
+                'qty' => 1,
                 'options' => array('image' => $product->image)
             ));
 
@@ -380,5 +380,11 @@ class ShopController extends Controller
         $user->status = $user->status;
         $user->save();
         return redirect('profile')->with(['flag_reg'=>'success','message'=>'Your account has been updated']);
+    }
+
+    public function getSearch(Request $request){
+        $products = Products::where('name','like','%'.$request->key.'%')
+                            ->orWhere('price',$request->key)->paginate(6);
+        return view('shop.search-result',compact('products'));
     }
 }

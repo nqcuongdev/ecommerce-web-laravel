@@ -10,7 +10,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h5>List order</h5>
-                                    <a href="" class="float-right"><button class="btn btn-inverse">Export to Excel</button></a>
+                                    {{-- <a href="" class="float-right"><button class="btn btn-inverse">Export to Excel</button></a> --}}
                                 </div>
                                 <div class="card-block table-border-style">
                                     <div class="table-responsive">
