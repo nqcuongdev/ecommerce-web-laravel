@@ -21,7 +21,7 @@ Route::get('abouts',['as'=>'abouts','uses'=>'ShopController@getAbouts']);
 Route::get('contact',['as'=>'contact','uses'=>'ShopController@getContact']);
 Route::post('contact',['as'=>'post.contact','uses'=>'MailController@sendMail']);
 
-Route::get('add-to-cart',['as'=>'addtocart','uses'=>'ShopController@addtocart']);
+Route::get('add-to-cart/{id}',['as'=>'addtocart','uses'=>'ShopController@addtocart']);
 Route::get('cart',['as'=>'yourcart','uses'=>'ShopController@getCart']);
 Route::get('remove-item/{id}',['as'=>'removeitem','uses'=>'ShopController@removeCart']);
 Route::get('update/{id}/{qty}',['as'=>'updateitem','uses'=>'ShopController@updateCart']);
@@ -38,6 +38,9 @@ Route::get('login',['as'=>'get.login','uses'=>'ShopController@getLogin']);
 Route::post('login',['as'=>'post.login','uses'=>'ShopController@postLogin']);
 Route::get('logout',['as'=>'get.logout','uses'=>'ShopController@postLogout']);
 Route::post('register',['as'=>'post.register','uses'=>'ShopController@postRegister']);
+
+Route::get('profile',['as'=>'get.profile','uses'=>'ShopController@getProfile']);
+Route::post('profile',['as'=>'post.profile','uses'=>'ShopController@postProfile']);
 
 Route::get('export-bill/{id}',['as'=>'export-bill','uses'=>'PDFController@index']);
 
