@@ -94,7 +94,7 @@ class ShopController extends Controller
     }
 
     public function addtocart(Request $request,$product_id){
-            $product = Products::find($request->id);
+            $product = Products::find($product_id);
             Cart::add(array(
                 'id' => $product_id,
                 'name' => $product->name,

@@ -97,7 +97,7 @@
                                                 <input type="text" value="{{$products->id}}" hidden class="id">
                                                 <input type="number" class="qtycart" value="1">
                                             </div>
-                                            <a href="#" class="btn-round" id="atc">
+                                            <a href="{{route('addtocart',$products->id)}}" class="btn-round" id="atc">
                                                 <i class="icon-basket-loaded margin-right-5"></i>
                                                 Add to Cart
                                             </a>
