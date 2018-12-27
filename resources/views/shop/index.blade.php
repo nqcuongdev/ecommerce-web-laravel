@@ -350,8 +350,8 @@
 
                         <!-- Items -->
                         <div class="item-slide-5 with-bullet no-nav">
-                                        @if(count($TV) > 0)
-                                        @foreach($TV as $item)
+                                        @if(count($products_list) > 0)
+                                        @foreach($products_list as $item)
                                         <div class="product">
                                             <article>
                                                 <a href="{{route('product-details',$item->id)}}">
@@ -390,7 +390,7 @@
                     <!-- Smartphones -->
                     <div role="tabpanel" class="tab-pane fade" id="smart">
                         <!-- Items -->
-                        <div class="item-col-5">
+                        {{-- <div class="item-col-5">
                         @if(count($Smartphone) > 0)
                         @foreach($Smartphone as $item)
                         <div class="product">
@@ -426,11 +426,11 @@
                         </div>
                         @endforeach
                         @endif
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- Desk & Laptop -->
                     <div role="tabpanel" class="tab-pane fade" id="deks-lap">
-                        <div class="item-col-5">
+                        {{-- <div class="item-col-5">
                             @if(count($Computer) > 0)
                             @foreach($Computer as $item)
                             <div class="product">
@@ -466,11 +466,11 @@
                             </div>
                             @endforeach
                             @endif
-                            </div>
+                            </div> --}}
                     </div>
                     <!-- Game Console -->
                     <div role="tabpanel" class="tab-pane fade" id="game-com">
-
+{{-- 
                             <div class="item-col-5">
                                     @if(count($Gaming) > 0)
                                     @foreach($Gaming as $item)
@@ -507,11 +507,11 @@
                                     </div>
                                     @endforeach
                                     @endif
-                                    </div>
+                                    </div> --}}
                     </div>
                     <!-- Watches -->
                     <div role="tabpanel" class="tab-pane fade" id="watches">
-                            <div class="item-col-5">
+                            {{-- <div class="item-col-5">
                                     @if(count($Accessories) > 0)
                                     @foreach($Accessories as $item)
                                     <div class="product">
@@ -547,11 +547,11 @@
                                     </div>
                                     @endforeach
                                     @endif
-                                    </div>
+                                    </div> --}}
                     </div>
                     <!-- Accessories -->
                     <div role="tabpanel" class="tab-pane fade" id="access">
-                            <div class="item-col-5">
+                            {{-- <div class="item-col-5">
                                     @if(count($Camera) > 0)
                                     @foreach($Camera as $item)
                                     <div class="product">
@@ -588,7 +588,7 @@
                                     @endforeach
                                     @endif
                                     </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>
