@@ -14,6 +14,7 @@ use App\Guest;
 use App\User;
 use Auth;
 use Admin;
+use Cart;
 
 use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller

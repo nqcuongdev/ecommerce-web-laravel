@@ -33,34 +33,12 @@ class ShopController extends Controller
                                 ->where([['products.status','=','1'],['products.new_product','=','1']])
                                 ->get();
         $blog = BlogModel::where('status','=',1)->limit(5)->get();
-
-        $TV = Products::where('products_type','=',1)
-                        ->get();
-
-        $Smartphone = Products::where('products_type','=',4)
-                            ->get();
-
-        $Computer = Products::where('products_type','=',2)
-                            ->orWhere('products_type','=',9)
-                            ->get();
-
-        $Gaming = Products::where('products_type','=',5)
-                        ->orWhere('products_type','=',8)
-                        ->get();
-
-        $Accessories = Products::where('products_type','=',10)
-                        ->get();
-
-        $Camera = Products::where('products_type','=',7)
-                        ->orWhere('products_type','=',3)
-                        ->get();
         $products_list = Products::join('product_type','products.products_type','=','product_type.id')
                                 ->select('products.id','products.name','products.price','products.sale_price','products.image','products.new_product','products.products_type','product_type.name_type','product_type.id_category')
                                 ->orderBy('products.price','asc')
                                 ->inRandomOrder()->limit(8)->get();
         return view('shop.index',compact(
-            'slides','category','products_sale','blog','product_new',
-            'TV','Smartphone','Computer','Gaming','Accessories','Camera','products_list'
+            'slides','category','products_sale','blog','product_new','products_list'
         ));
     }
 
