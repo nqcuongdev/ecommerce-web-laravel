@@ -381,11 +381,11 @@ class AdminController extends Controller
 
     //Error
     public function getDeleteOrder($id){
-        $order = Order::join('order_details','order_details.oder_id','=','oder.id')
-                        ->where('oder.id','=',$id)
-                        ->get();
+        // $order = Order::join('order_details','order_details.oder_id','=','oder.id')
+        //                 ->where('oder.id','=',$id)
+        //                 ->get();
         
-        return redirect()->back();
+        return "Chưa cho xóa nà !!!";
     }
 
     public function getUserManagement(){
