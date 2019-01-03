@@ -11,7 +11,6 @@
         <div class="order-success"> <i class="fa fa-check"></i>
           <h6>Congratulation! Your order has been processed</h6>
           <a href="{{route('products')}}" class="btn-round">Return to Shop</a> 
-          <a href="{{route('export-bill',$order->id)}}" class="btn-round btn-success">Export Bill</a>
       </div>
           
       </div>
