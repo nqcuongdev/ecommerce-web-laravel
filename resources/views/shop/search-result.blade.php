@@ -1,14 +1,5 @@
 @extends('master')
 @section('content')
-    <!-- Linking -->
-    <div class="linking">
-        <div class="container">
-            <ol class="breadcrumb">
-                <li><a href="{{route('index')}}">Home</a></li>
-                <li class="active">Shop</li>
-            </ol>
-        </div>
-    </div>
 
     <!-- Content -->
     <div id="content">
@@ -18,37 +9,9 @@
             <div class="container">
                 <div class="row">
 
-                    <!-- Shop Side Bar -->
-                    <div class="col-md-3">
-                        <div class="shop-side-bar">
-
-                            <!-- Categories -->
-                            <h6>Categories</h6>
-                            <div class="checkbox checkbox-primary">
-                                <ul>
-                                    @foreach($category as $item)
-                                        <li>
-                                            <input value="cate{{$item->id}}" id="cate{{$item->id}}" class="styled" type="checkbox">
-                                            <label for="cate{{$item->id}}">{{$item->name_category}}</label>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-{{-- 
-                            <!-- Categories -->
-                            <h6>Price</h6>
-                            <!-- PRICE -->
-                            <div class="cost-price-content">
-                                <div id="price-range" class="price-range"></div>
-                                <span id="price-min" class="price-min">20</span>
-                                <span id="price-max" class="price-max">80</span>
-                                <a href="#" class="btn-round" id="filter">Filter</a>
-                            </div> --}}
-                        </div>
-                    </div>
 
                     <!-- Products -->
-                    <div class="col-md-9">
+                    <div class="col-md-12">
 
                         <!-- Short List -->
                         <div class="short-lst">
@@ -56,13 +19,13 @@
                             <ul>
                                 <!-- Short List -->
                                 <li>
-                                    <p>Showing 1–12 of {{$products->count()}} results</p>
+                                    <p>{{$products->count()}} results</p>
                                 </li>
                             </ul>
                         </div>
 
                         <!-- Items -->
-                        <div class="item-col-3 fillter_pr">
+                        <div class="item-col-4 fillter_pr">
                             <!-- Product -->
                             @foreach($products as $item)
                                 <div class="product" data-category="cate{{$item->id_category}}">
@@ -134,41 +97,4 @@
             $('.product').show();
         }
     });
-    </script>
-    {{-- <script>
-        $(document).ready(function ($) {
-
-            //  Price Filter ( noUiSlider Plugin)
-            $("#price-range").noUiSlider({
-                range: {
-                    'min': [0],
-                    'max': [1000]
-                },
-                start: [40, 940],
-                connect: true,
-                serialization: {
-                    lower: [
-                        $.Link({
-                           target: $("#price-min")
-                        })
-                    ],
-                    upper: [
-                        $.Link({
-                            target: $("#price-max")
-                        })
-                    ],
-                    format: {
-                        // Set formatting
-                        decimals: 2,
-                        prefix: '$'
-                    }
-                }
-            });
-
-            
-            $('body').on('click', '#filter', function (event) {
-
-            });
-        })
-    </script> --}}
 @endsection

@@ -32,6 +32,7 @@
                         <form action="" method="POST">
                             {{csrf_field()}}
                         <table id="res-config" class="table table-striped">
+                        <table id="simpletable" class="table table-striped table-bordered nowrap">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -135,7 +136,7 @@
             <div class="dt-responsive table-responsive">
                 <form action="" method="POST">
                     {{csrf_field()}}
-                <table id="res-config" class="table table-striped table-bordered nowrap">
+                <table id="complex-dt" class="table table-striped table-bordered nowrap">
                     <thead>
                         <tr>
                             <th>#</th>

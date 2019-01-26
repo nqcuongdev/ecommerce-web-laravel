@@ -14,13 +14,22 @@ use App\Guest;
 use App\User;
 use Auth;
 use Admin;
+use Cart;
 
 use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
     public function getDashboard()
     {
-        return view('admin.dashboard');
+        $order = Order::where('status','=',1)
+                        ->select('oder.total')->first();
+        $member = User::where('status','=',1)->count();
+        $guest = User::all()->count();
+
+        $user = $member + $guest;
+
+        $products = Products::where('status','=',1)->count();
+        return view('admin.dashboard',compact('order','user','products'));
     }
 
     public function getSlides(){
@@ -375,11 +384,11 @@ class AdminController extends Controller
 
     //Error
     public function getDeleteOrder($id){
-        $order = Order::join('order_details','order_details.oder_id','=','oder.id')
-                        ->where('oder.id','=',$id)
-                        ->get();
+        // $order = Order::join('order_details','order_details.oder_id','=','oder.id')
+        //                 ->where('oder.id','=',$id)
+        //                 ->get();
         
-        return redirect()->back();
+        return "Chưa cho xóa nà !!!";
     }
 
     public function getUserManagement(){

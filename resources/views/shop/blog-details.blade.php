@@ -28,7 +28,7 @@
               </article>
               
               <!-- Comments -->
-              <div class="comments">
+              {{-- <div class="comments">
                 <h6 class="margin-0">Comments (01)</h6>
                 <ul>
                   <!-- Comments -->
@@ -40,10 +40,10 @@
                     </div>
                   </li>
                 </ul>
-              </div>
+              </div> --}}
               
               <!-- ADD comments -->
-              <div class="add-comments padding-top-20">
+              {{-- <div class="add-comments padding-top-20">
                 <h6>Leave a Comment</h6>
                 
                 <!-- FORM -->
@@ -69,7 +69,7 @@
                     </li>
                   </ul>
                 </form>
-              </div>
+              </div> --}}
             </div>
           </div>
           
