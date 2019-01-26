@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 <head>
@@ -12,15 +12,14 @@
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css"
-          href="{{url('Admin/files/bower_components/bootstrap/css/bootstrap.min.css')}}">
-    {{--font--}}
+    <link rel="stylesheet" type="text/css" href="{{url('Admin/files/bower_components/bootstrap/css/bootstrap.min.css')}}">
+    {{--Font--}}
     <link rel="stylesheet" type="text/css" href="{{url('Admin//files/assets/icon/themify-icons/themify-icons.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('Admin/files/assets/icon/feather/css/feather.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('Admin/files/assets/icon/icofont/css/icofont.css')}}">
-    <link rel="stylesheet" type="text/css"
-          href="{{url('Admin/files/assets/icon/typicons-icons/css/typicons.min.css')}}">
-
+    <link rel="stylesheet" type="text/css" href="{{url('Admin/files/assets/icon/typicons-icons/css/typicons.min.css')}}">
+    {{-- Angular Material --}}
+    <link rel="stylesheet" href="{{url('angularjs/vendor/angular-material.min.css')}}">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{url('Admin/files/assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('Admin/files/assets/css/jquery.mCustomScrollbar.css')}}">
@@ -28,7 +27,7 @@
     <script type="text/javascript" src="{{url('Admin/files/bower_components/jquery/js/jquery.min.js')}}"></script>
 </head>
 
-<body>
+<body ng-controller="MyController">
 <!-- Pre-loader start -->
 <div class="theme-loader">
     <div class="ball-scale">
@@ -58,21 +57,14 @@
 <script type="text/javascript" src="{{url('Admin/files/bower_components/jquery-ui/js/jquery-ui.min.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/bower_components/popper.js/js/popper.min.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/bower_components/bootstrap/js/bootstrap.min.js')}}"></script>
-<!-- jquery slimscroll js -->
-<script type="text/javascript"
-        src="{{url('Admin/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js')}}"></script>
-<!-- modernizr js -->
+<!-- Jquery slimscroll js -->
+<script type="text/javascript" src="{{url('Admin/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js')}}"></script>
+<!-- Modernizr js -->
 <script type="text/javascript" src="{{url('Admin/files/bower_components/modernizr/js/modernizr.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/bower_components/modernizr/js/css-scrollbars.js')}}"></script>
-<!-- Chart js -->
-<script type="text/javascript" src="{{url('Admin/files/bower_components/chart.js/js/Chart.js')}}"></script>
-<!-- amchart js -->
-<script src="{{url('Admin/files/assets/pages/widget/amchart/amcharts.js')}}"></script>
-<script src="{{url('Admin/files/assets/pages/widget/amchart/serial.js')}}"></script>
-<script src="{{url('Admin/files/assets/pages/widget/amchart/light.js')}}"></script>
 <!-- Editable-table js -->
 <script type="text/javascript" src="{{url('Admin/files/assets/pages/edit-table/jquery.tabledit.js')}}"></script>
-<!-- data-table js -->
+<!-- Data-table js -->
 <script src="{{url('Admin/files/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{url('Admin/files/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
 <script src="{{url('Admin/files/assets/pages/data-table/js/jszip.min.js')}}"></script>
@@ -81,12 +73,9 @@
 <script src="{{url('Admin/files/bower_components/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{url('Admin/files/bower_components/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{url('Admin/files/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script
-    src="{{url('Admin/files/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
-<script
-    src="{{url('Admin/files/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
-<!-- i18next.min.js -->
-<!-- jquery file upload js -->
+<script src="{{url('Admin/files/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{url('Admin/files/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+<!-- Jquery file upload js -->
 <script src="{{url('Admin/files/assets/pages/jquery.filer/js/jquery.filer.min.js')}}"></script>
 <script src="{{url('Admin/files/assets/pages/filer/custom-filer.js')}}" type="text/javascript"></script>
 <script src="{{url('Admin/files/assets/pages/filer/jquery.fileuploads.init.js')}}" type="text/javascript"></script>
@@ -94,12 +83,9 @@
 <script src="{{url('Admin/files/assets/js/classie.js')}}"></script>
 <script src="{{url('Admin/files/assets/js/modalEffects.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/bower_components/i18next/js/i18next.min.js')}}"></script>
-<script type="text/javascript"
-        src="{{url('Admin/files/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js')}}"></script>
-<script type="text/javascript"
-        src="{{url('Admin/files/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js')}}"></script>
-<script type="text/javascript"
-        src="{{url('Admin/files/bower_components/jquery-i18next/js/jquery-i18next.min.js')}}"></script>
+<script type="text/javascript" src="{{url('Admin/files/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js')}}"></script>
+<script type="text/javascript" src="{{url('Admin/files/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js')}}"></script>
+<script type="text/javascript" src="{{url('Admin/files/bower_components/jquery-i18next/js/jquery-i18next.min.js')}}"></script>
 <!-- Custom js -->
 <script src="{{url('Admin/files/assets/pages/data-table/js/data-table-custom.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/assets/js/SmoothScroll.js')}}"></script>
@@ -108,8 +94,14 @@
 <script src="{{url('Admin/files/assets/js/vartical-layout.min.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/assets/pages/dashboard/analytic-dashboard.min.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/assets/js/script.js')}}"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{{-- Angular JS --}}
+<script type="text/javascript" src="{{url('angularjs/vendor/angular-1.5.min.js')}}"></script>  
+<script type="text/javascript" src="{{url('angularjs/vendor/angular-animate.min.js')}}"></script>
+<script type="text/javascript" src="{{url('angularjs/vendor/angular-aria.min.js')}}"></script>
+<script type="text/javascript" src="{{url('angularjs/vendor/angular-messages.min.js')}}"></script>
+<script type="text/javascript" src="{{url('angularjs/vendor/angular-material.min.js')}}"></script>
 @yield('ckeditor')
+@yield('angularjs')
 </body>
 
 </html>

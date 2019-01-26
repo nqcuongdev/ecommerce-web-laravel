@@ -111,12 +111,12 @@ class AdminController extends Controller
 
     public function postEditProducts(Request $request, $id){
         $products = Products::find($id);
-        $products->name = $request->name;
-        $products->products_type = $request->products_type;
-        $products->technical_description = $request->technical_description;
-        $products->description = $request->description;
-        $products->price = $request->price;
-        $products->sale_price = $request->sale_price;
+        $products->name = isset($request->name) ? $request->name : $products->name;
+        $products->products_type = isset($request->products_type) ? $request->products_type : $products->products_type;
+        $products->technical_description = isset($request->technical_description) ? $request->technical_description : $products->technical_description;
+        $products->description = isset($request->description) ? $request->description : $products->description;
+        $products->price = isset($request->price) ? $request->price : $products->price;
+        $products->sale_price = isset($request->sale_price) ? $request->sale_price : $products->sale_price;
 
         if($request->has('image')){
             //Process upload file
@@ -142,9 +142,9 @@ class AdminController extends Controller
         $image_details = json_encode($image_details);
         $products->details_image = $image_details;
 
-        $products->available = $request->available;
+        $products->available = isset($request->available) ? $request->available : $products->available;
         $products->status = 1;
-        $products->new_product = $request->new_product;
+        $products->new_product = isset($request->new_product) ? $request->new_product : $products->new_product;
         $products->save();
         return redirect('admin/products');
     }
@@ -184,12 +184,15 @@ class AdminController extends Controller
     }
 
     public function getCategory(){
-        $category = Category::all();
         $type = Product_Type::join('category','product_type.id_category','=','category.id')
                 ->select('product_type.*','category.name_category')
                 ->get();
-        $category_all = Category::where('status','=',1)->get();
-        return view('admin.category-management',compact('category','type','category_all'));
+        return view('admin.category-management',compact('type'));
+    }
+
+    public function getAPICategory() {
+        $category = json_encode(Category::all());
+        return $category;
     }
 
     public function postCategory(Request $request){
@@ -200,14 +203,13 @@ class AdminController extends Controller
         return redirect('admin/category');
     }
 
-    public function postEditCategory(Request $request){
-        if($request->ajax()){
-            $category = Category::find($request->id);
-            $category->name_category = $request->name;
+    public function postEditCategory(Request $request, $id){
+            dd($request->name_category);
+            $category = Category::find($id);
+            $category->name_category = $request->name_category;
             $category->status = 1;
             $category->save();
             return "success";
-        }
     }
 
     public function getDisableCategory($id){
@@ -333,18 +335,18 @@ class AdminController extends Controller
                         ->join('products','products.id','=','order_details.product_id')
                         ->first();
 
-                $str_id = $order->id_customer;
-                if(is_int($str_id) != 0){
-                    $customer_id = substr($str_id,5,strlen($str_id));
-                    $customer = Guest::where('id','=',$customer_id)
-                            ->select('name as customer_name','phone','address','email')
-                            ->get();
-                }else {
-                    $customer_id = $str_id;
-                    $customer = User::where('id','=',$customer_id)
-                            ->select('name as customer_name','phone','address','email')
-                            ->first();
-                }
+        $str_id = $order->id_customer;
+        if(is_int($str_id) != 0){
+            $customer_id = substr($str_id,5,strlen($str_id));
+            $customer = Guest::where('id','=',$customer_id)
+                    ->select('name as customer_name','phone','address','email')
+                    ->get();
+        }else {
+            $customer_id = $str_id;
+            $customer = User::where('id','=',$customer_id)
+                    ->select('name as customer_name','phone','address','email')
+                    ->first();
+        }
                     
             return view('admin.order-details',compact('order','customer'));
         }

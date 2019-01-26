@@ -60,8 +60,9 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
     Route::get('active-products/{id}',['as'=>'admin.getactiveproducts','uses'=>'AdminController@getActiveProducts']);
 
     Route::get('category',['as'=>'getcategory','uses'=>'AdminController@getCategory']);
+    Route::get('api-category',['as'=>'get.apiCategory','uses'=>'AdminController@getAPICategory']);
     Route::post('category',['as'=>'postcategory','uses'=>'AdminController@postCategory']);
-    Route::post('ajax-editcategory',['as'=>'editcategory','uses'=>'AdminController@postEditCategory']);
+    Route::post('edit-category/{id}',['as'=>'post.editCategory','uses'=>'AdminController@postEditCategory']);
     Route::get('disable-category/{id}',['as'=>'disablecategory','uses'=>'AdminController@getDisableCategory']);
     Route::get('active-category/{id}',['as'=>'activecategory','uses'=>'AdminController@getActiveCategory']);
 
