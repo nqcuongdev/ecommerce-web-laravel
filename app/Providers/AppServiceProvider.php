@@ -21,15 +21,14 @@ class AppServiceProvider extends ServiceProvider
             $view->with(['cart'=>$cart]);
         });
         view()->composer('header',function($view){
-            $category = Category::where('status','=',1)->get();
+            $category = Category::all();
             $view->with(['category'=>$category]);
         });
         view()->composer('header',function($view){
-            $category = Category::where('status','=',1)->get();
+            $category = Category::all();
             foreach ($category as $key => $value) {
                 $category[$key]['children'] = Product_Type::select('*')
                                                             ->where('id_category',$value['id'])
-                                                            ->where('status','=',1)
                                                             ->get()->toArray();
             }
             $view->with(['category_menu'=>$category]);  

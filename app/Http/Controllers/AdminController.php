@@ -205,10 +205,7 @@ class AdminController extends Controller
     }
 
     public function postCategory(Request $request){
-        $category = new Category;
-        $category->name_category = $request->name;
-        $category->status = 1;
-        $category->save();
+        $category = Category::create($request->all());
         return redirect('admin/category');
     }
 

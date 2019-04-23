@@ -23,10 +23,9 @@ class ShopController extends Controller
     public function getIndex()
     {
         $slides = Slides::all();
-        $category = Category::where('status','=',1)->get();
+        $category = Category::all();
         $products_sale = Products::join('product_type','products.products_type','=','product_type.id')
                                     ->select('products.*','product_type.name_type')
-                                    ->where([['products.status','=','1'],['products.sale_price','<>','0']])
                                     ->get();
         $product_new = Products::join('product_type','products.products_type','=','product_type.id')
                                 ->select('products.*','product_type.name_type')
@@ -44,13 +43,11 @@ class ShopController extends Controller
 
     public function getProducts()
     {
-        $products = Products::join('product_type','products.products_type','=','product_type.id')
-                            ->select('products.id','products.name','products.price','products.sale_price','products.image','products.new_product','products.products_type','product_type.name_type','product_type.id_category')
+        $products = Products::with('productType')
                             ->orderBy('products.price','asc')
                             ->paginate(12);
-        $category = Category::select('id','name_category')
-                    ->where('status','=',1)
-                    ->get();
+        $category = Category::all();
+
         return view('shop.products',compact('products','category'));
     }
     public function getProductDetails($id){

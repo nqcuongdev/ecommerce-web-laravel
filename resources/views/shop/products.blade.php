@@ -52,7 +52,7 @@
 
                         <!-- Short List -->
                         <div class="short-lst">
-                            <h2>Cell Phones & Accessories</h2>
+                            <h2>List Products</h2>
                             <ul>
                                 <!-- Short List -->
                                 <li>
@@ -65,18 +65,21 @@
                         <div class="item-col-3 fillter_pr">
                             <!-- Product -->
                             @foreach($products as $item)
-                                <div class="product" data-category="cate{{$item->id_category}}">
+                                <div class="product" data-category="cate{{ $item['productType']->id_category }}">
                                     <article>
                                         <a href="{{route('product-details',$item->id)}}">
                                             <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
                                         </a>
+
                                         @if($item->sale_price != 0)
                                             <span class="sale-tag">-{{$item->sale_price}}%</span>  
                                         @endif
+                                        
                                         @if($item->new_product == 1)
                                             <span class="new-tag">New</span>
                                         @endif
-                                        <span class="tag">{{$item->name_type}}</span>
+                                        
+                                        <span class="tag">{{$item['productType']->name_type}}</span>
                                         <a href="{{route('product-details',$item->id)}}" class="tittle">
                                             {{$item->name}}
                                         </a>

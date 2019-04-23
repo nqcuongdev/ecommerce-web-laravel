@@ -3,7 +3,7 @@
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 <head>
-    <title>Admin SmartTech</title>
+    <title>@yield('title') || Admin SmartTech</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -94,14 +94,7 @@
 <script src="{{url('Admin/files/assets/js/vartical-layout.min.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/assets/pages/dashboard/analytic-dashboard.min.js')}}"></script>
 <script type="text/javascript" src="{{url('Admin/files/assets/js/script.js')}}"></script>
-{{-- Angular JS --}}
-<script type="text/javascript" src="{{url('angularjs/vendor/angular-1.5.min.js')}}"></script>  
-<script type="text/javascript" src="{{url('angularjs/vendor/angular-animate.min.js')}}"></script>
-<script type="text/javascript" src="{{url('angularjs/vendor/angular-aria.min.js')}}"></script>
-<script type="text/javascript" src="{{url('angularjs/vendor/angular-messages.min.js')}}"></script>
-<script type="text/javascript" src="{{url('angularjs/vendor/angular-material.min.js')}}"></script>
 @yield('ckeditor')
-@yield('angularjs')
 </body>
 
 </html>

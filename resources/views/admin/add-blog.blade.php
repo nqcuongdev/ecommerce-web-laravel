@@ -1,4 +1,5 @@
 @extends('master-admin')
+@section('title', 'Blog')
 @section('content')
 <div class="pcoded-content">
 	<div class="pcoded-inner-content">

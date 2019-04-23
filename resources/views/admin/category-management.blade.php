@@ -1,4 +1,5 @@
 @extends('master-admin')
+@section('title','Category and Type')
 @section('content')
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
@@ -27,60 +28,56 @@
                     </button>
                 </div>
                 <div class="card-block">
-                    <div class="table-responsive">
-                        <div class="dt-responsive table-responsive">
-                        <form action="" method="POST">
-                            {{csrf_field()}}
-                        <table id="res-config" class="table table-striped">
-                        <table id="simpletable" class="table table-striped table-bordered nowrap">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="tables" ng-repeat="category in categories" ng-init="category.show=true" ng-show="category.show">        
-                                    <td class="view-mode">
-                                        <span class="text_id"><% category.id %></span>
-                                    </td>
-                                    <td class="view-mode">
-                                        <span class="text_name"><% category.name_category %></span>
-                                    </td>
-                                    <td>
-                                        <button type="button" id="edit" class="btn btn-primary waves-effect waves-light" style="float: none;margin: 5px;" ng-click="showEdit(category)">
-                                            <span class="icofont icofont-ui-edit"></span>
-                                        </button>
-                                        <button type="button" id="disable" class="btn btn-danger waves-effect waves-light" style="float: none;margin: 5px;">
-                                            <i class="icofont icofont-ui-block"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="tables" ng-repeat="category in categories" ng-show="!category.show">
-                                    <td class="view-mode">
-                                        <input class="fr_id form-control" disabled type="text" name="id" value="<% category.id %>" ng-model="category.id">
-                                    </td>
-                                    <td class="view-mode">
-                                        <input class="fr_name form-control" type="text" name="name_category" value="<% category.name_category %>" ng-model="category.name_category">
-                                    </td>
-                                    <td>
-                                        {{-- <button type="button" class="btn btn-info waves-effect waves-light" style="float: none;margin: 5px;" ng-click="showEdit(category)">
-                                            <i class="icofont icofont-check"></i>
-                                        </button> --}}
-                                        <button type="button" id="save" class="btn btn-success waves-effect waves-light" style="float: none;margin: 5px;" ng-click="saveEdit(category)">
-                                            Save
-                                        </button>
-                                        <button type="button" id="back" class="btn btn-warning waves-effect waves-light" style="float: none;margin: 5px;" ng-click="showEdit(category)">
-                                            Back
-                                        </button>
-                                    </td>
-                                </tr>
-                                
-                            </tbody> 
-                        </table>
-                        </form>
-                        </div>
+                    <div class="dt-responsive table-responsive">
+                    <form action="" method="POST">
+                    <table class="table table-striped table-bordered nowrap">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tables" ng-repeat="category in categories" ng-init="category.show=true" ng-show="category.show">        
+                                <td class="view-mode">
+                                    <span class="text_id"><% category.id %></span>
+                                </td>
+                                <td class="view-mode">
+                                    <span class="text_name"><% category.name_category %></span>
+                                </td>
+                                <td>
+                                    <button type="button" id="edit" class="btn btn-primary waves-effect waves-light" style="float: none;margin: 5px;" ng-click="showEdit(category)">
+                                        <span class="icofont icofont-ui-edit"></span>
+                                    </button>
+                                    <button type="button" id="disable" class="btn btn-danger waves-effect waves-light" style="float: none;margin: 5px;">
+                                        <i class="icofont icofont-ui-block"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="tables" ng-repeat="category in categories" ng-show="!category.show">
+                                <td class="view-mode">
+                                    <input class="form-control" disabled type="text" name="id" value="<% category.id %>" ng-model="category.id">
+                                </td>
+                                <td class="view-mode">
+                                    <input class="form-control" type="text" name="name_category" value="<% category.name_category %>" ng-model="category.name_category">
+                                </td>
+                                <td>
+                                    {{-- <button type="button" class="btn btn-info waves-effect waves-light" style="float: none;margin: 5px;" ng-click="showEdit(category)">
+                                        <i class="icofont icofont-check"></i>
+                                    </button> --}}
+                                    <button type="button" id="save" class="btn btn-success waves-effect waves-light" style="float: none;margin: 5px;" ng-click="saveEdit(category)">
+                                        Save
+                                    </button>
+                                    <button type="button" id="back" class="btn btn-warning waves-effect waves-light" style="float: none;margin: 5px;" ng-click="showEdit(category)">
+                                        Back
+                                    </button>
+                                </td>
+                            </tr>
+                            
+                        </tbody> 
+                    </table>
+                    </form>
                     </div>
                 </div>
                 <div class="md-modal md-effect-1 addcontact" id="modal_category">

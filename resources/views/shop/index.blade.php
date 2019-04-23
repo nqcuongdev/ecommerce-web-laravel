@@ -268,7 +268,7 @@
                             </div>
                         </div>
                     </div>
-
+        
                     @foreach($products_list as $item)
                                 <div class="product" data-category="cate{{$item->id_category}}">
                                     <article>
@@ -313,32 +313,32 @@
                     <li role="presentation" class="active">
                         <a href="#tv-au" aria-controls="featur" role="tab" data-toggle="tab">
                             <i class="flaticon-computer"></i>
-                            TV & Audios <span>{{count($TV)}} items</span>
+                            TV & Audios <span>1 items</span>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#smart" aria-controls="special" role="tab" data-toggle="tab">
-                            <i class="flaticon-smartphone"></i>Smartphones & Tablet <span>{{count($Smartphone)}} items</span>
+                            <i class="flaticon-smartphone"></i>Smartphones & Tablet <span>1 items</span>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#deks-lap" aria-controls="on-sal" role="tab" data-toggle="tab">
-                            <i class="flaticon-laptop"></i>Desktop & Laptop <span>{{count($Computer)}} items</span>
+                            <i class="flaticon-laptop"></i>Desktop & Laptop <span>1 items</span>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#game-com" aria-controls="special" role="tab" data-toggle="tab">
-                            <i class="flaticon-gamepad-1"></i>Gaming<span>{{count($Gaming)}} items</span>
+                            <i class="flaticon-gamepad-1"></i>Gaming<span>1 items</span>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#watches" aria-controls="on-sal" role="tab" data-toggle="tab">
-                            <i class="flaticon-computer-1"></i>Accessories<span>{{count($Accessories)}} items</span>
+                            <i class="flaticon-computer-1"></i>Accessories<span>1 items</span>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#access" aria-controls="on-sal" role="tab" data-toggle="tab">
-                            <i class="flaticon-commerce"></i>Camera <span>{{count($Camera)}} items</span>
+                            <i class="flaticon-commerce"></i>Camera <span>1 items</span>
                         </a>
                     </li>
                 </ul>
@@ -350,42 +350,42 @@
 
                         <!-- Items -->
                         <div class="item-slide-5 with-bullet no-nav">
-                                        @if(count($products_list) > 0)
-                                        @foreach($products_list as $item)
-                                        <div class="product">
-                                            <article>
-                                                <a href="{{route('product-details',$item->id)}}">
-                                                    <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
-                                                </a>
-                                                @if($item->sale_price != 0)
-                                                    <span class="sale-tag">-{{$item->sale_price}}%</span>  
-                                                @endif
-                                                @if($item->new_product == 1)
-                                                    <span class="new-tag">New</span>
-                                                @endif
-                                                <span class="tag">{{$item->name_type}}</span>
-                                                <a href="{{route('product-details',$item->id)}}" class="tittle">
-                                                    {{$item->name}}
-                                                </a>
-                                                <p class="rev margin-top-5"></p>
-                                                <div class="price">
-                                                    @if($item->sale_price == 0)
-                                                        ${{$item->price}}
-                                                    @else
-                                                        ${{$item->price}}
-                                                        <span>
-                                                            ${{($item->price) - ((($item->price)*($item->sale_price))/100)}}
-                                                        </span>
-                                                    @endif
-                                                </div>
-                                                <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
-                                                    <i class="icon-basket-loaded"></i>
-                                                </a>
-                                            </article>
-                                        </div>
-                                        @endforeach
+                            @if(count($products_list) > 0)
+                            @foreach($products_list as $item)
+                            <div class="product">
+                                <article>
+                                    <a href="{{route('product-details',$item->id)}}">
+                                        <img class="img-responsive" src="{{url($item->image)}}" alt="{{$item->name}}">
+                                    </a>
+                                    @if($item->sale_price != 0)
+                                        <span class="sale-tag">-{{$item->sale_price}}%</span>  
+                                    @endif
+                                    @if($item->new_product == 1)
+                                        <span class="new-tag">New</span>
+                                    @endif
+                                    <span class="tag">{{$item->name_type}}</span>
+                                    <a href="{{route('product-details',$item->id)}}" class="tittle">
+                                        {{$item->name}}
+                                    </a>
+                                    <p class="rev margin-top-5"></p>
+                                    <div class="price">
+                                        @if($item->sale_price == 0)
+                                            ${{$item->price}}
+                                        @else
+                                            ${{$item->price}}
+                                            <span>
+                                                ${{($item->price) - ((($item->price)*($item->sale_price))/100)}}
+                                            </span>
                                         @endif
-                                        </div>
+                                    </div>
+                                    <a href="{{route('addtocart',$item->id)}}" class="cart-btn">
+                                        <i class="icon-basket-loaded"></i>
+                                    </a>
+                                </article>
+                            </div>
+                            @endforeach
+                            @endif
+                            </div>
 
                     <!-- Smartphones -->
                     <div role="tabpanel" class="tab-pane fade" id="smart">
